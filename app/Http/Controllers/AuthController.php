@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AuthRequest;
 use Illuminate\Http\Request;
 use App\Models\UsuarioModel;
 use Illuminate\Support\Facades\Auth;
@@ -8,57 +9,50 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function showLogin()
+        public function showLogin()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     public function showRegister()
     {
-        return view('cadastro');
+        return view('auth.register');
     }
 
-    public function register(Request $request)
-    {
-        $validated = $request->validate([
-            'email' => 'required|email|unique:usuarios,email',
-            'username' => 'required|unique:usuarios,nome_usuario',
-            'tipo' => 'required|in:discente,docente',
-            'escolaridade' => 'nullable',
-            'data_nascimento' => 'required|date',
-            'password' => 'required|confirmed|min:6',
-        ]);
-
-        Usuario::create([
-            'email' => $request->email,
-            'nome_usuario' => $request->username,
-            'nivel_acesso' => $request->tipo,
-            'escolaridade' => $request->escolaridade,
-            'data_nasc' => $request->data_nascimento,
-            'senha' => $request->password
-        ]);
-
+    public function register(AuthRequest $req) {
+        User::create($req->all());
         return redirect()->route('login')->with('success', 'Cadastro realizado!');
     }
 
-    public function login(Request $request)
-    {
-        $credentials = [
-            'nome_usuario' => $request->login,
-            'senha' => $request->password
-        ];
-
-        if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard');
+    public function login(Request $req) {
+        if($req->isMethod('POST')) {
+            if(Auth::attempt($req->only('email','password'))) {
+                return redirect()->route('autentica');
+            }
         }
-
-        return back()->withErrors(['login' => 'Credenciais inválidas']);
+        return view('autentica.login');
     }
 
     public function logout()
     {
         Auth::logout();
         return redirect()->route('login');
+    }
+    public function store(AuthRequest $request): RedirectResponse
+    {
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'nome_usuario' => $request->nome_usuario,
+            'nivel_acesso' => $request->nivel_acesso,
+            'escolaridade' => $request->escolaridade,
+            'data_nasc' => $request->data_nasc,
+            'password' => Hash::make($request->password),
+        ]);
+
+        Auth::login($user);
+
+    return redirect(RouteServiceProvider::HOME);
     }
 }
 

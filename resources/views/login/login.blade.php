@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - GameMind</title>
   <link rel="stylesheet" href="{{ url('CSS/login3.css') }}">
-
-
 </head>
 <body>
   <div class="form_container">
@@ -16,7 +14,7 @@
     </div>
 
     <div class="form_login">
-      <form method="POST" action="#" class="form">
+      <form method="POST" action="{{ route('login') }}" class="form">
         @csrf
         <label class="login_pegunta">Login:</label><br>
         <input type="text" name="login"><br>
@@ -30,5 +28,4 @@
     </div>
   </div>
 </body>
-
 </html>
