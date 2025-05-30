@@ -13,23 +13,23 @@
       <a href="cadastro" class="tab active">Cadastrar</a>
     </div>
 
-    <form method="POST" action="">
+    <form method="POST" action="{{ route ('cadastrar') }}">
   @csrf
 
   <div class="flex-row">
   <!-- Coluna esquerda: E-mail e Nome -->
   <div class="flex-column">
     <label class="cadastro_pergunta" for="email">E-mail</label>
-    <input type="email" name="email" required />
+    <input type="email" id="email" name="email" required />
 
-    <label class="cadastro_pergunta" for="username">Nome do usuário</label>
-    <input type="text" name="username" required />
+    <label class="cadastro_pergunta" for="name">Nome do usuário</label>
+    <input type="text" id="name" name="name" required />
   </div>
 
   <!-- Coluna direita: rádios centralizados verticalmente -->
   <div class="radios-centered">
-    <label class="cadastro_pergunta"><input type="radio" name="tipo" value="discente" /> Sou discente</label>
-    <label class="cadastro_pergunta"><input type="radio" name="tipo" value="docente" /> Sou docente</label>
+    <label class="cadastro_pergunta"><input type="radio" name="nivel_acesso" value="1" /> Sou discente</label>
+    <label class="cadastro_pergunta"><input type="radio" name="nivel_acesso" value="2" /> Sou docente</label>
   </div>
 </div>
 
@@ -38,28 +38,28 @@
     <div class="flex-column">
       <select class="cadastro_pergunta" name="escolaridade" required>
         <option value="" disabled selected>Escolaridade</option>
-        <option value="fundamental">Ensino Fundamental I</option>
-         <option value="fundamental">Ensino Fundamental II</option>
-        <option value="médio">Médio</option>
-        <option value="superior">Superior</option>
+        <option value="fundamentalI">Ensino Fundamental I</option>
+        <option value="fundamentalII">Ensino Fundamental II</option>
+        <option value="médio">Ensino Médio</option>
+        <option value="superior">Ensino Superior</option>
       </select>
     </div>
 
     <div class="flex-column">
      
-      <input class="cadastro_pergunta" type="date" name="data_nascimento" required />
+      <input class="cadastro_pergunta" type="date" name="data_nasc" required />
     </div>
   </div>
 
   <div class="flex-row">
     <div class="flex-column">
       <label class="cadastro_pergunta" for="password">Senha</label>
-      <input type="password" name="password" required />
+      <input type="password" id="password" name="password" required />
     </div>
 
     <div class="flex-column">
       <label class="cadastro_pergunta" for="password_confirmation">Confirmar Senha</label>
-      <input type="password" name="password_confirmation" required />
+      <input type="password" id="password_confirmation" name="password_confirmation" required />
     </div>
   </div>
 

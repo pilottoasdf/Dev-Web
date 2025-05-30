@@ -2,35 +2,45 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
+use App\Models\User;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Models\UsuarioModel;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
         public function showLogin()
     {
-        return view('auth.login');
+        return view('login.login');
     }
 
     public function showRegister()
     {
-        return view('auth.register');
+        return view('login.cadastro');
     }
 
-    public function register(AuthRequest $req) {
-        User::create($req->all());
+    /*public function register(AuthRequest $req) {
+        User::create([
+            'name' => $req->name,
+            'email' => $req->email,
+            'nivel_acesso' => $req->nivel_acesso,
+            'escolaridade' => $req->escolaridade,
+            'data_nasc' => $req->data_nasc,
+            'password' => Hash::make($req->password),
+        ]);
         return redirect()->route('login')->with('success', 'Cadastro realizado!');
-    }
+    }*/
 
     public function login(Request $req) {
         if($req->isMethod('POST')) {
             if(Auth::attempt($req->only('email','password'))) {
-                return redirect()->route('autentica');
+                return redirect()->route('teste');
             }
         }
-        return view('autentica.login');
+        return view('login.login');
     }
 
     public function logout()
@@ -38,12 +48,11 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
-    public function store(AuthRequest $request): RedirectResponse
+    public function store(AuthRequest $request)
     {
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'nome_usuario' => $request->nome_usuario,
             'nivel_acesso' => $request->nivel_acesso,
             'escolaridade' => $request->escolaridade,
             'data_nasc' => $request->data_nasc,
@@ -52,7 +61,11 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-    return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('teste');    
+    }
+
+    public function teste(){
+        return view('teste.teste');
     }
 }
 

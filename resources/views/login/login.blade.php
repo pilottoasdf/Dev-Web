@@ -16,11 +16,11 @@
     <div class="form_login">
       <form method="POST" action="{{ route('login') }}" class="form">
         @csrf
-        <label class="login_pegunta">Login:</label><br>
-        <input type="text" name="login"><br>
+        <label class="login_pegunta" for="email">Login:</label><br>
+        <input type="text" id="email" name="email"><br>
 
-        <label class="login_pegunta">Senha:</label><br>
-        <input type="password" name="password"><br>
+        <label class="login_pegunta" for="password">Senha:</label><br>
+        <input type="password" id="password" name="password"><br>
 
         <a class="esqueci_senha" href="/cadastro">Esqueci a senha</a>
         <button type="submit">Acessar</button>

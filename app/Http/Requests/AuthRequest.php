@@ -13,7 +13,6 @@ class AuthRequest extends FormRequest
     public function rules() {
         return [
             'name' => 'required|string|max:255',
-            'nome_usuario' => 'required|string|max:255|unique:users,nome_usuario',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:4',
             'nivel_acesso' => 'required|in:0,1',
