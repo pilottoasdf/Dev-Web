@@ -26,7 +26,7 @@
     <input type="text" id="name" name="name" required />
   </div>
 
-  <!-- Coluna direita: rádios centralizados verticalmente -->
+
   <div class="radios-centered">
     <label class="cadastro_pergunta"><input type="radio" name="nivel_acesso" value="1" /> Sou discente</label>
     <label class="cadastro_pergunta"><input type="radio" name="nivel_acesso" value="2" /> Sou docente</label>

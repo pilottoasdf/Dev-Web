@@ -11,7 +11,7 @@ body {
 .form_cadastro {
   background-color: white;
   padding: 100px 50px 50px;
-  border-radius: 10px; /* <-- arredonda todos os cantos */
+  border-radius: 10px; 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 500px;
   box-sizing: border-box;
@@ -32,7 +32,7 @@ body {
       background-color: #e5e5e5;
     }
 
-   .tab {
+  .tab {
   flex: 1;
   display: flex;              
   align-items: center;     
@@ -44,7 +44,7 @@ body {
   transition: background-color 0.3s ease;
   cursor: pointer;
   user-select: none;
-  height: 70px;               /* Garante altura igual à aba */
+  height: 70px;              
 }
 
 
@@ -145,7 +145,7 @@ body {
 .radios-centered {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* centraliza verticalmente */
+  justify-content: center; 
   align-items: flex-start;
   flex: 0 0 180px;
   margin-left: 10px;
@@ -165,7 +165,7 @@ body {
 }
 
 
-/* Inputs e select com largura total da coluna */
+
 .flex-column input,
 .flex-column select {
   width: 100%;
