@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PreferenciaController;
 
 
 Route::middleware('guest')->group(function () {
@@ -10,6 +11,9 @@ Route::middleware('guest')->group(function () {
 
     Route::get('cadastro', [AuthController::class, 'showRegister'])->name('cadastro');
     Route::post('cadastro', [AuthController::class, 'store'])->name('cadastrar');
+    Route::get('/preferencias', [PreferenciaController::class, 'create'])->name('preferencias.create')->middleware('auth');
+    Route::post('/preferencias', [PreferenciaController::class, 'store'])->name('preferencias.store')->middleware('auth');
+
 });
 
 Route::post('logout', [AuthController::class, 'logout'])

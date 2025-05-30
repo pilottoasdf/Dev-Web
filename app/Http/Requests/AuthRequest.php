@@ -15,7 +15,7 @@ class AuthRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:4',
-            'nivel_acesso' => 'required|in:0,1',
+            'nivel_acesso' => 'required|in:1,2',
             'escolaridade' => 'nullable|string',
             'data_nasc' => 'nullable|date'
         ];

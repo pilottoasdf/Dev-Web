@@ -61,7 +61,8 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('teste');    
+        return redirect()->route('preferencias.create');
+   
     }
 
     public function teste(){

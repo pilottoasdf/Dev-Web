@@ -11,12 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('preferencias', function (Blueprint $table) {
-        $table->id();
-        $table->unsignedBigInteger('usuario_id');
-        $table->string('disciplina');
-        $table->timestamps();
-        $table->foreign('usuario_id')->references('id')->on('users');
+        Schema::create('preferencias', function (Blueprint $table) {
+            $table->id();
+            $table->boolean('peso_portugues')->default(false);
+            $table->boolean('peso_matematica')->default(false);
+            $table->boolean('peso_fisica')->default(false);
+            $table->boolean('peso_quimica')->default(false);
+            $table->boolean('peso_biologia')->default(false);
+            $table->boolean('peso_historia')->default(false);
+            $table->boolean('peso_geografia')->default(false);
+            $table->boolean('peso_filosofia')->default(false);
+            $table->boolean('peso_sociologia')->default(false);
+            $table->boolean('peso_ingles')->default(false);
+            $table->foreignId('id_usuario')->constrained('usuarios')->onDelete('cascade');
+            $table->timestamps();     
 });
     }
     /**
