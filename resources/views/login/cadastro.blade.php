@@ -17,7 +17,7 @@
   @csrf
 
   <div class="flex-row">
-  <!-- Coluna esquerda: E-mail e Nome -->
+ 
   <div class="flex-column">
     <label class="cadastro_pergunta" for="email">E-mail</label>
     <input type="email" id="email" name="email" required />
