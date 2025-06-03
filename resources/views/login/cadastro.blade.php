@@ -7,6 +7,19 @@
  <link rel="stylesheet" href="{{ url('CSS/cadastro3.css') }}">
 </head>
 <body>
+  <hr>
+  @if ($errors->any())
+    <div style="color:red">
+    <h3><b>Erro!</b></h3>
+
+    <ul>
+        @foreach ($errors->all() as $err)
+        <li>{{ $err }}</li>
+        @endforeach
+    </ul>
+    </div>
+@endif 
+  <hr>
   <div class="form_cadastro">
     <div class="tabs">
       <a href="login" class="tab">Entrar</a>

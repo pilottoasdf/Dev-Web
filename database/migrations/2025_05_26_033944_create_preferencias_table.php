@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('preferencias', function (Blueprint $table) {
             $table->id();
-            $table->boolean('peso_portugues')->default(false);
-            $table->boolean('peso_matematica')->default(false);
-            $table->boolean('peso_fisica')->default(false);
-            $table->boolean('peso_quimica')->default(false);
-            $table->boolean('peso_biologia')->default(false);
-            $table->boolean('peso_historia')->default(false);
-            $table->boolean('peso_geografia')->default(false);
-            $table->boolean('peso_filosofia')->default(false);
-            $table->boolean('peso_sociologia')->default(false);
-            $table->boolean('peso_ingles')->default(false);
-            $table->foreignId('id_usuario')->constrained('usuarios')->onDelete('cascade');
+            $table->integer('peso_portugues')->default(false);
+            $table->integer('peso_matematica')->default(false);
+            $table->integer('peso_fisica')->default(false);
+            $table->integer('peso_quimica')->default(false);
+            $table->integer('peso_biologia')->default(false);
+            $table->integer('peso_historia')->default(false);
+            $table->integer('peso_geografia')->default(false);
+            $table->integer('peso_filosofia')->default(false);
+            $table->integer('peso_sociologia')->default(false);
+            $table->integer('peso_ingles')->default(false);
+            $table->foreignId('id_usuario')->constrained('users')->onDelete('cascade');
             $table->timestamps();     
 });
     }

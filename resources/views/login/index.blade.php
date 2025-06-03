@@ -8,7 +8,7 @@
 <body>
     <h1>Usuários</h1>
 <hr>
-<!-- 
+
 @if ($errors->any())
     <div style="color:red">
     <h3><b>Erro!</b></h3>
@@ -19,7 +19,7 @@
         @endforeach
     </ul>
     </div>
-@endif -->
+@endif 
 
 <form action="{{ route('auth.login') }}" method="post">
     @csrf

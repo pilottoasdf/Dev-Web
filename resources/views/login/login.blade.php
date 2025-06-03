@@ -6,6 +6,19 @@
   <title>Login - GameMind</title>
   <link rel="stylesheet" href="{{ url('CSS/login3.css') }}">
 </head>
+<hr>
+@if ($errors->any())
+    <div style="color:red">
+    <h3><b>Erro!</b></h3>
+
+    <ul>
+        @foreach ($errors->all() as $err)
+        <li>{{ $err }}</li>
+        @endforeach
+    </ul>
+    </div>
+@endif 
+<hr>
 <body>
   <div class="form_container">
     <div class="tabs">
