@@ -9,16 +9,11 @@
 </head>
 <body>
 
-  @if ($errors->any())
-    <div class="erro-container">
-      <h3>Erro!</h3>
-      <ul>
-        @foreach ($errors->all() as $err)
-          <li>{{ $err }}</li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
+@if ($errors->has('preferencias'))
+  <div class="error_box">
+    {{ $errors->first('preferencias') }}
+  </div>
+@endif
 
   <div class="form_cadastro">
     <h2>Selecione suas preferências</h2>

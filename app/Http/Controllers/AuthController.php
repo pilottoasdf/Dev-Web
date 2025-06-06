@@ -66,7 +66,7 @@ class AuthController extends Controller
     }
 
     public function inicio(){
-        return view('home.inicio');
+        return view('main.inicio');
     }
 }
 
