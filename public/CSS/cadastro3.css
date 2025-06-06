@@ -180,10 +180,10 @@ body {
 
 .error-box {
   position: absolute;
-  left: 50px;
+  left: 280px;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #ffe5e5;
+  background-color: #faebeb;
   border: 1px solid #cc0000;
   color: #cc0000;
   padding: 20px;

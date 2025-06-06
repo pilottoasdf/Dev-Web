@@ -32,7 +32,7 @@
         <input type="text" id="email" name="email"><br>
 
         <label class="login_pegunta" for="password">Senha:</label><br>
-        <input type="password" id="password" name="password"><br>
+        <input type="password" id="password" name="password"><br><br><br><br>
         </div>
         <a class="esqueci_senha" href="/cadastro">Esqueci a senha</a>
         <button type="submit">Acessar</button>

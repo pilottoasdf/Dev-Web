@@ -37,7 +37,7 @@ class AuthController extends Controller
     public function login(Request $req) {
         if($req->isMethod('POST')) {
             if(Auth::attempt($req->only('email','password'))) {
-                return redirect()->route('inicio');
+                return redirect()->route('teste');
             }
         }
         return view('login.login');
@@ -65,8 +65,10 @@ class AuthController extends Controller
    
     }
 
+
     public function inicio(){
         return view('main.inicio');
+
     }
 }
 
