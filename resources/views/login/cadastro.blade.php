@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cadastro - GameMind</title>
- <link rel="stylesheet" href="{{ url('CSS/cadastro3.css') }}">
+  @vite('resources/css/cadastro3.css')
 </head>
 <body>
  @if ($errors->any())

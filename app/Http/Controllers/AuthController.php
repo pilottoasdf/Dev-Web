@@ -37,7 +37,7 @@ class AuthController extends Controller
     public function login(Request $req) {
         if($req->isMethod('POST')) {
             if(Auth::attempt($req->only('email','password'))) {
-                return redirect()->route('teste');
+                return redirect()->route('inicio');
             }
         }
         return view('login.login');

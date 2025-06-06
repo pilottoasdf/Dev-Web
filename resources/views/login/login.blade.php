@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - GameMind</title>
-  <link rel="stylesheet" href="{{ url('CSS/login2.css') }}">
+  @vite('resources/css/login2.css')
 </head>
 <body>
 @if ($errors->any())
