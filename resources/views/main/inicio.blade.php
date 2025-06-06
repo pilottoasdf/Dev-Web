@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>Início</title>
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  @vite(['resources/css/inicio.css', 'resources/js/inicio.js'])
 </head>
 <body>
   <div class="perfil">
     <div class="bolinha"></div>
     <div class="info">
       <span class="jogando-como">Jogando como</span>
-      <span class="nome-usuario">Nome</span>
       {{ auth()->user()->name }}
       <br>
       {{ auth()->user()->email }}
