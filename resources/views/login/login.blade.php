@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - GameMind</title>
-  <link rel="stylesheet" href="{{ url('CSS/login2.css') }}">
+  @vite('resources/css/login2.css')
 </head>
 <body>
 @if ($errors->any())
@@ -32,7 +32,7 @@
         <input type="text" id="email" name="email"><br>
 
         <label class="login_pegunta" for="password">Senha:</label><br>
-        <input type="password" id="password" name="password"><br>
+        <input type="password" id="password" name="password"><br><br><br><br>
         </div>
         <a class="esqueci_senha" href="/cadastro">Esqueci a senha</a>
         <button type="submit">Acessar</button>

@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cadastro - GameMind</title>
- <link rel="stylesheet" href="{{ url('CSS/cadastro3.css') }}">
+  @vite('resources/css/cadastro3.css')
 </head>
 <body>
  @if ($errors->any())
   <div class="error-box">
-    <h3><b>Erro!</b></h3>
+    <h3><b>Apresenta alguns erros:</b></h3>
     <ul>
       @foreach ($errors->all() as $err)
-        <li>{{ $err }}</li>
+        <li>{{ $err }}</li><br>
       @endforeach
     </ul>
   </div>

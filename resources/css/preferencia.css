@@ -50,16 +50,19 @@
       margin-top: 25px;
       width: 100%;
       padding: 15px;
-      background-color: rgb(71, 74, 132);
-      color: white;
       font-weight: bold;
       border: none;
       border-radius: 20px;
       cursor: pointer;
       font-size: 16px;
-      transition: background-color 0.3s ease;
+      background-color: rgb(225, 225, 225);
+      color: gray;
+      transition: background-color 0.5s ease, transform 0.2s ease;
+      font-family: inherit;
     }
 
     button[type="submit"]:hover {
-      background-color: rgb(51, 54, 100);
-    }
+        background-color: rgb(71, 74, 132);
+        color: white;
+      }
+    
