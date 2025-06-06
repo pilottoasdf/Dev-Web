@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - GameMind</title>
-  <link rel="stylesheet" href="{{ url('CSS/login3.css') }}">
+  <link rel="stylesheet" href="{{ url('CSS/login2.css') }}">
 </head>
-<hr>
+
 @if ($errors->any())
-    <div style="color:red">
+    <div class="erro">
     <h3><b>Erro!</b></h3>
 
     <ul>
@@ -18,7 +18,7 @@
     </ul>
     </div>
 @endif 
-<hr>
+
 <body>
   <div class="form_container">
     <div class="tabs">
@@ -29,12 +29,13 @@
     <div class="form_login">
       <form method="POST" action="{{ route('login') }}" class="form">
         @csrf
+        <div class="login_senha">
         <label class="login_pegunta" for="email">Login:</label><br>
         <input type="text" id="email" name="email"><br>
 
         <label class="login_pegunta" for="password">Senha:</label><br>
         <input type="password" id="password" name="password"><br>
-
+        </div>
         <a class="esqueci_senha" href="/cadastro">Esqueci a senha</a>
         <button type="submit">Acessar</button>
       </form>

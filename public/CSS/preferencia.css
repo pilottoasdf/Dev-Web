@@ -1,0 +1,65 @@
+ body {
+      height: 100vh;
+      margin: 0;
+      background-color: rgb(71, 74, 132); 
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      font-family: Arial, sans-serif;
+    }
+
+ 
+    .form_cadastro {
+      background-color: white;
+      padding: 40px 50px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      width: 500px;
+      box-sizing: border-box;
+      color: #333;
+    }
+
+   
+    .erro-container {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      max-width: 300px;
+      background-color: #ffe6e6;
+      border: 1px solid red;
+      padding: 15px 20px;
+      border-radius: 6px;
+      color: red;
+      font-weight: bold;
+      box-shadow: 0 0 5px rgba(255,0,0,0.5);
+      z-index: 9999;
+    }
+
+    
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      color: #333;
+    }
+
+    button[type="submit"] {
+      margin-top: 25px;
+      width: 100%;
+      padding: 15px;
+      background-color: rgb(71, 74, 132);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: rgb(51, 54, 100);
+    }

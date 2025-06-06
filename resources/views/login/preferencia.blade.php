@@ -4,22 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Preferências - GameMind</title>
-  <link rel="stylesheet" href="{{ url('CSS/cadastro3.css') }}">
+ <link rel="stylesheet" href="{{ url('CSS/preferencia.css') }}">
+ 
 </head>
 <body>
-  <hr>
-  @if ($errors->any())
-    <div style="color:red">
-    <h3><b>Erro!</b></h3>
 
-    <ul>
+  @if ($errors->any())
+    <div class="erro-container">
+      <h3>Erro!</h3>
+      <ul>
         @foreach ($errors->all() as $err)
-        <li>{{ $err }}</li>
+          <li>{{ $err }}</li>
         @endforeach
-    </ul>
+      </ul>
     </div>
-@endif 
-  <hr>
+  @endif
 
   <div class="form_cadastro">
     <h2>Selecione suas preferências</h2>
@@ -34,18 +33,19 @@
           ];
       @endphp
 
-      @foreach ($disciplinas as $disciplina)
-        <label class="cadastro_pergunta">
-          <input type="hidden" name="peso_{{ $disciplina }}" value="0">
-          <input type="checkbox" name="peso_{{ $disciplina }}" value="1"
-            {{ old('peso_' . $disciplina) ? 'checked' : '' }}
-          >
-          {{ ucfirst($disciplina) }}
-        </label><br>
-      @endforeach
+      <div class="checkbox-group">
+        @foreach ($disciplinas as $disciplina)
+          <label>
+            <input type="hidden" name="peso_{{ $disciplina }}" value="0">
+            <input type="checkbox" name="peso_{{ $disciplina }}" value="1" {{ old('peso_' . $disciplina) ? 'checked' : '' }}>
+            {{ ucfirst($disciplina) }}
+          </label>
+        @endforeach
+      </div>
 
       <button type="submit">Salvar Preferências</button>
     </form>
   </div>
+
 </body>
 </html>

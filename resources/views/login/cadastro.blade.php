@@ -7,19 +7,17 @@
  <link rel="stylesheet" href="{{ url('CSS/cadastro3.css') }}">
 </head>
 <body>
-  <hr>
-  @if ($errors->any())
-    <div style="color:red">
+  
+ @if ($errors->any())
+  <div class="error-box">
     <h3><b>Erro!</b></h3>
-
     <ul>
-        @foreach ($errors->all() as $err)
+      @foreach ($errors->all() as $err)
         <li>{{ $err }}</li>
-        @endforeach
+      @endforeach
     </ul>
-    </div>
-@endif 
-  <hr>
+  </div>
+@endif
   <div class="form_cadastro">
     <div class="tabs">
       <a href="login" class="tab">Entrar</a>
@@ -30,7 +28,6 @@
   @csrf
 
   <div class="flex-row">
- 
   <div class="flex-column">
     <label class="cadastro_pergunta" for="email">E-mail</label>
     <input type="email" id="email" name="email" value="{{ old('email') }}" required />
@@ -38,29 +35,20 @@
     <label class="cadastro_pergunta" for="name">Nome do usuário</label>
     <input type="text" id="name" name="name" value="{{ old('name') }}" required />
   </div>
+
+  <div class="radios-inline">
+    <label>
+      <input type="radio" name="nivel_acesso" value="1" {{ old('nivel_acesso') == 1 ? 'checked' : '' }} />
+      Sou discente
+    </label>
+    <label>
+      <input type="radio" name="nivel_acesso" value="2" {{ old('nivel_acesso') == 2 ? 'checked' : '' }} />
+      Sou docente
+    </label>
+  </div>
 </div>
 
-<div class="radios-centered">
-  <label class="cadastro_pergunta">
-    <input 
-      type="radio" 
-      name="nivel_acesso" 
-      value="1" 
-      class="cadastro_pergunta"
-      {{ old('nivel_acesso') == 1 ? 'checked' : '' }}
-    /> Sou discente
-  </label>
 
-  <label class="cadastro_pergunta">
-    <input 
-      type="radio" 
-      name="nivel_acesso" 
-      value="2" 
-      class="cadastro_pergunta"
-      {{ old('nivel_acesso') == 2 ? 'checked' : '' }}
-    /> Sou docente
-  </label>
-</div>
   <div class="flex-row">
     <div class="flex-column">
     <select name="escolaridade" required>
