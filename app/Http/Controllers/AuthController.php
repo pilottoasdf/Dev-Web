@@ -65,8 +65,10 @@ class AuthController extends Controller
    
     }
 
-    public function teste(){
-        return view('teste.teste');
+
+    public function inicio(){
+        return view('main.inicio');
+
     }
 }
 

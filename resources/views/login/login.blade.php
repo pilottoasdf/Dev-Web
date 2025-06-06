@@ -6,11 +6,10 @@
   <title>Login - GameMind</title>
   <link rel="stylesheet" href="{{ url('CSS/login2.css') }}">
 </head>
-
+<body>
 @if ($errors->any())
-    <div class="erro">
+    <div class="error_box">
     <h3><b>Erro!</b></h3>
-
     <ul>
         @foreach ($errors->all() as $err)
         <li>{{ $err }}</li>
@@ -19,7 +18,6 @@
     </div>
 @endif 
 
-<body>
   <div class="form_container">
     <div class="tabs">
       <a href="login" class="tab active">Entrar</a>
