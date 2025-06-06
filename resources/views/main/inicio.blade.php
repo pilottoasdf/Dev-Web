@@ -261,6 +261,11 @@
     <div class="info">
       <span class="jogando-como">Jogando como</span>
       <span class="nome-usuario">Nome</span>
+      {{ auth()->user()->name  }}
+      <br>
+      {{ auth()->user()->email  }}
+      <br>
+      <a href="{{ route('forcar-logout') }}">Clica aqui pra deslogar</a>
     </div>
   </div>
 

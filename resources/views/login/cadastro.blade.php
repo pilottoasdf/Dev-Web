@@ -7,7 +7,6 @@
  <link rel="stylesheet" href="{{ url('CSS/cadastro3.css') }}">
 </head>
 <body>
-  
  @if ($errors->any())
   <div class="error-box">
     <h3><b>Erro!</b></h3>

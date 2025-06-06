@@ -34,4 +34,23 @@ class PreferenciaRequest extends FormRequest
         'peso_ingles' => 'nullable|boolean',
     ];
 }
+
+public function withValidator($validator)
+{
+    $validator->after(function ($validator) {
+        $input = $this->all();
+        $marcou = false;
+
+        foreach ($input as $key => $value) {
+            if (str_starts_with($key, 'peso_') && $value == '1') {
+                $marcou = true;
+                break;
+            }
+        }
+
+        if (!$marcou) {
+            $validator->errors()->add('preferencias', 'Você deve selecionar pelo menos uma preferência.');
+        }
+    });
+}
 }
