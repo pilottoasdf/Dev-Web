@@ -10,10 +10,10 @@
   
  @if ($errors->any())
   <div class="error-box">
-    <h3><b>Erro!</b></h3>
+    <h3><b>Apresenta alguns erros:</b></h3>
     <ul>
       @foreach ($errors->all() as $err)
-        <li>{{ $err }}</li>
+        <li>{{ $err }}</li><br>
       @endforeach
     </ul>
   </div>

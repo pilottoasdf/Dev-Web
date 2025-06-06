@@ -30,6 +30,6 @@ Route::get('forcar-logout', function () {
     return redirect('/login');
 })->name('forcar-logout'); // só pra fazer logout
 
-Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
+Route::get('teste', [AuthController::class, 'teste'])->name('teste');
 
 });

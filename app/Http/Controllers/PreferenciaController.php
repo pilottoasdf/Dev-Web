@@ -31,7 +31,7 @@ class PreferenciaController extends Controller
         'peso_sociologia' => $request->input('peso_sociologia', 0),
     ]);
 
-    return redirect()->route('inicio');
+    return redirect()->route('teste');
 }
 }
 
