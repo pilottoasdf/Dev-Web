@@ -3,7 +3,9 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreferenciaController;
+use App\Http\Controllers\ProjetoController;
 
+Route::redirect('/','inicio');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthController::class, 'showLogin'])->name('login');
@@ -17,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/preferencias', [PreferenciaController::class, 'create'])->name('preferencias.create');
     Route::post('/preferencias', [PreferenciaController::class, 'store'])->name('preferencias.store');
 
-Route::post('logout', [AuthController::class, 'logout'])
+Route::get('logout', [AuthController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
@@ -32,4 +34,11 @@ Route::get('forcar-logout', function () {
 
 Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
 
+Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
+Route::get('criar-projeto', [ProjetoController::class, 'create'])->middleware('auth')->name('projetos.create');
+Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->middleware('auth')->name('quiz-jogo.create');
+
+
+Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
+    
 });
