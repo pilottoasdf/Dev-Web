@@ -20,7 +20,18 @@
     <input type="text" name="titulo" id="titulo" value="{{ old('titulo') }}" required>
     <br>
     <label for="disciplina">Disciplina:</label>
-    <input type="text" name="disciplina" id="disciplina" value="{{ old('disciplina') }}" required>
+    <select type="text" name="disciplina" id="disciplina" required>
+      <option value="portugues" {{ old('disciplina') == 'portugues' ? 'selected' : '' }}>Português</option>
+      <option value="matematica" {{ old('disciplina') == 'matematica' ? 'selected' : '' }}>Matemática</option>
+      <option value="fisica" {{ old('disciplina') == 'fisica' ? 'selected' : '' }}>Física</option>
+      <option value="quimica" {{ old('disciplina') == 'quimica' ? 'selected' : '' }}>Química</option>
+      <option value="biologia" {{ old('disciplina') == 'biologia' ? 'selected' : '' }}>Biologia</option>
+      <option value="historia" {{ old('disciplina') == 'historia' ? 'selected' : '' }}>História</option>
+      <option value="geografia" {{ old('disciplina') == 'geografia' ? 'selected' : '' }}>Geografia</option>
+      <option value="filosofia" {{ old('disciplina') == 'filosofia' ? 'selected' : '' }}>Filosofia</option>
+      <option value="sociologia" {{ old('disciplina') == 'sociologia' ? 'selected' : '' }}>Sociologia</option>
+      <option value="ingles" {{ old('disciplina') == 'ingles' ? 'selected' : '' }}>Inglês</option>''
+    </select>
     <br>
     <label for="escolaridade_recomendada">Escolaridade recomendada:</label>
     <select type="text" name="escolaridade_recomendada" id="escolaridade_recomendada" required>
