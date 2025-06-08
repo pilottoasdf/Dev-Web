@@ -3,25 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <title>Quizzes</title>
-  @vite('resources/css/inicio.css')
+  @vite(['resources/css/inicio.css', 'resources/js/app.js'])
 </head>
 <body>
-  <div class="perfil">
-    <div class="bolinha"></div>
-    <div class="info">
-      <span class="jogando-como">Jogando como</span>
-      {{ auth()->user()->name }}
-      <br>
-      {{ auth()->user()->email }}
-      <br>
-      <a href="{{ route('forcar-logout') }}">Clica aqui pra deslogar</a>
-    </div>
-  </div>
-
-  <div class="menu-superior">
-    <button>Página Inicial</button>
-    <button>Games</button>
-    <a href="{{ route('quizzes.lista') }}"><button>Quizzes</button></a>
+  <div id="app">
+    <menu-component 
+      user-name="{{ auth()->user()->name }}" 
+      user-email="{{ auth()->user()->email }}"
+      logout-url="{{ route('logout') }}"
+    ></menu-component>
   </div>
 
   <h1>Quizzes</h1>

@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/preferencias', [PreferenciaController::class, 'create'])->name('preferencias.create');
     Route::post('/preferencias', [PreferenciaController::class, 'store'])->name('preferencias.store');
 
-Route::post('logout', [AuthController::class, 'logout'])
+Route::get('logout', [AuthController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
