@@ -21,7 +21,7 @@
   <div class="menu-superior">
     <button>Página Inicial</button>
     <button>Games</button>
-    <button>Quizzes</button>
+    <a href="{{ route('quizzes.lista') }}"><button>Quizzes</button></a>
   </div>
 
   <div class="banner" id="banner">

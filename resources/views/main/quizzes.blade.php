@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Meus Projetos</title>
+  <title>Quizzes</title>
   @vite('resources/css/inicio.css')
 </head>
 <body>
@@ -24,19 +24,18 @@
     <a href="{{ route('quizzes.lista') }}"><button>Quizzes</button></a>
   </div>
 
-  <h1>Seus Projetos</h1>
+  <h1>Quizzes</h1>
 
-  <a href="">Criar projeto</a>
   <div style="display:flex; flex-direction:row;">
-    @foreach($quizzes as $quiz)
+    @foreach($dados as $vetor)
       <div style="border: solid 1px yellow; color: orange;">
-        {{ $quiz->titulo }}
+        {{ $vetor['quiz']->titulo }}
         <br>
-        {{ $quiz->disciplina }}
+        {{ $vetor['quiz']->disciplina }}
         <br>
-        {{ $quiz->escolaridade_recomendada }}
+        {{ $vetor['quiz']->escolaridade_recomendada }}
         <br>
-        {{ $criador }}
+        {{ $vetor['criador']->name }}
       </div>
     @endforeach
   </div>

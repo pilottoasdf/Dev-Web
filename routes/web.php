@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreferenciaController;
 use App\Http\Controllers\ProjetoController;
 
+Route::redirect('/','inicio');
+
 Route::middleware('guest')->group(function () {
     Route::get('login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('login', [AuthController::class, 'login'])->name('autenticar');
@@ -33,5 +35,7 @@ Route::get('forcar-logout', function () {
 Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
 
 Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
+
+Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
     
 });
