@@ -15,7 +15,7 @@
   </div>
 
 
-  <a href="">Criar projeto</a>
+  <a href="{{ route('projetos.create') }}">Criar projeto</a>
   <div style="display:flex; flex-direction:row;">
     @foreach($quizzes as $quiz)
       <div style="border: solid 1px yellow; color: orange;">

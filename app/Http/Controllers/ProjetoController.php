@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProjetoRequest;
 use App\Models\Quiz;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -32,5 +33,27 @@ class ProjetoController extends Controller
         return view('main.quizzes', [
             'dados'=> $dados,
         ]);
+    }
+
+    public function create(){
+        return view('criar-projeto.form');
+    }
+
+    public function createQuizJogo(ProjetoRequest $request){
+        session([
+                'projeto' => [
+                    'titulo' => $request->titulo,
+                    'descricao' => $request->descricao,
+                    'disciplina' => $request->disciplina,
+                    'escolaridade_recomendada' => $request->escolaridade_recomendada,
+                    'imagem' => $request->imagem //lembrar de fazer o save de imagens depois
+                ]
+            ]);
+        if($request->tipo=='quiz'){
+            return view('criar-projeto.quiz');
+
+        }else if($request->tipo=='jogo'){
+
+        }
     }
 }
