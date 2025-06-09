@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Criar quiz</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   @vite(['resources/css/inicio.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -12,6 +13,10 @@
       user-email="{{ auth()->user()->email }}"
       logout-url="{{ route('logout') }}"
     ></menu-component>
+
+    <criapergunta-component>
+        
+    </criapergunta-component>
   </div>
 
 

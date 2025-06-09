@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreferenciaController;
 use App\Http\Controllers\ProjetoController;
+use App\Http\Controllers\QuizController;
 
 Route::redirect('/','inicio');
 
@@ -37,7 +38,7 @@ Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
 Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
 Route::get('criar-projeto', [ProjetoController::class, 'create'])->middleware('auth')->name('projetos.create');
 Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->middleware('auth')->name('quiz-jogo.create');
-
+Route::post('criar-quiz', [QuizController::class, 'store'])->middleware('auth')->name('quiz.store');
 
 Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
     
