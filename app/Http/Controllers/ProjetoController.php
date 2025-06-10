@@ -40,7 +40,9 @@ class ProjetoController extends Controller
     }
 
     public function createQuizJogo(ProjetoRequest $request){
-        $caminho = $request->file('imagem')->store('imagens', 'public');
+        if($request->file('imagem')){
+            $caminho = $request->file('imagem')->store('imagens', 'public');
+        }
 
         session([
             'projeto' => [
@@ -48,7 +50,7 @@ class ProjetoController extends Controller
                 'descricao' => $request->descricao,
                 'disciplina' => $request->disciplina,
                 'escolaridade_recomendada' => $request->escolaridade_recomendada,
-                'imagem' => $caminho
+                'imagem' => ($request->file('imagem')) ? $caminho : null
             ]
         ]);
         if($request->tipo=='quiz'){

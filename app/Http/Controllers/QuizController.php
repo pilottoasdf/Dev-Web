@@ -42,4 +42,11 @@ class QuizController extends Controller
         return redirect()->route('projetos');
         
     }
+
+    public function loadQuiz($id){
+        $quiz = Quiz::find($id);
+
+        $json = json_encode($quiz);
+        return view('main.quiz', ['json'=>$json]);
+    }
 }

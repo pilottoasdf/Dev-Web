@@ -18,15 +18,17 @@
 
   <div style="display:flex; flex-direction:row;">
     @foreach($dados as $vetor)
-      <div style="border: solid 1px yellow; color: orange;">
-        {{ $vetor['quiz']->titulo }}
-        <br>
-        {{ $vetor['quiz']->disciplina }}
-        <br>
-        {{ $vetor['quiz']->escolaridade_recomendada }}
-        <br>
-        {{ $vetor['criador']->name }}
-      </div>
+      <a href="quiz/{{ $vetor['quiz']->id }}">
+        <div style="border: solid 1px yellow; color: orange;">
+          {{ $vetor['quiz']->titulo }}
+          <br>
+          {{ $vetor['quiz']->disciplina }}
+          <br>
+          {{ $vetor['quiz']->escolaridade_recomendada }}
+          <br>
+          {{ $vetor['criador']->name }}
+        </div>
+      </a>
     @endforeach
   </div>
 

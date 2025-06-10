@@ -38,7 +38,10 @@ Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
 Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
 Route::get('criar-projeto', [ProjetoController::class, 'create'])->middleware('auth')->name('projetos.create');
 Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->middleware('auth')->name('quiz-jogo.create');
+
 Route::post('criar-quiz', [QuizController::class, 'store'])->middleware('auth')->name('quiz.store');
+Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')->name('quiz.load');
+
 
 Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
     
