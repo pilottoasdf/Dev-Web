@@ -18,15 +18,17 @@
   <a href="{{ route('projetos.create') }}">Criar projeto</a>
   <div style="display:flex; flex-direction:row;">
     @foreach($quizzes as $quiz)
-      <div style="border: solid 1px yellow; color: orange;">
-        {{ $quiz->titulo }}
-        <br>
-        {{ $quiz->disciplina }}
-        <br>
-        {{ $quiz->escolaridade_recomendada }}
-        <br>
-        {{ $criador }}
-      </div>
+      <a href="quiz/{{ $quiz->id }}">
+        <div style="border: solid 1px yellow; color: orange;">
+          {{ $quiz->titulo }}
+          <br>
+          {{ $quiz->disciplina }}
+          <br>
+          {{ $quiz->escolaridade_recomendada }}
+          <br>
+          {{ $criador }}
+        </div>
+      </a>
     @endforeach
   </div>
 
