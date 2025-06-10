@@ -1,13 +1,12 @@
 <template>
   <div class="perfil">
-    <div class="bolinha"></div>
+    
     <div class="info">
-      <span class="jogando-como">Jogando como</span>
       {{ userName }}
       <br>
       {{ userEmail }}
       <br>
-      <a href="/logout">Clica aqui pra deslogar</a>
+      
     </div>
   </div>
 

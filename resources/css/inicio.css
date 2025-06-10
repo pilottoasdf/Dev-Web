@@ -2,7 +2,9 @@ body {
     margin: 0;
     padding: 30px;
     background-color: rgb(71, 74, 132);
-    font-family: 'Segoe UI', sans-serif;
+    font-family: "Jaini", system-ui;
+    font-weight: 400;
+    font-style: normal;
     color: #333;
     position: relative;
     min-height: 100vh;
@@ -28,6 +30,10 @@ body {
     padding: 10px 25px;
     border-radius: 25px;
     font-weight: 600;
+    font-family: "Jaini", system-ui;
+    font-weight: 400;
+    font-size: 20px;
+    font-style: normal;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -178,21 +184,24 @@ body {
 
 .recomendados {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
     color: #ffffff;
     width: 100%;
     max-width: 800px;
+ 
 }
-
+.texto-card{
+    flex: 1; background-color: white; display: flex; flex-direction: column; align-items:center
+}
 .cards-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
-    max-width: 800px;
+    max-width: 700px;
 }
 
 .card {
@@ -202,6 +211,7 @@ body {
     overflow: hidden;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
     transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -213,6 +223,9 @@ body {
     height: 110px;
     object-fit: cover;
 }
+
+
+
 
 .card-content {
     padding: 10px;
@@ -230,6 +243,9 @@ body {
 }
 
 .card.adicionar {
+    width: 1050px; /* Largura dos 3 cards juntos */
+    height: 60px;   /* Altura menor */
+    margin-top: 15px; /* Espaço acima */
     background-color: #d1c4e9;
     display: flex;
     justify-content: center;
@@ -243,4 +259,17 @@ body {
 
 .card.adicionar:hover {
     background-color: #b39ddb;
+}
+
+#btn-comecar{
+    font-family: "Jaini", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+.imagem_card{
+    flex: 1.5; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
 }
