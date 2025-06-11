@@ -17,7 +17,7 @@ class AuthRequest extends FormRequest
             'password' => 'required|string|confirmed|min:4',
             'nivel_acesso' => 'required|in:1,2',
             'escolaridade' => 'nullable|string',
-            'data_nasc' => 'nullable|date'
+            'data_nasc' => 'nullable|date_format:Y-m-d|before:today'
         ];
     }
 

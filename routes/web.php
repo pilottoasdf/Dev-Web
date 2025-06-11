@@ -14,6 +14,7 @@ Route::middleware('guest')->group(function () {
 
     Route::get('cadastro', [AuthController::class, 'showRegister'])->name('cadastro');
     Route::post('cadastro', [AuthController::class, 'store'])->name('cadastrar');
+    
 });
 
 Route::middleware('auth')->group(function () {
