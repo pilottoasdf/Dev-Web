@@ -3,19 +3,16 @@ const banners = [
         img: "https://blog.ebaconline.com.br/blog/wp-content/uploads/2022/12/kcnb4lkkucfipej3ngqxm-scaled-e1674744655926.jpeg",
         titulo: "GameMind",
         textoBotao: "Comece a jogar agora!",
-        link: "login.blade.php"
       },
       {
         img: "https://www.fiee.com.br/content/dam/sitebuilder/rxb/fiee/2024/blog/FIEE%20Games.jpg/_jcr_content/renditions/original.image_file.2400.1600.file/FIEE%20Games.jpg",
         titulo: "GameMind",
         textoBotao: "Comece a jogar agora!",
-        link: "cadastro.blade.php"
       },
       {
         img: "https://assets.gamearena.gg/wp-content/uploads/2024/05/17143757/Materia-Pedro-1024x576.png",
         titulo: "GameMind",
         textoBotao: "Comece a jogar agora!",
-        link: "login.blade.php"
       }
     ];
 

@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    padding: 30px;
+    padding: 0px;
     background-color: rgb(71, 74, 132);
     font-family: "Jaini", system-ui;
     font-weight: 400;
@@ -11,7 +11,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
+
 
 .menu-superior {
     display: flex;
@@ -22,6 +24,7 @@ body {
     width: 100%;
     max-width: 800px;
 }
+
 
 .menu-superior button {
     background-color: white;
@@ -37,6 +40,7 @@ body {
     cursor: pointer;
     transition: 0.3s;
 }
+
 
 .menu-superior button:hover {
     background-color: #d1c4e9;
@@ -62,6 +66,7 @@ body {
     box-shadow: none;
 }
 
+
 .perfil .bolinha {
     width: 45px;
     height: 45px;
@@ -71,6 +76,7 @@ body {
     outline: none;
 }
 
+
 .perfil .info {
     display: flex;
     flex-direction: column;
@@ -78,17 +84,20 @@ body {
     text-shadow: 1px 1px 2px #000;
 }
 
+
 .perfil .jogando-como {
     font-size: 0.9em;
     color: #fff;
     font-weight: normal;
 }
 
+
 .perfil .nome-usuario {
     font-weight: bold;
     color: #fff;
     font-size: 1.1em;
 }
+
 
 .banner {
     max-width: 800px;
@@ -99,14 +108,18 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     width: 100%;
     cursor: pointer;
+    margin-top: 20px;
   }
+
 
 .banner img {
     width: 100%;
     height: 450px;
     object-fit: cover;
     display: block;
+   
 }
+
 
 .banner .texto {
     position: absolute;
@@ -124,6 +137,7 @@ body {
     max-width: 400px;
 }
 
+
 .banner .texto p.titulo-principal {
     margin-bottom: 5px;
     font-size: 2.5rem;
@@ -132,11 +146,13 @@ body {
     text-shadow: 2px 2px 6px #000000aa;
 }
 
+
 .banner .texto p {
     margin-bottom: 15px;
     font-size: 1.1rem;
     pointer-events: auto;
 }
+
 
 .banner .texto button {
     background-color: #ffffff;
@@ -151,9 +167,11 @@ body {
     pointer-events: auto;
   }
 
+
 .banner .texto button:hover {
     background-color: #f3e5f5;
 }
+
 
 .arrow {
     position: absolute;
@@ -170,17 +188,21 @@ body {
     z-index: 10;
   }
 
+
 .arrow:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
+
 
 .arrow-left {
     left: 15px;
 }
 
+
 .arrow-right {
     right: 15px;
 }
+
 
 .recomendados {
     text-align: center;
@@ -204,6 +226,7 @@ body {
     max-width: 700px;
 }
 
+
 .card {
     width: 200px;
     background-color: #f5f5ff;
@@ -214,9 +237,11 @@ body {
     cursor: pointer;
 }
 
+
 .card:hover {
     transform: translateY(-5px);
 }
+
 
 .card img {
     width: 100%;
@@ -227,35 +252,38 @@ body {
 
 
 
+
 .card-content {
     padding: 10px;
     text-align: left;
 }
+
 
 .card-content h3 {
     margin: 5px 0;
     color: #4a148c;
 }
 
+
 .card-content small {
     font-size: 0.75em;
     color: #555;
 }
 
+
 .card.adicionar {
     width: 1050px; /* Largura dos 3 cards juntos */
-    height: 60px;   /* Altura menor */
-    margin-top: 15px; /* Espaço acima */
     background-color: #d1c4e9;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #4a148c;
     cursor: pointer;
     transition: background 0.3s;
 }
+
 
 .card.adicionar:hover {
     background-color: #b39ddb;
@@ -268,8 +296,49 @@ body {
     font-size: 20px;
 }
 .imagem_card{
-    flex: 1.5; 
-    display: flex; 
-    align-items: center; 
+    flex: 1.5;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
+
+
+.logo{
+    height: 60px;
+    border-radius: 100%;
+    border: 2px black solid;
+}
+
+
+.tamanho-menu{
+    height: 90px;
+    margin-top: 0;
+    background-color: #00000098;
+}
+
+
+.usuario{
+    height: 50px;
+}
+
+
+.botao-menu{
+    border-radius: 30px;
+    height: 50px;
+    width: 130px;
+    font-size: 20px;
+}
+
+
+.botao-carrossel{
+    height: 100px;
+    background-color: rgba(0, 0, 0, 0.604);
+}
+
+
+.botao-carrossel:hover{
+
+
+    background-color: rgba(0, 0, 0, 0.604);
+}
+
