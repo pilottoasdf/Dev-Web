@@ -7,16 +7,6 @@
   @vite('resources/css/login2.css')
 </head>
 <body>
-@if ($errors->any())
-    <div class="error_box">
-    <h3><b>Erro!</b></h3>
-    <ul>
-        @foreach ($errors->all() as $err)
-        <li>{{ $err }}</li>
-        @endforeach
-    </ul>
-    </div>
-@endif 
 
   <div class="form_container">
     <div class="tabs">
@@ -30,9 +20,15 @@
         <div class="login_senha">
         <label class="login_pegunta" for="email">Login:</label><br>
         <input type="text" id="email" name="email"><br>
-
         <label class="login_pegunta" for="password">Senha:</label><br>
         <input type="password" id="password" name="password"><br><br><br><br>
+        <!--@error('email')
+      <span class="error-message">{{ $message }}</span>
+    @enderror
+    <br>
+        @error('password')
+      <span class="error-message">{{ $message }}</span>
+    @enderror-->
         </div>
         <a class="esqueci_senha" href="/cadastro">Esqueci a senha</a>
         <button type="submit">Acessar</button>

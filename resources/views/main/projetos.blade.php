@@ -20,7 +20,7 @@
 
   <h1>Meus Projetos</h1>
 
-  <a href="{{ route('projetos.create') }}">Criar projeto</a>
+  <a class href="{{ route('projetos.create') }}">Criar projeto</a>
   <div class="box-quiz">
     @foreach($quizzes as $quiz)
       <a href="quiz/{{ $quiz->id }}">

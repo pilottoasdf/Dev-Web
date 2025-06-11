@@ -18,11 +18,11 @@
     ></menu-component>
   </div>
 
-  <form method="post" action="{{ route('quiz-jogo.create') }}" enctype="multipart/form-data">
+  <form method="post" class="form-criar" action="{{ route('quiz-jogo.create') }}" enctype="multipart/form-data">
     @csrf
     <label for="titulo">Título:</label>
     <input type="text" name="titulo" id="titulo" value="{{ old('titulo') }}" required>
-    <br>
+    <br><br>
     <label for="disciplina">Disciplina:</label>
     <select type="text" name="disciplina" id="disciplina" required>
       <option value="portugues" {{ old('disciplina') == 'portugues' ? 'selected' : '' }}>Português</option>
@@ -36,7 +36,7 @@
       <option value="sociologia" {{ old('disciplina') == 'sociologia' ? 'selected' : '' }}>Sociologia</option>
       <option value="ingles" {{ old('disciplina') == 'ingles' ? 'selected' : '' }}>Inglês</option>''
     </select>
-    <br>
+    <br><br>
     <label for="escolaridade_recomendada">Escolaridade recomendada:</label>
     <select type="text" name="escolaridade_recomendada" id="escolaridade_recomendada" required>
       <option value="fundamentalI" {{ old('escolaridade_recomendada') == 'fundamentalI' ? 'selected' : '' }}>Ensino Fundamental I</option>
@@ -44,14 +44,15 @@
       <option value="médio" {{ old('escolaridade_recomendada') == 'médio' ? 'selected' : '' }}>Ensino Médio</option>
       <option value="superior" {{ old('escolaridade_recomendada') == 'superior' ? 'selected' : '' }}>Ensino Superior</option>
     </select>
-    <br>
+    <br><br>
     <label for="descricao">Descrição do projeto:</label>
     <br>
     <textarea type="text" name="descricao" id="descricao"> {{ old('descricao') }}</textarea>
-    <br>
+    <br><br>
     <label for="imagem">Imagem para o projeto:</label>
-    <input type="file" name="imagem" id="imagem" value="{{ old('imagem') }}" accept="image/*">
     <br>
+    <input type="file" name="imagem" id="imagem" value="{{ old('imagem') }}" accept="image/*">
+    <br><br>
     <span>Seu projeto é um:</span>
     <br>
     <label>
@@ -63,7 +64,7 @@
       <input type="radio" name="tipo" value="jogo" {{ old('tipo') == 'jogo' ? 'checked' : '' }} required/>
       Jogo
     </label>
-    <br>
+    <br><br>
     <input type="submit" value="Confirmar">
   </form>
 

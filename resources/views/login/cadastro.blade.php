@@ -7,16 +7,6 @@
   @vite('resources/css/cadastro3.css')
 </head>
 <body>
- @if ($errors->any())
-  <div class="error-box">
-    <h3><b>Apresenta alguns erros:</b></h3>
-    <ul>
-      @foreach ($errors->all() as $err)
-        <li>{{ $err }}</li><br>
-      @endforeach
-    </ul>
-  </div>
-@endif
   <div class="form_cadastro">
     <div class="tabs">
       <a href="login" class="tab">Entrar</a>
@@ -30,9 +20,15 @@
   <div class="flex-column">
     <label class="cadastro_pergunta" for="email">E-mail</label>
     <input type="email" id="email" name="email" value="{{ old('email') }}" required />
+    @error('email')
+      <span class="error-message">{{ $message }}</span>
+    @enderror
 
     <label class="cadastro_pergunta" for="name">Nome do usuário</label>
     <input type="text" id="name" name="name" value="{{ old('name') }}" required />
+    @error('name')
+      <span class="error-message">{{ $message }}</span>
+    @enderror
   </div>
 
   <div class="radios-inline">
@@ -45,6 +41,9 @@
       Sou docente
     </label>
   </div>
+  @error('nivel_acesso')
+      <span class="error-message">{{ $message }}</span>
+    @enderror
 </div>
 
 
@@ -57,12 +56,17 @@
     <option value="médio" {{ old('escolaridade') == 'médio' ? 'selected' : '' }}>Ensino Médio</option>
     <option value="superior" {{ old('escolaridade') == 'superior' ? 'selected' : '' }}>Ensino Superior</option>
 </select>
-
+@error('escolaridade')
+      <span class="error-message">{{ $message }}</span>
+    @enderror
     </div>
 
     <div class="flex-column">
      
       <input class="cadastro_pergunta" type="date" name="data_nasc" value="{{ old('data_nasc') }}" required />
+      @error('data_nasc')
+      <span class="error-message">{{ $message }}</span>
+    @enderror
     </div>
   </div>
 
@@ -70,6 +74,9 @@
     <div class="flex-column">
       <label class="cadastro_pergunta" for="password">Senha</label>
       <input type="password" id="password" name="password" required />
+      @error('password')
+      <span class="error-message">{{ $message }}</span>
+    @enderror
     </div>
 
     <div class="flex-column">

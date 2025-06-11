@@ -346,3 +346,34 @@ body {
 
     background-color: rgba(0, 0, 0, 0.604);
 }
+
+
+.form-criar{
+    background-color: white;
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px black solid;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 40px;
+   text-align: center;
+   text-align: center;
+   line-height: 10px; /* Igual à altura */
+   
+    padding: 15px;
+    background-color: rgb(225, 225, 225);
+    color: gray;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.5s ease, transform 0.2s ease;
+  }
+  input[type="submit"]:hover {
+    background-color: rgb(71, 74, 132);
+    color: white;
+  }
