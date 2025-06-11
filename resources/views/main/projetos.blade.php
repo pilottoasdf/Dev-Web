@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-  @vite(['resources/css/inicio.css', 'resources/js/app.js'])
+  @vite(['resources/css/inicio.css', 'resources/js/app.js', 'resources/css/quizzes.css'])
 </head>
 <body>
   <div id="app">
@@ -20,10 +20,10 @@
 
 
   <a href="{{ route('projetos.create') }}">Criar projeto</a>
-  <div style="display:flex; flex-direction:row;">
+  <div class="box-quiz">
     @foreach($quizzes as $quiz)
       <a href="quiz/{{ $quiz->id }}">
-        <div style="border: solid 1px yellow; color: orange;">
+        <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: contain; background-repeat: no-repeat;">
           {{ $quiz->titulo }}
           <br>
           {{ $quiz->disciplina }}
