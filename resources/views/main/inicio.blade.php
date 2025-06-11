@@ -22,7 +22,6 @@
 
       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
 
-        <!-- Aqui o seu menu-component fixo, com os botões -->
         <menu-component 
         
         ></menu-component>
@@ -44,7 +43,7 @@
               <li><small>{{ auth()->user()->email }}</small></li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="get" action="{{ route('logout') }}">
                   @csrf
                   <button type="submit" class="dropdown-item btn btn-link text-start">Sair</button>
                 </form>
@@ -52,7 +51,6 @@
             </ul>
           </li>
         </ul>
-
       </div>
     </div>
   </nav>

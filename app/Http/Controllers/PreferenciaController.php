@@ -29,6 +29,7 @@ class PreferenciaController extends Controller
         'peso_quimica' => $request->input('peso_quimica', 0),
         'peso_filosofia' => $request->input('peso_filosofia', 0),
         'peso_sociologia' => $request->input('peso_sociologia', 0),
+        'peso_ingles' => $request->input('peso_ingles',0)
     ]);
 
     return redirect()->route('inicio');

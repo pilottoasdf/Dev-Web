@@ -177,27 +177,13 @@ body {
     color:rgb(134, 133, 133) ;
 }
 
-
-.error-box {
-  position: absolute;
-  left: 280px;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #faebeb;
-  border: 1px solid #cc0000;
+.error-message {
   color: #cc0000;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 250px;
-  font-size: 14px;
-  z-index: 2;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: block;
 }
-
-
-.error-box h3 {
-  margin-top: 0;
-}
-
 
 .radios-inline {
   display: flex;
