@@ -18,6 +18,7 @@
     ></menu-component>
   </div>
 
+  <h1>Meus Projetos</h1>
 
   <a href="{{ route('projetos.create') }}">Criar projeto</a>
   <div class="box-quiz">
