@@ -7,11 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-
   @vite(['resources/css/inicio.css', 'resources/js/inicio.js', 'resources/js/app.js'])
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
 </head>
 <body>
 <!--inicio do menu-->
@@ -23,7 +19,6 @@
     ></menu-component>
   </div>
 <!--fim do menu-->
-
 
 
 
@@ -174,7 +169,6 @@
 
 
 </div>
-
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

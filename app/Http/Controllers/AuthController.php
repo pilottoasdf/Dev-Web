@@ -34,7 +34,7 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Cadastro realizado!');
     }*/
 
-    public function login(AuthRequest $req) {
+    public function login(Request $req) {
         if($req->isMethod('POST')) {
             if(Auth::attempt($req->only('email','password'))) {
                 return redirect()->route('inicio');
@@ -70,6 +70,5 @@ class AuthController extends Controller
         return view('main.inicio');
 
     }
-    
 }
 

@@ -86,7 +86,6 @@ body {
     border-bottom: 2px solid rgb(71, 74, 132);
     }
 
-  
 
     button[type="submit"] {
       width: 100%;
@@ -118,14 +117,6 @@ body {
     .esqueci_senha:hover {
       text-decoration: underline;
     }
-
-    .error-message {
-    color: #cc0000;
-    font-size: 12px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    display: block;
-  }
 
 
     
