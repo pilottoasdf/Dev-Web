@@ -23,7 +23,7 @@
   <div class="box-quiz">
     @foreach($dados as $vetor)
       <a href="quiz/{{ $vetor['quiz']->id }}">
-        <div class="quiz">
+        <div class="quiz" style="background-image: url('{{ asset('storage/' . $vetor['quiz']->imagem) }}'); background-size: contain; background-repeat: no-repeat;">
           {{ $vetor['quiz']->titulo }}
           <br>
           {{ $vetor['quiz']->disciplina }}
