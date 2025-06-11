@@ -43,15 +43,4 @@ const banners = [
       atualizarBanner();
     });
 
-
-    btnComecar.addEventListener('click', e => {
-      e.stopPropagation();
-      window.location.href = banners[index].link;
-    });
-
-
-    bannerDiv.addEventListener('click', () => {
-      window.location.href = banners[index].link;
-    });
-
     atualizarBanner();

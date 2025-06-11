@@ -8,7 +8,6 @@
       <a class="navbar-brand" href="/inicio">
         <img class="logo" src="/public/logo.png" alt="logo do site" >
       </a>
-
     </div>
 
 

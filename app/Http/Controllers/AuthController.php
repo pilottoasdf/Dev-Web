@@ -70,6 +70,5 @@ class AuthController extends Controller
         return view('main.inicio');
 
     }
-    
 }
 
