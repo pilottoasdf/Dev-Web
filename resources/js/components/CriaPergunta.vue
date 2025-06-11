@@ -23,6 +23,8 @@
     </div>
 
     <button type="button" @click="adicionarPergunta">Adicionar Pergunta</button>
+    <br>
+    <button type="button" @click="adicionarCincoPerguntas">Adicionar 5 perguntas</button>
     <button type="submit">Finalizar</button>
   </form>
 </template>
@@ -43,6 +45,15 @@ export default {
         'alternativas':['', '', '', ''],
         'alternativa_correta':'1',
       });
+    },
+    adicionarCincoPerguntas(){
+      for(let i=0;i<5;i++){
+        this.perguntas.push({
+          'pergunta':'',
+          'alternativas':['', '', '', ''],
+          'alternativa_correta':'1',
+        });
+      }
     },
     apagarPergunta(index){
       this.perguntas.splice(index, 1)
