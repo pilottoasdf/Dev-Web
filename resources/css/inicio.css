@@ -75,7 +75,12 @@ body {
     border: 2px solid #fff;
     outline: none;
 }
-
+.perfil-usuario{
+    border-radius: 30px;
+    width: 80px;
+    background-color: white;
+    color: black;
+}
 
 .perfil .info {
     display: flex;

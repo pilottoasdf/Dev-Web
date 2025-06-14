@@ -18,23 +18,26 @@
     ></menu-component>
   </div>
 
-  <h1>Quizzes</h1>
+  <h1 class="quizzes-title">Quizzes</h1>
 
-  <div class="box-quiz">
-    @foreach($dados as $vetor)
-      <a href="quiz/{{ $vetor['quiz']->id }}">
-        <div class="quiz" style="background-image: url('{{ asset('storage/' . $vetor['quiz']->imagem) }}'); background-size: contain; background-repeat: no-repeat;">
-          {{ $vetor['quiz']->titulo }}
-          <br>
-          {{ $vetor['quiz']->disciplina }}
-          <br>
-          {{ $vetor['quiz']->escolaridade_recomendada }}
-          <br>
-          {{ $vetor['criador']->name }}
+ <div class="box-quiz">
+  @foreach($dados as $vetor)
+    <a href="quiz/{{ $vetor['quiz']->id }}">
+      <div class="quiz" style="background-image: url('{{ asset('storage/' . $vetor['quiz']->imagem) }}');">
+        <div class="overlay">
+          <div class="titulo">{{ $vetor['quiz']->titulo }}</div>
         </div>
-      </a>
-    @endforeach
-  </div>
+        <div class="detalhes">
+          <strong>Título:</strong>   {{ $vetor['quiz']->titulo }}<br>
+          <strong>Disciplina:</strong>   {{ $vetor['quiz']->disciplina }}<br>
+          <strong>Criador:</strong>   {{ $vetor['criador']->name }}<br>
+          <strong>Escolaridade:</strong>   {{ $vetor['quiz']->escolaridade_recomendada }}
+        </div>
+      </div>
+    </a>
+  @endforeach
+</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>

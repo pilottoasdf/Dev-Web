@@ -48,7 +48,7 @@
     
   </div>
   <div v-if="valor>perguntas.length" style="display:flex; flex-direction:column; align-items:center;">
-    <h2>Você acertou {{ acertos }} questões de {{ perguntas.length }}</h2>
+    <h2>Você acertou: {{ acertos }} / {{ perguntas.length }}</h2>
   </div>
 
 </template>

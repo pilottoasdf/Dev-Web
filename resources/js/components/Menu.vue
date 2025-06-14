@@ -23,22 +23,21 @@
   <img class="usuario me-2" src="https://cdn-icons-png.flaticon.com/512/303/303593.png" alt="imagem do usuario" style="width: 40px; height: 40px; border-radius: 50%;">
  
   <button
-    class="btn btn-dark dropdown-toggle"
+    class="btn perfil-usuario btn-dark dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
     aria-expanded="false"
   >
-    Perfil
+    {{ userName }}
   </button>
  
   <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end p-3" style="min-width: 200px;">
-    <li><span class="jogando-como">Jogando como</span></li>
-    <li><strong>{{ userName }}</strong></li>
-    <li><small>{{ userEmail }}</small></li>
+    <!--<li><span class="jogando-como">Jogando como</span></li>-->
+    <!--<li><strong>{{ userName }}</strong></li>-->
+    <!--<li><small>{{ userEmail }}</small></li>-->
+    <li><a href="#" type="submit" class="dropdown-item btn btn-link text-start">Perfil</a></li>
+    <li><a href="/meus-projetos" type="submit" class="dropdown-item btn btn-link text-start">Meus Projetos</a></li>
     <li><hr class="dropdown-divider"></li>
-    <li>
-      <a href="/meus-projetos" type="submit" class="dropdown-item btn btn-link text-start">Meus Projetos</a>
-    </li>
     <li>
       <a href="/logout" type="submit" class="dropdown-item btn btn-link text-start">Sair</a>
     </li>
