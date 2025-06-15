@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add" />
   @vite(['resources/css/inicio.css', 'resources/js/app.js', 'resources/css/quizzes.css'])
 </head>
 <body>
@@ -18,24 +19,37 @@
     ></menu-component>
   </div>
 
-  <h1>Meus Projetos</h1>
+  <h1 class="quizzes-title">Meus Projetos</h1>
 
-  <a class href="{{ route('projetos.create') }}">Criar projeto</a>
-  <div class="box-quiz">
-    @foreach($quizzes as $quiz)
-      <a href="quiz/{{ $quiz->id }}">
-        <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: contain; background-repeat: no-repeat;">
-          {{ $quiz->titulo }}
-          <br>
-          {{ $quiz->disciplina }}
-          <br>
-          {{ $quiz->escolaridade_recomendada }}
-          <br>
-          {{ $criador }}
+
+<div style="width: 70%; margin: 0 auto;">
+  <a href="{{ route('projetos.create') }}" class="adicionar btn mb-1">
+    <span class=" simbolo-criar material-symbols-outlined ">add</span>
+    Criar projeto
+  </a>
+</div>
+
+
+<div class="box-quiz">
+ 
+  @foreach($quizzes as $quiz)
+    <a href="quiz/{{ $quiz->id }}">
+      <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+        <div class="overlay">
+          <div class="titulo">{{ $quiz->titulo }}</div>
         </div>
-      </a>
-    @endforeach
-  </div>
+        <div class="detalhes">
+          <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
+          <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
+          <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
+          <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
+        </div>
+      </div>
+    </a>
+  @endforeach
+</div>
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 

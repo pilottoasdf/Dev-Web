@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=filter_alt" />
   @vite(['resources/css/inicio.css', 'resources/js/app.js', 'resources/css/quizzes.css'])
 </head>
 <body>
@@ -18,9 +19,34 @@
     ></menu-component>
   </div>
 
-  <h1 class="quizzes-title">Quizzes</h1>
+<div class="linha-topo d-flex justify-content-between align-items-center mb-3 px-3">
+  <h1 class="quizzes-title m-0 text-center flex-grow-1">Quizzes</h1>
+  <div class="dropdown">
+    <button class="btn btn-link p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <span class="filtrar material-symbols-outlined fs-3">filter_alt</span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end p-3">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="filtro" id="filtro1" value="disciplina">
+        <label class="form-check-label" for="filtro1">Disciplina</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="filtro" id="filtro2" value="criador">
+        <label class="form-check-label" for="filtro2">Escolaridade</label>
+      </div>
+      <hr>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="filtro" id="filtro3" value="escolaridade">
+        <label class="form-check-label" for="filtro3">Adicionar matérias</label>
+      </div>
+    </ul>
+  </div>
+</div>
 
- <div class="box-quiz">
+
+
+
+ <div class="diferente-quiz box-quiz">
   @foreach($dados as $vetor)
     <a href="quiz/{{ $vetor['quiz']->id }}">
       <div class="quiz" style="background-image: url('{{ asset('storage/' . $vetor['quiz']->imagem) }}');">
@@ -28,10 +54,10 @@
           <div class="titulo">{{ $vetor['quiz']->titulo }}</div>
         </div>
         <div class="detalhes">
-          <strong>Título:</strong>   {{ $vetor['quiz']->titulo }}<br>
-          <strong>Disciplina:</strong>   {{ $vetor['quiz']->disciplina }}<br>
-          <strong>Criador:</strong>   {{ $vetor['criador']->name }}<br>
-          <strong>Escolaridade:</strong>   {{ $vetor['quiz']->escolaridade_recomendada }}
+          <strong>Título:</strong>&nbsp;&nbsp;{{ $vetor['quiz']->titulo }}<br>
+          <strong>Disciplina:</strong>&nbsp;&nbsp;{{ $vetor['quiz']->disciplina }}<br>
+          <strong>Criador:</strong>&nbsp;&nbsp;{{ $vetor['criador']->name }}<br>
+          <strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $vetor['quiz']->escolaridade_recomendada }}
         </div>
       </div>
     </a>

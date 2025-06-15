@@ -1,10 +1,11 @@
 .box-quiz {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  gap: 20px;
   width: 70%;
   min-height: 20vh;
   margin-top: 20px;
+  
 }
 
 a {
@@ -18,13 +19,17 @@ a {
   padding: 0;
   width: 100%;
   max-height: 25vh;
-  height: 100%;
+  min-height:22vh;
   font-size: 18px;
   color: white;
   background-size: cover;
   background-position: center;
-  border: solid 1px rgb(192, 127, 5);
+  border: solid 1px black;
   background-color: rgba(250, 234, 87, 0.192);
+}
+
+.quiz:hover{
+  border: solid 2px yellow;
 }
 
 /* título na parte de baixo */
@@ -47,7 +52,7 @@ a {
 }
 
 
-/* detalhes escondidos por padrão */
+
 .detalhes {
   position: absolute;
   top: 0;
@@ -61,7 +66,6 @@ a {
   z-index: 1;
 }
 
-/* ao passar o mouse, exibe detalhes e oculta o título isolado */
 .quiz:hover .detalhes {
   opacity: 1;
   z-index: 3;
@@ -76,3 +80,67 @@ a {
     font-size: 50px;
     color: white;
 }
+.diferente-quiz{
+  margin-top: 70px;
+}
+
+.linha-topo {
+  width: 70%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.quizzes-title {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+  margin: 0;
+}
+
+.filtrar  {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 80;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+/* css abaixo da página: Meus Projetos */
+.simbolo-criar {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.adicionar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+  font-size: 20px;
+  color: white;
+}
+
+.adicionar:hover{
+  background-color: green;
+  color: white;
+}
+
+
+
+
