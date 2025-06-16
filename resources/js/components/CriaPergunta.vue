@@ -22,10 +22,22 @@
       <br>
     </div>
 
-    <button type="button" @click="adicionarPergunta">Adicionar Pergunta</button>
-    <br>
-    <button type="button" @click="adicionarCincoPerguntas">Adicionar 5 perguntas</button>
-    <button type="submit">Finalizar</button>
+    <div class="botoes-do-quiz">
+  <div style="width: 70%; margin: 0 auto;">
+    <button type="button" @click="adicionarPergunta" class="plus-botao adicionar-game btn mb-1">
+      <span class="simbolo-criar material-symbols-outlined">add</span>
+      Adicionar Pergunta
+    </button>
+    <button type="button" @click="adicionarCincoPerguntas" class="adicionar-game btn mb-1">
+      <span class="simbolo-criar material-symbols-outlined">add</span>
+      Adicionar 5 perguntas
+    </button>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Finalizar</button>
+</div>
+
+
   </form>
 </template>
 

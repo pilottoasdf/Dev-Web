@@ -166,7 +166,7 @@
 
 
   <!-- Card adicionar-->
- <div class="card adicionar mx-auto" style="max-width: 100%; width: 1050px; height: 40px;">Ver mais...</div>
+ <div class="adicionar btn mx-auto" style="max-width: 100%; width: 950px; height: 40px;">Ver mais...</div>
 
 
 </div>

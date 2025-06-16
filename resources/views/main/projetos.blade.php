@@ -23,7 +23,7 @@
 
 
 <div style="width: 70%; margin: 0 auto;">
-  <a href="{{ route('projetos.create') }}" class="adicionar btn mb-1">
+  <a href="{{ route('projetos.create') }}" class="adicionar-game btn mb-1">
     <span class=" simbolo-criar material-symbols-outlined ">add</span>
     Criar projeto
   </a>

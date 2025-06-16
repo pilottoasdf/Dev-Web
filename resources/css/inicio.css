@@ -279,9 +279,8 @@ body {
 }
 
 
-.card.adicionar {
-    width: 1050px; /* Largura dos 3 cards juntos */
-    /* Espaço acima */
+.adicionar {
+   
     background-color: #d1c4e9;
     display: flex;
     justify-content: center;
@@ -291,12 +290,15 @@ body {
     color: #4a148c;
     cursor: pointer;
     transition: background 0.3s;
+    border-radius: 30px;
 }
 
 
-.card.adicionar:hover {
+.adicionar:hover {
     background-color: #b39ddb;
+    color: white;
 }
+
 
 
 #btn-comecar{
@@ -342,7 +344,7 @@ body {
 
 .botao-carrossel{
     height: 100px;
-    background-color: rgba(0, 0, 0, 0.604);
+    background-color: rgba(18, 17, 17, 0.604);
 }
 
 
