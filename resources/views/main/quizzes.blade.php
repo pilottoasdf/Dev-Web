@@ -23,7 +23,7 @@
   <h1 class="quizzes-title m-0 text-center flex-grow-1">Quizzes</h1>
   <div class="dropdown">
     <button class="btn btn-link p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <span class="filtrar material-symbols-outlined fs-3">filter_alt</span>
+      <span class="filtrar material-symbols-outlined">filter_alt</span>
     </button>
     <ul class="dropdown-menu dropdown-menu-end p-3">
       <div class="form-check">

@@ -104,8 +104,8 @@ a {
     'FILL' 0,
     'wght' 400,
     'GRAD' 0,
-    'opsz' 80;
-  font-size: 60px;
+    'opsz' 40;
+  font-size: 40px;
   cursor: pointer;
   color: white;
 }
@@ -120,42 +120,187 @@ a {
     'opsz' 24;
 }
 
+
+
+.lixeira {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.lixeira:hover{
+  color: red;
+}
+.adicionar-game-projetos {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  color: white;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+.adicionar-game-projetos:hover{
+  background-color: green;
+  color: white;
+}
+
+/* css abaixo da página: Criar quiz*/
+
+.card-pergunta {
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 40px;
+  width: 600px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pergunta-label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-pergunta {
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  color: black;
+  background-color: transparent;
+}
+
+.input-pergunta::placeholder,
+.alternativa::placeholder {
+  color: white;
+}
+
+.grade-alternativas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.alternativa {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid white;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  border-radius: 12px;
+  outline: none;
+  text-align: center;
+  background-color: transparent;
+}
+
+/* Cores */
+.red {
+  background-color: #e74c3c;
+}
+.blue {
+  background-color: #5dade2;
+}
+.green {
+  background-color: #27ae60;
+}
+.yellow {
+  background-color: #f1c40f;
+}
+
+.apagar-pergunta {
+  background: none;
+  border: none;
+  color: #333;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Botões de ação abaixo dos cards */
+.botoes-do-quiz {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha os botões à esquerda */
+  justify-content: center;
+  width: 600px; /* Igual ao .card-pergunta */
+  margin: -20px auto 60px auto; /* Move um pouco para cima (mais perto do card) */
+  gap: 60px;
+}
+
+.botoes-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+
+
 .adicionar-game {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  vertical-align: middle;
-  font-size: 20px;
+  font-size: 18px;
   color: white;
-  border-radius: 30px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
 }
 
-.adicionar-game:hover{
-  background-color: green;
+.adicionar-game:hover {
   color: white;
+}
+
+.finalizar-btn {
+  background-color: rgb(225, 225, 225);
+  color: gray;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
   border-radius: 30px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.finalizar-btn:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.texto-botao {
+  text-decoration: none;
+}
+
+.adicionar-game:hover .texto-botao {
+  text-decoration: underline;
+}
+
+.adicionar-game:hover .simbolo-criar {
+  text-decoration: none;
 }
 
 
-/* css abaixo da página: Criar quiz*/
-
-.botoes-do-quiz {
-  display: flex !important;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  gap: 15px;
-}
-
-.plus-botao{
-  width: 200px;
-}
 
 
 

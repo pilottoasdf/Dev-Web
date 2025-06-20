@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=add" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon=add|delete" />
   @vite(['resources/css/inicio.css', 'resources/js/app.js', 'resources/css/quizzes.css'])
 </head>
 <body>
@@ -23,7 +23,7 @@
 
 
 <div style="width: 70%; margin: 0 auto;">
-  <a href="{{ route('projetos.create') }}" class="adicionar-game btn mb-1">
+  <a href="{{ route('projetos.create') }}" class="adicionar-game-projetos btn mb-1">
     <span class=" simbolo-criar material-symbols-outlined ">add</span>
     Criar projeto
   </a>
@@ -44,6 +44,9 @@
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
           <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
         </div>
+        <span class=" lixeira material-symbols-outlined">
+delete
+</span>
       </div>
     </a>
   @endforeach
