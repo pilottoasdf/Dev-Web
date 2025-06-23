@@ -1,9 +1,15 @@
 <template>
-  <div v-if="valor==0" style="display:flex; flex-direction:column; align-items:center;">
-    <h1>{{ quiz.titulo }}</h1>
-    <p>{{ quiz.descricao }}</p>
-    <button type="button" @click="iniciarQuiz">Iniciar Quiz</button>
+
+<div v-if="valor == 0" class="quiz-container">
+  <div class="quiz-background">
+    <div class="quiz-content">
+      <h1>{{ quiz.titulo }}</h1>
+      <p>{{ quiz.descricao }}</p>
+      <button class="botao-iniciar" type="button" @click="iniciarQuiz">Iniciar Quiz</button>
+    </div>
   </div>
+</div>
+
 
   <div v-if="valor>0 && valor<=perguntas.length" style="display:flex; flex-direction:column; align-items:center;">
     <h2>{{ perguntas[valor-1].pergunta }}</h2>
