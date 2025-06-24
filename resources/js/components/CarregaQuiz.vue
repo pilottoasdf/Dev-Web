@@ -11,19 +11,24 @@
 </div>
 
 
-  <div v-if="valor>0 && valor<=perguntas.length" style="display:flex; flex-direction:column; align-items:center;">
-    <h2>{{ perguntas[valor-1].pergunta }}</h2>
-    <div>
-      <button :style="{
+  <div v-if="valor>0 && valor<=perguntas.length" class="quiz-wrapper">
+    <div class="quiz-pergunta-larga">
+  <div class="quiz-pergunta-conteudo">
+    {{ perguntas[valor-1].pergunta }}
+  </div>
+</div>
+    <h4 class="info">Escolha uma das alternativas:</h4>
+    <div class="alternativas-grid">
+      <button class="respostas red" :style="{
       backgroundColor:
         correta == 1 && etapa === 1
           ? 'green'
           : (correta!=1 && etapa === 1 
               ? 'silver' : 
               (selecionada === 1) ? 'lightblue' : '')
-    }" @click="selecionaAlternativa(1)" type="button">{{ perguntas[valor-1].alternativas[0] }}</button>
+    }" @click="selecionaAlternativa(1)" type="button"><span>{{ perguntas[valor-1].alternativas[0] }}</span></button>
 
-      <button :style="{
+      <button class="respostas blue" :style="{
       backgroundColor:
         correta == 2 && etapa === 1
           ? 'green'
@@ -31,7 +36,7 @@
               ? 'silver' : 
               (selecionada === 2) ? 'lightblue' : '')
     }" @click="selecionaAlternativa(2)" type="button">{{ perguntas[valor-1].alternativas[1] }}</button>
-      <button :style="{
+      <button class="respostas pink" :style="{
       backgroundColor:
         correta == 3 && etapa === 1
           ? 'green'
@@ -39,7 +44,7 @@
               ? 'silver' : 
               (selecionada === 3) ? 'lightblue' : '')
     }" @click="selecionaAlternativa(3)" type="button">{{ perguntas[valor-1].alternativas[2] }}</button>
-      <button :style="{
+      <button class="respostas yellow" :style="{
       backgroundColor:
         correta == 4 && etapa === 1
           ? 'green'
@@ -50,11 +55,15 @@
   </div>
 
     <br>
-    <button @click="avancaPergunta" type="button">Avançar</button>
+    <button class="finalizar-btn" @click="avancaPergunta" type="button">Avançar</button>
     
   </div>
   <div v-if="valor>perguntas.length" style="display:flex; flex-direction:column; align-items:center;">
-    <h2>Você acertou: {{ acertos }} / {{ perguntas.length }}</h2>
+   <div class="quiz-background">
+    <div class="quiz-content">
+    <h2>Você acertou: <span class="acertos">{{ acertos }}</span> / {{ perguntas.length }}</h2>
+    </div>
+    </div>
   </div>
 
 </template>
