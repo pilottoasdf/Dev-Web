@@ -46,3 +46,9 @@ Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')
 Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
     
 });
+
+Route::get('/ranking', function () {
+    return view('main.ranking');
+});
+
+
