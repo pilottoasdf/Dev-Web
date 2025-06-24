@@ -20,21 +20,66 @@
     <form method="POST" action="{{ route('preferencias.store') }}">
       @csrf
 
-      @php
-          $disciplinas = [
-              'portugues', 'matematica', 'fisica', 'quimica', 'biologia',
-              'historia', 'geografia', 'filosofia', 'sociologia', 'ingles'
-          ];
-      @endphp
-
       <div class="checkbox-group">
-        @foreach ($disciplinas as $disciplina)
-          <label>
-            <input type="hidden" name="peso_{{ $disciplina }}" value="0">
-            <input type="checkbox" name="peso_{{ $disciplina }}" value="1" {{ old('peso_' . $disciplina) ? 'checked' : '' }}>
-            {{ ucfirst($disciplina) }}
-          </label>
-        @endforeach
+        <label>
+          <input type="hidden" name="peso_portugues" value="0">
+          <input type="checkbox" name="peso_portugues" value="5" {{ old('peso_portugues') ? 'checked' : '' }}>
+          Português
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_matematica" value="0">
+          <input type="checkbox" name="peso_matematica" value="5" {{ old('peso_matematica') ? 'checked' : '' }}>
+          Matemática
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_fisica" value="0">
+          <input type="checkbox" name="peso_fisica" value="5" {{ old('peso_fisica') ? 'checked' : '' }}>
+          Física
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_quimica" value="0">
+          <input type="checkbox" name="peso_quimica" value="5" {{ old('peso_quimica') ? 'checked' : '' }}>
+          Química
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_biologia" value="0">
+          <input type="checkbox" name="peso_biologia" value="5" {{ old('peso_biologia') ? 'checked' : '' }}>
+          Biologia
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_historia" value="0">
+          <input type="checkbox" name="peso_historia" value="5" {{ old('peso_historia') ? 'checked' : '' }}>
+          História
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_geografia" value="0">
+          <input type="checkbox" name="peso_geografia" value="5" {{ old('peso_geografia') ? 'checked' : '' }}>
+          Geografia
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_filosofia" value="0">
+          <input type="checkbox" name="peso_filosofia" value="5" {{ old('peso_filosofia') ? 'checked' : '' }}>
+          Filosofia
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_sociologia" value="0">
+          <input type="checkbox" name="peso_sociologia" value="5" {{ old('peso_sociologia') ? 'checked' : '' }}>
+          Sociologia
+        </label>
+
+        <label>
+          <input type="hidden" name="peso_ingles" value="0">
+          <input type="checkbox" name="peso_ingles" value="5" {{ old('peso_ingles') ? 'checked' : '' }}>
+          Inglês
+        </label>
       </div>
 
       <button type="submit">Salvar Preferências</button>
