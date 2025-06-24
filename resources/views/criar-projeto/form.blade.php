@@ -25,24 +25,24 @@
     <br><br>
     <label for="disciplina">Disciplina:</label>
     <select type="text" name="disciplina" id="disciplina" required>
-      <option value="portugues" {{ old('disciplina') == 'portugues' ? 'selected' : '' }}>Português</option>
-      <option value="matematica" {{ old('disciplina') == 'matematica' ? 'selected' : '' }}>Matemática</option>
-      <option value="fisica" {{ old('disciplina') == 'fisica' ? 'selected' : '' }}>Física</option>
-      <option value="quimica" {{ old('disciplina') == 'quimica' ? 'selected' : '' }}>Química</option>
-      <option value="biologia" {{ old('disciplina') == 'biologia' ? 'selected' : '' }}>Biologia</option>
-      <option value="historia" {{ old('disciplina') == 'historia' ? 'selected' : '' }}>História</option>
-      <option value="geografia" {{ old('disciplina') == 'geografia' ? 'selected' : '' }}>Geografia</option>
-      <option value="filosofia" {{ old('disciplina') == 'filosofia' ? 'selected' : '' }}>Filosofia</option>
-      <option value="sociologia" {{ old('disciplina') == 'sociologia' ? 'selected' : '' }}>Sociologia</option>
-      <option value="ingles" {{ old('disciplina') == 'ingles' ? 'selected' : '' }}>Inglês</option>''
+      <option value="Português" {{ old('disciplina') == 'Português' ? 'selected' : '' }}>Português</option>
+      <option value="Matemática" {{ old('disciplina') == 'Matemática' ? 'selected' : '' }}>Matemática</option>
+      <option value="Física" {{ old('disciplina') == 'Física' ? 'selected' : '' }}>Física</option>
+      <option value="Química" {{ old('disciplina') == 'Química' ? 'selected' : '' }}>Química</option>
+      <option value="Biologia" {{ old('disciplina') == 'Biologia' ? 'selected' : '' }}>Biologia</option>
+      <option value="História" {{ old('disciplina') == 'História' ? 'selected' : '' }}>História</option>
+      <option value="Geografia" {{ old('disciplina') == 'Geografia' ? 'selected' : '' }}>Geografia</option>
+      <option value="Filosofia" {{ old('disciplina') == 'Filosofia' ? 'selected' : '' }}>Filosofia</option>
+      <option value="Sociologia" {{ old('disciplina') == 'Sociologia' ? 'selected' : '' }}>Sociologia</option>
+      <option value="Inglês" {{ old('disciplina') == 'Inglês' ? 'selected' : '' }}>Inglês</option>
     </select>
     <br><br>
     <label for="escolaridade_recomendada">Escolaridade recomendada:</label>
     <select type="text" name="escolaridade_recomendada" id="escolaridade_recomendada" required>
-      <option value="fundamentalI" {{ old('escolaridade_recomendada') == 'fundamentalI' ? 'selected' : '' }}>Ensino Fundamental I</option>
-      <option value="fundamentalII" {{ old('escolaridade_recomendada') == 'fundamentalII' ? 'selected' : '' }}>Ensino Fundamental II</option>
-      <option value="médio" {{ old('escolaridade_recomendada') == 'médio' ? 'selected' : '' }}>Ensino Médio</option>
-      <option value="superior" {{ old('escolaridade_recomendada') == 'superior' ? 'selected' : '' }}>Ensino Superior</option>
+      <option value="Fundamental I" {{ old('escolaridade_recomendada') == 'Fundamental I' ? 'selected' : '' }}>Ensino Fundamental I</option>
+      <option value="Fundamental II" {{ old('escolaridade_recomendada') == 'Fundamental II' ? 'selected' : '' }}>Ensino Fundamental II</option>
+      <option value="Ensino Médio" {{ old('escolaridade_recomendada') == 'Ensino Médio' ? 'selected' : '' }}>Ensino Médio</option>
+      <option value="Ensino Superior" {{ old('escolaridade_recomendada') == 'Ensino Superior' ? 'selected' : '' }}>Ensino Superior</option>
     </select>
     <br><br>
     <label for="descricao">Descrição do projeto:</label>

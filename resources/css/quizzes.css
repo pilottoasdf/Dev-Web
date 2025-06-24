@@ -187,7 +187,6 @@ a {
   background-color: transparent;
 }
 
-.input-pergunta::placeholder,
 .alternativa::placeholder {
   color: white;
 }

@@ -51,10 +51,10 @@
     <div class="flex-column">
     <select name="escolaridade" required>
     <option value="" disabled {{ old('escolaridade') == '' ? 'selected' : '' }}>Escolaridade</option>
-    <option value="fundamentalI" {{ old('escolaridade') == 'fundamentalI' ? 'selected' : '' }}>Ensino Fundamental I</option>
-    <option value="fundamentalII" {{ old('escolaridade') == 'fundamentalII' ? 'selected' : '' }}>Ensino Fundamental II</option>
-    <option value="médio" {{ old('escolaridade') == 'médio' ? 'selected' : '' }}>Ensino Médio</option>
-    <option value="superior" {{ old('escolaridade') == 'superior' ? 'selected' : '' }}>Ensino Superior</option>
+    <option value="Fundamental I" {{ old('escolaridade') == 'Fundamental I' ? 'selected' : '' }}>Ensino Fundamental I</option>
+    <option value="Fundamental II" {{ old('escolaridade') == 'Fundamental II' ? 'selected' : '' }}>Ensino Fundamental II</option>
+    <option value="Ensino Médio" {{ old('escolaridade') == 'Ensino Médio' ? 'selected' : '' }}>Ensino Médio</option>
+    <option value="Ensino Superior" {{ old('escolaridade') == 'Ensino Superior' ? 'selected' : '' }}>Ensino Superior</option>
 </select>
 @error('escolaridade')
       <span class="error-message">{{ $message }}</span>

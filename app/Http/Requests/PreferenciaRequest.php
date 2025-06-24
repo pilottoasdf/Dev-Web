@@ -22,16 +22,16 @@ class PreferenciaRequest extends FormRequest
     public function rules(): array
 {
     return [
-        'peso_portugues' => 'nullable|boolean',
-        'peso_matematica' => 'nullable|boolean',
-        'peso_fisica' => 'nullable|boolean',
-        'peso_quimica' => 'nullable|boolean',
-        'peso_biologia' => 'nullable|boolean',
-        'peso_historia' => 'nullable|boolean',
-        'peso_geografia' => 'nullable|boolean',
-        'peso_filosofia' => 'nullable|boolean',
-        'peso_sociologia' => 'nullable|boolean',
-        'peso_ingles' => 'nullable|boolean',
+        'peso_portugues' => 'nullable|integer',
+        'peso_matematica' => 'nullable|integer',
+        'peso_fisica' => 'nullable|integer',
+        'peso_quimica' => 'nullable|integer',
+        'peso_biologia' => 'nullable|integer',
+        'peso_historia' => 'nullable|integer',
+        'peso_geografia' => 'nullable|integer',
+        'peso_filosofia' => 'nullable|integer',
+        'peso_sociologia' => 'nullable|integer',
+        'peso_ingles' => 'nullable|integer',
     ];
 }
 
@@ -42,7 +42,7 @@ public function withValidator($validator)
         $marcou = false;
 
         foreach ($input as $key => $value) {
-            if (str_starts_with($key, 'peso_') && $value == '1') {
+            if (str_starts_with($key, 'peso_') && $value == '5') {
                 $marcou = true;
                 break;
             }

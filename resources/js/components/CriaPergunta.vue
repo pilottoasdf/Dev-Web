@@ -15,15 +15,15 @@
       <br>
       <label>Alternativa correta:</label>
       <select v-model="perguntas[index]['alternativa_correta']" :name="'alternativa_correta_' + (index)" id="alternativa_correta" required>
-        <option value="">Indique a resposta correta</option>
+        <option disabled value="">Indique a resposta correta</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
       </select>
       <br>
-    <button type="button" @click="apagarPergunta(index)" class="apagar-pergunta">
-  <span class="material-symbols-outlined lixeira2">delete</span>
+    <button v-if="index!=0" type="button" @click="apagarPergunta(index)" class="apagar-pergunta">
+    <span v-if="index!=0" class="material-symbols-outlined lixeira2">delete</span>
   Apagar Pergunta
 </button>
 
@@ -57,7 +57,13 @@ export default {
   data() {
     return {
       csrfToken: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      perguntas: []
+      perguntas: [
+        {
+          'pergunta':'',
+          'alternativas':['', '', '', ''],
+          'alternativa_correta':'',
+        }
+      ]
     }
   },
   methods: {
