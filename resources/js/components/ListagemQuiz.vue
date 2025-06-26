@@ -1,93 +1,38 @@
 <template>
-
-  <div class="linha-topo d-flex justify-content-between align-items-center mb-3 px-3">
+  <div class="linha-topo d-flex justify-content-between align-items-center mb-3 px-3" style="position: relative; z-index: 10;">
     <h1 class="quizzes-title m-0 text-center flex-grow-1">Quizzes</h1>
-    <div class="dropdown">
+
+    <!-- Dropdown container -->
+    <div class="dropdown" style="position: relative;">
       <button class="btn btn-link p-0 border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
         <span class="filtrar material-symbols-outlined">filter_alt</span>
       </button>
-      <ul class="dropdown-menu dropdown-menu-end p-3">
 
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro1" value="Português">
-          <label class="form-check-label" for="filtro1">Português</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro2" value="Matemática">
-          <label class="form-check-label" for="filtro2">Matemática</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro3" value="Física">
-          <label class="form-check-label" for="filtro3">Física</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro4" value="Química">
-          <label class="form-check-label" for="filtro4">Química</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro5" value="Biologia">
-          <label class="form-check-label" for="filtro5">Biologia</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro6" value="História">
-          <label class="form-check-label" for="filtro6">História</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro7" value="Geografia">
-          <label class="form-check-label" for="filtro7">Geografia</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro8" value="Filosofia">
-          <label class="form-check-label" for="filtro8">Filosofia</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro9" value="Sociologia">
-          <label class="form-check-label" for="filtro9">Sociologia</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" id="filtro10" value="Inglês">
-          <label class="form-check-label" for="filtro10">Inglês</label>
+      <ul class="dropdown-menu dropdown-menu-end p-3" style="max-height: 400px; overflow-y: auto; z-index: 9999;">
+        <!-- Disciplinas -->
+        <div class="form-check" v-for="(disciplina, idx) in ['Português','Matemática','Física','Química','Biologia','História','Geografia','Filosofia','Sociologia','Inglês']" :key="'disc' + idx">
+          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_disciplina" name="filtro_disciplina" :id="'filtro' + idx" :value="disciplina">
+          <label class="form-check-label" :for="'filtro' + idx">{{ disciplina }}</label>
         </div>
 
         <hr>
 
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_escolaridade" name="filtro_escolaridade" id="filtro11" value="Fundamental I">
-          <label class="form-check-label" for="filtro11">Fundamental I</label>
+        <!-- Escolaridades -->
+        <div class="form-check" v-for="(nivel, idx2) in ['Fundamental I','Fundamental II','Ensino Médio','Ensino Superior']" :key="'esc' + idx2">
+          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_escolaridade" name="filtro_escolaridade" :id="'filtro' + (idx2 + 11)" :value="nivel">
+          <label class="form-check-label" :for="'filtro' + (idx2 + 11)">{{ nivel }}</label>
         </div>
 
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_escolaridade" name="filtro_escolaridade" id="filtro12" value="Fundamental II">
-          <label class="form-check-label" for="filtro12">Fundamental II</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_escolaridade" name="filtro_escolaridade" id="filtro13" value="Ensino Médio">
-          <label class="form-check-label" for="filtro13">Ensino Médio</label>
-        </div>
-
-        <div class="form-check">
-          <input @change="filtrarQuizzes" class="form-check-input" type="radio" v-model="filtro_escolaridade" name="filtro_escolaridade" id="filtro14" value="Ensino Superior">
-          <label class="form-check-label" for="filtro14">Ensino Superior</label>
-        </div>
-        
         <hr>
 
-        <button @click="limparFiltro" type="button">Limpar</button>
+        <button @click="limparFiltro" type="button" class="btn btn-sm btn btn-outline-danger">Limpar</button>
       </ul>
     </div>
   </div>
 
-  <div class="diferente-quiz box-quiz" v-if="Object.keys(vetor).length>0" v-for="(quizzes, index) in vetor" :key="index">
+ <!-- Lista de quizzes (apenas 1 grid, com n quizzes dentro) -->
+<div class="diferente-quiz box-quiz" v-if="Object.keys(vetor).length > 0">
+  <div v-for="(quizzes, index) in vetor" :key="index">
     <a :href="'quiz/' + quizzes['quiz']['id']">
       <div class="quiz" :style="{ backgroundImage: 'url(/storage/' + quizzes['quiz']['imagem'] + ')' }">
         <div class="overlay">
@@ -102,12 +47,14 @@
       </div>
     </a>
   </div>
+</div>
 
-  <div v-else style="color:red;">
-    Não foi possível encontrar nenhum quiz 
-  </div>
-
+<!-- Se não houver quizzes -->
+<div class="nao-encontrado" v-else style="color: red;">
+  Não foi possível encontrar nenhum quiz 
+</div>
 </template>
+
 
 <script>
 export default {
