@@ -18,7 +18,7 @@
     ></menu-component>
   </div>
 
-  <div v-if="valor>perguntas.length" style="display:flex; flex-direction:column; align-items:center;">
+  <div style="display:flex; flex-direction:column; align-items:center;">
    <div class="quiz-background">
     <div class="quiz-content">
     <h2>Você acertou: <span class="acertos">{{ $acertos }}</span> / {{ $perguntas }}</h2>
