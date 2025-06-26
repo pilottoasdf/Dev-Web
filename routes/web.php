@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreferenciaController;
+use App\Http\Controllers\ProgressoController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\QuizController;
 
@@ -43,8 +44,10 @@ Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->midd
 Route::post('criar-quiz', [QuizController::class, 'store'])->middleware('auth')->name('quiz.store');
 Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')->name('quiz.load');
 
-
 Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
+
+Route::post('progresso/create', [ProgressoController::class, 'create'])->middleware('auth')->name('progresso.create');
+Route::get('progresso', [ProgressoController::class, 'show'])->middleware('auth')->name('progresso.lista');
     
 });
 
