@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
+use App\Models\Preferencia;
+use App\Models\Quiz;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
@@ -66,9 +68,25 @@ class AuthController extends Controller
     }
 
 
-    public function inicio(){
-        return view('main.inicio');
+    public function inicio()
+{
+    $user = Auth::user();
+    $preferencias = $user->preferencia;
 
+    $disciplinasPreferidas = [];
+
+    if ($preferencias) {
+        foreach ($preferencias->getAttributes() as $campo => $valor) {
+            if (str_starts_with($campo, 'peso_') && $valor > 0) {
+                $disciplinasPreferidas[] = str_replace('peso_', '', $campo);
+            }
+        }
     }
+
+    // Filtra quizzes com base nas disciplinas preferidas
+    $quizzes = Quiz::whereIn('disciplina', $disciplinasPreferidas)->latest()->take(10)->get();
+
+    return view('main.inicio', ['quizzes' => $quizzes]);
+}
 }
 

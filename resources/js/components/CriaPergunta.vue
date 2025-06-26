@@ -9,7 +9,7 @@
       <div class="grade-alternativas">
       <input required :name="'alternativa_1_' + (index)" type="text" v-model="perguntas[index]['alternativas'][0]" :placeholder="'Alternativa ' + 1"  class="alternativa red"/>
       <input required :name="'alternativa_2_' + (index)" type="text" v-model="perguntas[index]['alternativas'][1]" :placeholder="'Alternativa ' + 2"  class="alternativa blue"/>
-      <input required :name="'alternativa_3_' + (index)" type="text" v-model="perguntas[index]['alternativas'][2]" :placeholder="'Alternativa ' + 3"  class="alternativa green"/>
+      <input required :name="'alternativa_3_' + (index)" type="text" v-model="perguntas[index]['alternativas'][2]" :placeholder="'Alternativa ' + 3"  class="alternativa pink"/>
       <input required :name="'alternativa_4_' + (index)" type="text" v-model="perguntas[index]['alternativas'][3]" :placeholder="'Alternativa ' + 4"  class="alternativa yellow"/>
       </div>
       <br>
