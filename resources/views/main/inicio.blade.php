@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-  @vite(['resources/css/inicio.css', 'resources/js/inicio.js', 'resources/js/app.js'])
+  @vite(['resources/css/inicio.css','resources/css/quizzes.css', 'resources/js/inicio.js', 'resources/js/app.js'])
 </head>
 <body>
 
@@ -48,22 +48,26 @@
       </button>
 
       <!-- Cards de Quizzes -->
-      <div class="d-flex flex-wrap justify-content-center">
-        @foreach ($quizzes as $quiz)
-          <div class="card m-2" style="width: 300px;">
-            <img src="{{ $quiz->imagem }}" class="card-img-top" alt="Quiz">
-            <div class="card-body">
-              <h5 class="card-title">{{ $quiz->titulo }}</h5>
-              <p class="card-text">{{ $quiz->descricao }}</p>
-              <a href="{{ route('quiz.load', $quiz->id) }}" class="btn btn-primary">Acessar Quiz</a>
-            </div>
-          </div>
-        @endforeach
-
-        @if ($quizzes->isEmpty())
-          <p class="text-white text-center mt-3">Não há recomendações no momento.</p>
-        @endif
+      <div class="box-quiz">
+  @foreach ($quizzes as $quiz)
+    <a href="{{ route('quiz.load', $quiz->id) }}">
+      <div class="quiz" style="background-image: url('{{ $quiz->imagem }}'); background-size: cover; background-repeat: no-repeat;">
+        <div class="overlay">
+          <div class="titulo">{{ $quiz->titulo }}</div>
+        </div>
+        <div class="detalhes">
+          <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
+          <div><strong>Descrição:</strong>&nbsp;&nbsp;{{ $quiz->descricao }}</div>
+        </div>
       </div>
+    </a>
+  @endforeach
+
+  @if ($quizzes->isEmpty())
+    <p class="text-white text-center mt-3">Não há recomendações no momento.</p>
+  @endif
+</div>
+
 
       <!-- Botão Próximo -->
       <button class="btn botao-carrossel ms-2" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
@@ -73,7 +77,7 @@
     </div>
   </div>
 
-  <!-- Botão "Ver mais" -->
+  
   <div class="adicionar btn mx-auto" style="max-width: 100%; width: 950px; height: 40px;">Ver mais...</div>
 
   <!-- Scripts -->
