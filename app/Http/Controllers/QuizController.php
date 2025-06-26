@@ -33,7 +33,7 @@ class QuizController extends Controller
         $quiz = Quiz::create([
             'titulo' => session('projeto.titulo'),
             'descricao' => session('projeto.descricao'),
-            'disciplina' => strtolower(str_replace(' ', '', session('projeto.disciplina'))),
+            'disciplina' => session('projeto.disciplina'),
             'escolaridade_recomendada' => session('projeto.escolaridade_recomendada'),
             'imagem' => session('projeto.imagem'),
             'perguntas' => $json,
