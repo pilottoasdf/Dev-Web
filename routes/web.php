@@ -53,6 +53,4 @@ Route::get('progresso', [ProgressoController::class, 'show'])->middleware('auth'
 
 Route::get('/ranking', function () {
     return view('main.ranking');
-});
-
-
+})->middleware('auth')->name('ranking');
