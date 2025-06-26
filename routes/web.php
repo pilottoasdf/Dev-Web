@@ -35,6 +35,7 @@ Route::get('forcar-logout', function () {
 
 Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
 
+
 Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
 Route::get('criar-projeto', [ProjetoController::class, 'create'])->middleware('auth')->name('projetos.create');
 Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->middleware('auth')->name('quiz-jogo.create');
