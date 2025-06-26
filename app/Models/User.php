@@ -48,4 +48,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+        public function preferencia() {
+            return $this->hasOne(\App\Models\Preferencia::class, 'id_usuario');
+    }
+
 }

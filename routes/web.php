@@ -36,6 +36,7 @@ Route::get('forcar-logout', function () {
 
 Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
 
+
 Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
 Route::get('criar-projeto', [ProjetoController::class, 'create'])->middleware('auth')->name('projetos.create');
 Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->middleware('auth')->name('quiz-jogo.create');
@@ -49,3 +50,9 @@ Route::post('progresso/create', [ProgressoController::class, 'create'])->middlew
 Route::get('progresso', [ProgressoController::class, 'show'])->middleware('auth')->name('progresso.lista');
     
 });
+
+Route::get('/ranking', function () {
+    return view('main.ranking');
+});
+
+
