@@ -27,7 +27,8 @@ body {
     border-radius: 10px;
     box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
     gap: 30px;
-}
+    width: 400px;
+} 
 
 button{
     display: flex;
@@ -43,7 +44,7 @@ button{
 }
 
 #btn {
-        display: flex;
+    display: flex;
     background-color: #dedede;
     color: #666;
     display: flex;

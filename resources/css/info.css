@@ -32,7 +32,7 @@ body {
 }
 button{
     background-color: #dedede;
-    color: #666;
+    color: #666; 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -40,4 +40,17 @@ button{
     width: 300px;
     padding: 10px;
     border-radius: 15px;
+}
+
+#btn {
+    display: flex;
+    background-color: #dedede;
+    color: #666;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: none;
+    width: 100px;
+    border-radius: 20px;
+    margin-top: 90px;
 }

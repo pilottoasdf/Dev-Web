@@ -26,7 +26,8 @@
         <span id="nome">{{ $user->name }}</span>
 
         <div id="conquistas">
-            <p>aqui jazem os troféus e as little stars</p>
+            <p>🏆Troféus: {{ $progressos[0]->total }}</p>
+            <p>🌟Estrelas: {{ round($progressos[0]->media_pontos, 2) }}</p>
         </div>
 
         <form action="{{ route('logout') }}" method="get">

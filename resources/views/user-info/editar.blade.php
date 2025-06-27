@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-    @vite(['resources/css/inicio.css', 'resources/css/editar.css','resources/js/app.js'])
+    @vite(['resources/css/editar.css', 'resources/css/inicio.css','resources/js/app.js'])
 </head>
 <body>
     <br>
@@ -17,7 +17,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <div id="card" style="min-width: 500px;">
+    <div id="card" style="min-width: 700px;">
         <form id="campos" action="{{ route('user.atualizar') }}" method="post">
             @method('PUT')
             @csrf
@@ -37,7 +37,7 @@
                 <input type="text" name="escolaridade" value="{{ old('escolaridade',$user->escolaridade) }}">
             </div>
 
-            <div>
+            <div> 
                 <label for="data_nasc">Data de nascimento: </label>
                 <input type="date" name="data_nasc" value="{{ old('data_nasc', $user->data_nasc) }}">
             </div>

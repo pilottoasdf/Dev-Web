@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-    @vite(['resources/css/inicio.css', 'resources/css/info.css','resources/js/app.js'])
+    @vite(['resources/css/info.css', 'resources/css/inicio.css','resources/js/app.js'])
 </head>
 <body>
-    <div id="app">
+    <div id="app"> 
         <menu-component 
             user-name="{{ auth()->user()->name }}" 
             user-email="{{ auth()->user()->email }}"
@@ -33,6 +33,11 @@
             </form>
         </div>
     </div>
+
+    <form action="{{ route('perfil.info') }}" method="GET">
+        <button id="btn" type="submit">Voltar</button>
+    </form>
+
 
 
 </body>
