@@ -30,7 +30,7 @@
     </div>
   </div>
 
- <!-- Lista de quizzes (apenas 1 grid, com n quizzes dentro) -->
+
 <div class="diferente-quiz box-quiz" v-if="Object.keys(vetor).length > 0">
   <div v-for="(quizzes, index) in vetor" :key="index">
     <a :href="'quiz/' + quizzes['quiz']['id']">
