@@ -62,7 +62,7 @@
                 <div class="detalhes">
                   <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz['quiz']->titulo }}</div>
                   <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz['quiz']->disciplina }}</div>                  
-                  <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $quiz['quiz']->escolaridade_recomendada }}</div>
+                  <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $quiz['criador']->name }}</div>
                   <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz['quiz']->escolaridade_recomendada }}</div>
                 </div>
               </div>
