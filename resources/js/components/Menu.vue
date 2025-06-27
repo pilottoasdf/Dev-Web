@@ -23,7 +23,7 @@
   <img class="usuario me-2" src="https://cdn-icons-png.flaticon.com/512/303/303593.png" alt="imagem do usuario" style="width: 40px; height: 40px; border-radius: 50%;">
  
   <button
-    class="btn perfil-usuario btn-dark dropdown-toggle"
+    class="perfil-usuario dropdown-toggle"
     type="button"
     data-bs-toggle="dropdown"
     aria-expanded="false"
@@ -39,7 +39,7 @@
     <li><a href="/meus-projetos" type="submit" class="dropdown-item btn btn-link text-start">Meus Projetos</a></li>
     <li><hr class="dropdown-divider"></li>
     <li>
-      <a href="/logout" type="submit" class="dropdown-item btn btn-link text-start">Sair</a>
+      <a href="/logout" type="submit" class="perfil-cor dropdown-item btn btn-link text-start">Sair</a>
     </li>
   </ul>
 </div>

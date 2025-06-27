@@ -66,19 +66,23 @@ body {
     box-shadow: none;
 }
 
-
-.perfil .bolinha {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #a78bfa;
-    border: 2px solid #fff;
-    outline: none;
+.perfil-cor{
+    color: black;
 }
+.perfil-cor:hover{
+    color: black;
+    background-color: #ebeced
+}
+
 .perfil-usuario{
     border-radius: 30px;
     width: 80px;
+    height: 40px;
     background-color: white;
+    color: black;
+}
+.perfil-usuario:hover{
+    background-color: #c6c7c8;
     color: black;
 }
 
@@ -216,8 +220,12 @@ body {
     margin-bottom: 20px;
     color: #ffffff;
     width: 100%;
-    max-width: 800px;
+  margin-top: -10px;
  
+}
+
+.ver-mais{
+    margin-top: 10px;
 }
 .texto-card{
     flex: 1; background-color: white; display: flex; flex-direction: column; align-items:center
@@ -253,12 +261,6 @@ body {
     height: 110px;
     object-fit: cover;
 }
-
-
-
-
-
-
 
 
 .card-content {
@@ -384,3 +386,68 @@ input[type="submit"] {
     background-color: rgb(71, 74, 132);
     color: white;
   }
+
+
+ #carouselExample .carousel-inner {
+  overflow: hidden;
+}
+
+.carousel{
+    width: 1000px;
+}
+
+.carrossel-box {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+ 
+}
+
+.carrossel-box::-webkit-scrollbar {
+  display: none;
+}
+
+.carrossel-box a {
+  flex: 0 0 calc(33.33% - 20px); /* Três itens por vez com gap */
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.botao-carrossel-personalizado {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+  z-index: 10;
+}
+
+.botao-carrossel-personalizado:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carrossel-box-externo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px; /* Aumentado */
+  width: 100%;
+  margin: 0 auto;
+  gap: 10px;
+}
+.carrossel-box .quiz {
+width: 300px;
+}
+
+

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Preferencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Quiz;
@@ -43,10 +44,23 @@ class QuizController extends Controller
         
     }
 
-    public function loadQuiz($id){
-        $quiz = Quiz::find($id);
+    public function loadQuiz($id)
+{
+    $quiz = Quiz::findOrFail($id);
+    $user = Auth::user();
 
-        $json = json_encode($quiz);
-        return view('main.quiz', ['json'=>$json]);
+    
+   $preferencia = $user->preferencia;
+
+    if ($preferencia && $quiz->disciplina) {
+        $campo = 'peso_' . strtolower($quiz->disciplina);
+
+        if (array_key_exists($campo, $preferencia->getAttributes())) {
+            $preferencia->$campo += 1;
+            $preferencia->save();
+        }
     }
+    $json = json_encode($quiz);
+    return view('main.quiz', ['json' => $json]);
+}
 }

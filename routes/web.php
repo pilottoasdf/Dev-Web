@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreferenciaController;
+use App\Http\Controllers\ProgressoController;
 use App\Http\Controllers\ProjetoController;
 use App\Http\Controllers\QuizController;
 
@@ -48,6 +49,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('perfil', [PerfilController::class, 'infoPerfil'])->middleware('auth')->name('perfil.info');
     Route::get('perfil/info', [PerfilController::class, 'infoUser'])->middleware('auth')->name('user.info');
-
     
 });
+
+Route::get('/ranking', function () {
+    return view('main.ranking');
+})->middleware('auth')->name('ranking');

@@ -58,13 +58,7 @@
     <button class="finalizar-btn" @click="avancaPergunta" type="button">Avançar</button>
     
   </div>
-  <div v-if="valor>perguntas.length" style="display:flex; flex-direction:column; align-items:center;">
-   <div class="quiz-background">
-    <div class="quiz-content">
-    <h2>Você acertou: <span class="acertos">{{ acertos }}</span> / {{ perguntas.length }}</h2>
-    </div>
-    </div>
-  </div>
+
 
 </template>
 
@@ -114,6 +108,41 @@ export default {
           this.selecionada = 0
           this.etapa = 0
         }
+      }
+      if(this.valor>this.perguntas.length){
+        function redirectPost(url, data = {}) {
+          const form = document.createElement('form');
+          form.method = 'POST';
+          form.action = url;
+
+          const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+          if (csrfToken) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = '_token';
+            input.value = csrfToken;
+            form.appendChild(input);
+          }
+
+          for (const key in data) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = data[key];
+            form.appendChild(input);
+          }
+
+          document.body.appendChild(form);
+          
+          form.submit();
+        }
+
+        redirectPost('/progresso/create/', {
+          id_quiz: this.quiz.id,
+          acertos: this.acertos,
+          perguntas: this.perguntas.length,
+        })
+
       }
     }
   }
