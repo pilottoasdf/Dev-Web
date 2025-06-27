@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <!-- Início do Menu -->
+  
   <div id="app">
     <menu-component 
       user-name="{{ auth()->user()->name }}" 
@@ -19,9 +19,9 @@
       logout-url="{{ route('logout') }}">
     </menu-component>
   </div>
-  <!-- Fim do Menu -->
+  
 
-  <!-- Banner -->
+  
   <div class="banner" id="banner">
     <img id="banner-img" src="https://blog.ebaconline.com.br/blog/wp-content/uploads/2022/12/kcnb4lkkucfipej3ngqxm-scaled-e1674744655926.jpeg" alt="Banner" />
     <div class="texto" id="banner-texto">
@@ -40,12 +40,12 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="carrossel-box-externo">
-        <!-- Botão Anterior -->
+      
         <button class="carousel-control-prev botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box').scrollBy({left: -300, behavior: 'smooth'})">
           ‹
         </button>
 
-        <!-- Lista de Quizzes -->
+       
         <div class="carrossel-box">
           @foreach ($quizzes as $quiz)
             <a href="{{ route('quiz.load', $quiz->id) }}">
@@ -63,7 +63,7 @@
           @endforeach
         </div>
 
-        <!-- Botão Próximo -->
+       
         <button class="carousel-control-next botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box').scrollBy({left: 300, behavior: 'smooth'})">
           ›
         </button>
@@ -77,9 +77,10 @@
 </div>
 
   
-  <div class="ver-mais adicionar btn mx-auto" style="max-width: 100%; width: 950px; height: 40px;">Ver mais...</div>
+  <div class="ver-mais adicionar btn mx-auto" style="max-width: 100%; width: 1000px; height: 40px;">Ver mais...</div>
 
-  <!-- Scripts -->
+
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>

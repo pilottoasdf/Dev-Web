@@ -21,8 +21,8 @@
   <form method="post" class="form-criar" action="{{ route('quiz-jogo.create') }}" enctype="multipart/form-data">
     @csrf
     <label for="titulo">Título:</label>
-    <input type="text" name="titulo" id="titulo" value="{{ old('titulo') }}" required>
-    <br><br>
+    <input type="text" placeholder="Insire um título aqui..." name="titulo" id="titulo" value="{{ old('titulo') }}" required>
+
     <label for="disciplina">Disciplina:</label>
     <select type="text" name="disciplina" id="disciplina" required>
       <option value="Português" {{ old('disciplina') == 'Português' ? 'selected' : '' }}>Português</option>
@@ -36,7 +36,7 @@
       <option value="Sociologia" {{ old('disciplina') == 'Sociologia' ? 'selected' : '' }}>Sociologia</option>
       <option value="Inglês" {{ old('disciplina') == 'Inglês' ? 'selected' : '' }}>Inglês</option>
     </select>
-    <br><br>
+
     <label for="escolaridade_recomendada">Escolaridade recomendada:</label>
     <select type="text" name="escolaridade_recomendada" id="escolaridade_recomendada" required>
       <option value="Fundamental I" {{ old('escolaridade_recomendada') == 'Fundamental I' ? 'selected' : '' }}>Ensino Fundamental I</option>
@@ -44,27 +44,26 @@
       <option value="Ensino Médio" {{ old('escolaridade_recomendada') == 'Ensino Médio' ? 'selected' : '' }}>Ensino Médio</option>
       <option value="Ensino Superior" {{ old('escolaridade_recomendada') == 'Ensino Superior' ? 'selected' : '' }}>Ensino Superior</option>
     </select>
-    <br><br>
+
     <label for="descricao">Descrição do projeto:</label>
-    <br>
-    <textarea type="text" name="descricao" id="descricao"> {{ old('descricao') }}</textarea>
-    <br><br>
-    <label for="imagem">Imagem para o projeto:</label>
-    <br>
-    <input type="file" name="imagem" id="imagem" value="{{ old('imagem') }}" accept="image/*">
-    <br><br>
+
+    <textarea type="text" class="descricao" placeholder="Insire uma descrição aqui..." name="descricao" id="descricao"> {{ old('descricao') }}</textarea>
+
+    <label for="imagem" class="custom-file-label">Imagem para o projeto</label>
+
+    <input type="file" class="btn-imagem-escolher" name="imagem" id="imagem" value="{{ old('imagem') }}" accept="image/*">
+
     <span>Seu projeto é um:</span>
-    <br>
     <label>
       <input type="radio" name="tipo" value="quiz" {{ old('tipo') == 'quiz' ? 'checked' : '' }} required/>
       Quiz
     </label>
-    <br>
+
     <label>
       <input type="radio" name="tipo" value="jogo" {{ old('tipo') == 'jogo' ? 'checked' : '' }} required/>
       Jogo
     </label>
-    <br><br>
+ 
     <input type="submit" value="Confirmar">
   </form>
 

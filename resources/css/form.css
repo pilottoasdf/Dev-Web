@@ -66,4 +66,28 @@ body {
     background-color: rgb(71, 74, 132);
     color: white;
   }
+
+  .descricao{
+    min-height: 140px;
+    max-height: 140px;
+  }
   
+ .btn-imagem-escolher {
+    display: none; 
+  }
+
+  .custom-file-label {
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: white;
+    color: black;
+    
+    border-radius: 6px;
+    cursor: pointer;
+    
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-file-label:hover {
+    background-color: #eeefef;
+  }
