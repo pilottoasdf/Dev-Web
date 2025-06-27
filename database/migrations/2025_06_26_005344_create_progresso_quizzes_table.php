@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('id_quiz')->constrained('quizzes')->onDelete('cascade');
             $table->foreignId('id_usuario')->constrained('users')->onDelete('cascade');
             $table->integer('tentativas');
-            $table->integer('pontos');
+            $table->decimal('pontos', 5, 1);
             $table->boolean('trofeu');
             $table->timestamps();
         });
