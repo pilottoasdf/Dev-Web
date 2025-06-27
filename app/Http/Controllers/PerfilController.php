@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgressoQuiz;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PerfilController extends Controller
 {
     public function infoPerfil(){
         $user = Auth::user();
 
-        return view('user-info.perfil', ['user'=>$user]);
+        $progressos = ProgressoQuiz::select(DB::raw('sum(trofeu) as total'), DB::raw('AVG(pontos) as media_pontos'))->where('id_usuario', $user->id)->groupBy('id_usuario')->get();
+
+        return view('user-info.perfil', ['user'=>$user, 'progressos'=>$progressos]);
     }
 
     public function infoUser(){
