@@ -30,19 +30,16 @@
     <div class="scroll-area">
       <div class="separar">
         <span>Usuários</span>
+        <span>Pontos</span>
         <span>Troféus</span>
       </div>
 
-      <div class="ranking-row"><span>1º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>2º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>3º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>4º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>5º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>6º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>7º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>8º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>9º Nome de usuário</span><span>X 🏆</span></div><hr>
-      <div class="ranking-row"><span>10º Nome de usuário</span><span>X 🏆</span></div><hr>
+      @foreach ($dados as $index=>$vetor)
+
+        <div class="ranking-row"><span>{{ $index+1 }}º {{ $vetor['usuario']->name}} </span><span>Pontos: {{ round($vetor['progresso']->media_pontos, 2) }}</span><span>{{ $vetor['progresso']->total }}X 🏆</span></div><hr>
+
+      @endforeach
+      
     </div>
 
     <button class="ranking-voltar" onclick="window.location.href='{{ route('inicio') }}'">Voltar</button>
