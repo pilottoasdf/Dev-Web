@@ -49,7 +49,13 @@
         <div class="carrossel-box">
           @foreach ($quizzes as $quiz)
             <a href="{{ route('quiz.load', $quiz->id) }}">
-              <div class="quiz" style="background-image: url('{{ $quiz->imagem }}'); background-size: cover; background-repeat: no-repeat;">
+              @if ($quiz->imagem!=null)
+                <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+              @else
+                <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+                  <h2 style="color:black;">{{ $quiz->titulo }}</h2>
+              @endif
+                
                 <div class="overlay">
                   <div class="titulo">{{ $quiz->titulo }}</div>
                 </div>
