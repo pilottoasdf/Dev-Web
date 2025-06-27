@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-  @vite(['resources/css/inicio.css','resources/css/quizzes.css', 'resources/js/inicio.js', 'resources/js/app.js'])
+  @vite(['resources/css/inicio.css', 'resources/js/inicio.js', 'resources/js/app.js'])
 </head>
 <body>
 
@@ -49,7 +49,13 @@
         <div class="carrossel-box">
           @foreach ($quizzes as $quiz)
             <a href="{{ route('quiz.load', $quiz->id) }}">
-              <div class="quiz" style="background-image: url('{{ $quiz->imagem }}'); background-size: cover; background-repeat: no-repeat;">
+              @if ($quiz->imagem!=null)
+                <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+              @else
+                <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+                  <h2 style="color:black;">{{ $quiz->titulo }}</h2>
+              @endif
+                
                 <div class="overlay">
                   <div class="titulo">{{ $quiz->titulo }}</div>
                 </div>

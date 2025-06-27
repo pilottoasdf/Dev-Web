@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon=add|delete" />
   @vite(['resources/css/inicio.css', 'resources/js/app.js', 'resources/css/quizzes.css'])
-</head>
+</head> 
 <body>
   <div id="app">
     <menu-component 
@@ -34,7 +34,12 @@
  
   @foreach($quizzes as $quiz)
     <a href="quiz/{{ $quiz->id }}">
-      <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+      @if ($quiz->imagem!=null)
+        <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+      @else
+        <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+        <h2 style="color:black;">{{ $quiz->titulo }}</h2>
+      @endif
         <div class="overlay">
           <div class="titulo">{{ $quiz->titulo }}</div>
         </div>
