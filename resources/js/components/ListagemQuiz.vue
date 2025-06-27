@@ -51,7 +51,7 @@
 
 <!-- Se não houver quizzes -->
 <div class="nao-encontrado" v-else style="color: red;">
-  Não foi possível encontrar nenhum quiz 
+  Não foi possível encontrar nenhum quiz... 
 </div>
 </template>
 

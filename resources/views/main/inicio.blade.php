@@ -32,53 +32,52 @@
     <div class="arrow arrow-right" id="next">&#10095;</div>
   </div>
 
-  <!-- Recomendados -->
-  <div class="recomendados">
-    Recomendados para você:
-  </div>
+  
 
-  <!-- Lista de Quizzes -->
-  <div class="container my-4" style="max-width: 1140px;">
-    <div class="d-flex justify-content-center align-items-center">
+<div id="carouselExample" class="carousel slide">
+  <h2 class="recomendados">Recomendados para você:</h2>
 
-      <!-- Botão Anterior -->
-      <button class="btn botao-carrossel me-2" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
-      </button>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carrossel-box-externo">
+        <!-- Botão Anterior -->
+        <button class="carousel-control-prev botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box').scrollBy({left: -300, behavior: 'smooth'})">
+          ‹
+        </button>
 
-      <!-- Cards de Quizzes -->
-      <div class="box-quiz">
-  @foreach ($quizzes as $quiz)
-    <a href="{{ route('quiz.load', $quiz->id) }}">
-      <div class="quiz" style="background-image: url('{{ $quiz->imagem }}'); background-size: cover; background-repeat: no-repeat;">
-        <div class="overlay">
-          <div class="titulo">{{ $quiz->titulo }}</div>
+        <!-- Lista de Quizzes -->
+        <div class="carrossel-box">
+          @foreach ($quizzes as $quiz)
+            <a href="{{ route('quiz.load', $quiz->id) }}">
+              <div class="quiz" style="background-image: url('{{ $quiz->imagem }}'); background-size: cover; background-repeat: no-repeat;">
+                <div class="overlay">
+                  <div class="titulo">{{ $quiz->titulo }}</div>
+                </div>
+                <div class="detalhes">
+                  <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
+                  <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
+                  <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
+                </div>
+              </div>
+            </a>
+          @endforeach
         </div>
-        <div class="detalhes">
-          <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
-          <div><strong>Descrição:</strong>&nbsp;&nbsp;{{ $quiz->descricao }}</div>
-        </div>
+
+        <!-- Botão Próximo -->
+        <button class="carousel-control-next botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box').scrollBy({left: 300, behavior: 'smooth'})">
+          ›
+        </button>
       </div>
-    </a>
-  @endforeach
-
-  @if ($quizzes->isEmpty())
-    <p class="text-white text-center mt-3">Não há recomendações no momento.</p>
-  @endif
-</div>
-
-
-      <!-- Botão Próximo -->
-      <button class="btn botao-carrossel ms-2" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Próximo</span>
-      </button>
     </div>
   </div>
 
+  @if ($quizzes->isEmpty())
+    <p class="text-white text-center mt-3">Não há recomendações no momento...</p>
+  @endif
+</div>
+
   
-  <div class="adicionar btn mx-auto" style="max-width: 100%; width: 950px; height: 40px;">Ver mais...</div>
+  <div class="ver-mais adicionar btn mx-auto" style="max-width: 100%; width: 950px; height: 40px;">Ver mais...</div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
