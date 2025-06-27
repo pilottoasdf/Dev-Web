@@ -37,6 +37,14 @@
             <form action="{{ route('user.info') }}" method="GET">
                 <button class="btn-personalizado" type="submit">Informações do Usuário</button>
             </form>
+
+            <form action="{{ route('ranking') }}" method="GET">
+                <button class="btn-personalizado" type="submit">Ranking</button>
+            </form>
+
+            <form action="{{ route('projetos') }}" method="GET">
+                <button class="btn-personalizado" type="submit">Meus Projetos</button>
+            </form>
         </div>
     </div>
  
