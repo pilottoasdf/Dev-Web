@@ -44,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::post('criar-quiz', [QuizController::class, 'store'])->middleware('auth')->name('quiz.store');
     Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')->name('quiz.load');
 
+    Route::post('progresso/create', [ProgressoController::class, 'create'])->middleware('auth')->name('progresso.create');
+    Route::get('ranking', [ProgressoController::class, 'ranking'])->middleware('auth')->name('ranking');
 
     Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
 
@@ -51,7 +53,3 @@ Route::middleware('auth')->group(function () {
     Route::get('perfil/info', [PerfilController::class, 'infoUser'])->middleware('auth')->name('user.info');
     
 });
-
-Route::get('/ranking', function () {
-    return view('main.ranking');
-})->middleware('auth')->name('ranking');
