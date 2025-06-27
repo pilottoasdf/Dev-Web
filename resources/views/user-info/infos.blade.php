@@ -21,12 +21,19 @@
     </div>
 
     <div id="card" style="min-width: 400px;">
-        <p><strong>Nome de usuário:</strong> {{ $user->name }}</p>
-        <p><strong>E-mail:</strong> {{ $user->email }}</p>
-        <p><strong>Escolaridade:</strong> {{ $user->escolaridade ?? 'Não informado' }}</p>
-        <p><strong>Data de nascimento:</strong> {{ $date ?? 'Não informado' }}</p>
+        <div>
+            <p><strong>Nome de usuário:</strong> {{ $user->name }}</p>
+            <p><strong>E-mail:</strong> {{ $user->email }}</p>
+            <p><strong>Escolaridade:</strong> {{ $user->escolaridade ?? 'Não informado' }}</p>
+            <p><strong>Data de nascimento:</strong> {{ $date ?? 'Não informado' }}</p>
+        </div>
+        <div id="btn">
+            <form action="{{ route('user.editar') }}" method="GET">
+                <button type="submit">Editar dados</button>
+            </form>
+        </div>
     </div>
- 
+
 
 </body>
 </html>

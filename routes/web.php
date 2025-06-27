@@ -49,7 +49,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('perfil', [PerfilController::class, 'infoPerfil'])->middleware('auth')->name('perfil.info');
     Route::get('perfil/info', [PerfilController::class, 'infoUser'])->middleware('auth')->name('user.info');
-    
+
+    Route::get('perfil/info/editar', [PerfilController::class, 'editaInfo'])->middleware('auth')->name('user.editar');
+    Route::put('perfil/info/editar', [PerfilController::class, 'atualizaInfo'])->middleware('auth')->name('user.atualizar');
+
 });
 
 Route::get('/ranking', function () {

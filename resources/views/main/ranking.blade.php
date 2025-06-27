@@ -45,7 +45,7 @@
       <div class="ranking-row"><span>10º Nome de usuário</span><span>X 🏆</span></div><hr>
     </div>
 
-    <button class="ranking-voltar" onclick="window.location.href='{{ route('inicio') }}'">Voltar</button>
+    <button class="ranking-voltar" onclick="window.location.href='{{ route('perfil.info') }}'">Voltar</button>
   </div>
 </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
