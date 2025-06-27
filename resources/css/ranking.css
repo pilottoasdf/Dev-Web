@@ -1,117 +1,91 @@
 body {
-    background-color: #f2f0f0;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .ranking-wrapper {
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-  }
-  
-  .ranking-box {
-    background: #fff;
-    border-radius: 12px;
-    padding: 30px 40px;
-    max-width: 520px;
-    width: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  .ranking-header {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 24px;
-  }
-  
-  .tab {
-    flex: 1;
-    text-align: center;
-    padding: 12px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #666;
-    background-color: #e0e0e0;
-    border-radius: 8px;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .tab.selected {
-    background-color: #ffffff;
-    color: #444;
-    border: 2px solid #6666ff;
-    border-bottom: none;
-    border-radius: 8px 8px 0 0;
-  }
-  
-  .ranking-table {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  
-  .ranking-header-row {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    font-size: 1rem;
-    color: #444;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .ranking-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #e4e4e4;
-    padding: 10px 0;
-  }
-  
-  .ranking-user span {
-    font-size: 0.95rem;
-    color: #333;
-  }
-  
-  .ranking-score {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  
-  .ranking-score span {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #444;
-  }
-  
-  .ranking-score img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-  }
-  
-  .ranking-footer {
-    margin-top: 32px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .btn-voltar {
-    background-color: #3e3a78;
-    color: white;
-    padding: 12px 28px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-  }
-  
-  .btn-voltar:hover {
-    background-color: #2d2a5c;
-  }
-  
+  margin: 0;
+  padding: 0;
+  background-color: #f0eded;
+  font-family: 'Jaini', system-ui;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.ranking-container {
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 700px;
+  margin-top: 150px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ranking-tabs {
+  display: flex;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  background-color: #e4e4e4;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab-item.active {
+  background-color: white;
+  border-bottom: 3px solid white;
+  color: #333;
+}
+
+.ranking-headers {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  width: 100%;
+}
+
+.ranking-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 0 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 0 0 5px 0;
+}
+
+.ranking-voltar {
+  margin-top: 30px;
+  background-color: #474a84;
+  color: white;
+  font-weight: bold;
+  padding: 15px 50px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.ranking-voltar:hover {
+  background-color: #2f3160;
+}

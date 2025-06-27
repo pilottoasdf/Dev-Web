@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Ranking</title>
+
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
+
   @vite(['resources/css/ranking.css', 'resources/js/app.js'])
 </head>
 <body>
+
   <div id="app">
-    <menu-component
-      user-name="{{ auth()->user()->name }}"
+    <menu-component 
+      user-name="{{ auth()->user()->name }}" 
       user-email="{{ auth()->user()->email }}"
-      logout-url="{{ route('logout') }}"
-    ></menu-component>
+      logout-url="{{ route('logout') }}">
+    </menu-component>
   </div>
 
-  <main class="ranking-wrapper">
-    <div class="ranking-box">
-      <div class="ranking-header">
-        <div class="tab selected">Quiz</div>
-        <div class="tab">Jogos</div>
-      </div>
-
-      <div class="ranking-table">
-        <div class="ranking-header-row">
-          <span>Usuários</span>
-          <span>Troféus</span>
-        </div>
-
-        @for ($i = 1; $i <= 4; $i++)
-        <div class="ranking-row">
-          <div class="ranking-user">
-            <span>{{ $i }}º Nome de usuário</span>
-          </div>
-          <div class="ranking-score">
-            <span>X</span>
-            <img src="https://png.pngtree.com/png-clipart/20250103/original/pngtree-gold-trophy-icon-trophy-icon-winner-icon-png-image_4979039.png" alt="Troféu" style="width: 20px; height: 20px;">
-          </div>
-        </div>
-        @endfor
-      </div>
-
-      <div class="ranking-footer">
-        <a href="{{ url()->previous() }}" class="btn-voltar">Voltar</a>
-      </div>
+  
+  <div class="ranking-container">
+    <div class="ranking-tabs">
+      <div class="tab-item active">Quiz</div>
+      <div class="tab-item">Jogos</div>
     </div>
-  </main>
+
+    <div class="ranking-headers">
+      <span>Usuários</span>
+      <span>Troféus</span>
+    </div>
+
+    <div class="ranking-row"><span>1º Nome de usuário</span><span>X 🏆</span></div>
+    <hr>
+    <div class="ranking-row"><span>2º Nome de usuário</span><span>X 🏆</span></div>
+    <hr>
+    <div class="ranking-row"><span>3º Nome de usuário</span><span>X 🏆</span></div>
+    <hr>
+    <div class="ranking-row"><span>4º Nome de usuário</span><span>X 🏆</span></div>
+    <hr>
+
+    <button class="ranking-voltar" onclick="window.location.href='{{ route('inicio') }}'">Voltar</button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

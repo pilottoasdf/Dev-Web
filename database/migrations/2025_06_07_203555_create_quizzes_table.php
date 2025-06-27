@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('titulo');
             $table->text('descricao')->nullable();
             $table->string('disciplina');
+            $table->string('disciplina_normalizada')->nullable();
             $table->string('escolaridade_recomendada');
             $table->string('imagem')->nullable();
             $table->json('perguntas');

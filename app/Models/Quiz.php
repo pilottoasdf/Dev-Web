@@ -10,6 +10,7 @@ class Quiz extends Model
         'titulo',
         'descricao',
         'disciplina',
+        'disciplina_normalizada',
         'escolaridade_recomendada',
         'imagem',
         'perguntas',
