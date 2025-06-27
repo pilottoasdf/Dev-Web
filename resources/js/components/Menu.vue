@@ -5,7 +5,7 @@
 
    
     <div class="ms-3">
-      <a class="navbar-brand" href="/inicio">
+      <a v-if="perfil==false" class="navbar-brand" href="/inicio">
         <img class="logo" src="/public/logo.png" alt="logo do site" >
       </a>
     </div>
@@ -19,7 +19,7 @@
     </div>
 
 
-<div class="me-3 dropdown d-flex align-items-center">
+<div v-if="perfil==false" class="me-3 dropdown d-flex align-items-center">
   <img class="usuario me-2" src="https://cdn-icons-png.flaticon.com/512/303/303593.png" alt="imagem do usuario" style="width: 40px; height: 40px; border-radius: 50%;">
  
   <button
@@ -35,7 +35,7 @@
     <!--<li><span class="jogando-como">Jogando como</span></li>-->
     <!--<li><strong>{{ userName }}</strong></li>-->
     <!--<li><small>{{ userEmail }}</small></li>-->
-    <li><a href="#" type="submit" class="dropdown-item btn btn-link text-start">Perfil</a></li>
+    <li><a href="/perfil" type="submit" class="dropdown-item btn btn-link text-start">Perfil</a></li>
     <li><a href="/meus-projetos" type="submit" class="dropdown-item btn btn-link text-start">Meus Projetos</a></li>
     <li><hr class="dropdown-divider"></li>
     <li>
@@ -56,6 +56,7 @@ export default {
     userName: String,
     userEmail: String,
     logoutUrl: String,
+    perfil: Boolean,
   }
 }
 </script>
