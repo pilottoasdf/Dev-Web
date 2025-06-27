@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PreferenciaController;
 use App\Http\Controllers\ProgressoController;
@@ -21,33 +22,33 @@ Route::middleware('auth')->group(function () {
     Route::get('/preferencias', [PreferenciaController::class, 'create'])->name('preferencias.create');
     Route::post('/preferencias', [PreferenciaController::class, 'store'])->name('preferencias.store');
 
-Route::get('logout', [AuthController::class, 'logout'])
-    ->middleware('auth')
-    ->name('logout');
+    Route::get('logout', [AuthController::class, 'logout'])
+        ->middleware('auth')
+        ->name('logout');
 
-Route::get('/index', function () {
-    return view('index');
-})->middleware('auth')->name('index');
+    Route::get('/index', function () {
+        return view('index');
+    })->middleware('auth')->name('index');
 
-Route::get('forcar-logout', function () {
-    \Illuminate\Support\Facades\Auth::logout();
-    return redirect('/login');
-})->name('forcar-logout'); // só pra fazer logout
+    Route::get('forcar-logout', function () {
+        \Illuminate\Support\Facades\Auth::logout();
+        return redirect('/login');
+    })->name('forcar-logout'); // só pra fazer logout
 
-Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
+    Route::get('inicio', [AuthController::class, 'inicio'])->name('inicio');
+
+    Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
+    Route::get('criar-projeto', [ProjetoController::class, 'create'])->middleware('auth')->name('projetos.create');
+    Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->middleware('auth')->name('quiz-jogo.create');
+
+    Route::post('criar-quiz', [QuizController::class, 'store'])->middleware('auth')->name('quiz.store');
+    Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')->name('quiz.load');
 
 
-Route::get('meus-projetos', [ProjetoController::class, 'showProjetos'])->middleware('auth')->name('projetos');
-Route::get('criar-projeto', [ProjetoController::class, 'create'])->middleware('auth')->name('projetos.create');
-Route::post('criar-projeto', [ProjetoController::class, 'createQuizJogo'])->middleware('auth')->name('quiz-jogo.create');
+    Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
 
-Route::post('criar-quiz', [QuizController::class, 'store'])->middleware('auth')->name('quiz.store');
-Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')->name('quiz.load');
-
-Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
-
-Route::post('progresso/create', [ProgressoController::class, 'create'])->middleware('auth')->name('progresso.create');
-Route::get('progresso', [ProgressoController::class, 'show'])->middleware('auth')->name('progresso.lista');
+    Route::get('perfil', [PerfilController::class, 'infoPerfil'])->middleware('auth')->name('perfil.info');
+    Route::get('perfil/info', [PerfilController::class, 'infoUser'])->middleware('auth')->name('user.info');
     
 });
 
