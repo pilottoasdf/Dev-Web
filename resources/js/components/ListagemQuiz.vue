@@ -34,7 +34,20 @@
 <div class="diferente-quiz box-quiz" v-if="Object.keys(vetor).length > 0">
   <div v-for="(quizzes, index) in vetor" :key="index">
     <a :href="'quiz/' + quizzes['quiz']['id']">
-      <div class="quiz" :style="{ backgroundImage: 'url(/storage/' + quizzes['quiz']['imagem'] + ')' }">
+      <div v-if="quizzes['quiz']['imagem']!=null" class="quiz" :style="{ backgroundImage: 'url(/storage/' + quizzes['quiz']['imagem'] + ')' }">
+        <div class="overlay">
+          <div class="titulo">{{ quizzes['quiz']['titulo'] }}</div>
+        </div>
+        <div class="detalhes">
+          <strong>Título:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['titulo'] }}<br>
+          <strong>Disciplina:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['disciplina'] }}<br>
+          <strong>Criador:</strong>&nbsp;&nbsp;{{ quizzes['criador']['name'] }}<br>
+          <strong>Escolaridade:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['escolaridade_recomendada'] }}
+        </div>
+      </div>
+
+      <div v-else class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+        <h2 style="color:black;">{{ quizzes['quiz']['titulo'] }}</h2>
         <div class="overlay">
           <div class="titulo">{{ quizzes['quiz']['titulo'] }}</div>
         </div>
