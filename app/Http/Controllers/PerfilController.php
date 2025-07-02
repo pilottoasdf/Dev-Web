@@ -35,13 +35,20 @@ class PerfilController extends Controller
 
     public function atualizaInfo(Request $request){
 
-        $user = Auth::user();
+        $user = Auth::user(); 
+
+        $campos = $request->validate([
+            'name' => 'bail|required|max:255|unique:users,name,' . Auth::id(),
+            'email' => 'bail|required|email|unique:users,email,' . Auth::id(),
+            'escolaridade' => 'bail|nullable|string',
+            'data_nasc' => 'bail|nullable|date',
+        ]);
 
         $user->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'escolaridade' => $request->escolaridade,
-            'data_nasc' => $request->data_nasc,
+            'name' => $campos['name'],
+            'email' => $campos['email'],
+            'escolaridade' => $campos['escolaridade'],
+            'data_nasc' => $campos['data_nasc'],
         ]);
 
         return redirect()->route('user.editar')->with('success', 'Atualizado com sucesso!');

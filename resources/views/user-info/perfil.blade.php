@@ -26,8 +26,8 @@
         <span id="nome">{{ $user->name }}</span>
 
         <div id="conquistas">
-            <p>🏆Troféus: {{ $progressos[0]->total }}</p>
-            <p>🌟Estrelas: {{ round($progressos[0]->media_pontos, 2) }}</p>
+            <span>🏆Troféus: {{ isset($progressos[0]) ? $progressos[0]->total : '0' }}</span>
+            <span>🌟Estrelas: {{ isset($progressos[0]) ? $progressos[0]->media_pontos : '0' }}</span>
         </div>
 
         <form action="{{ route('logout') }}" method="get">
