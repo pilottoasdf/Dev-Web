@@ -49,7 +49,7 @@
 
     <textarea type="text" class="descricao" placeholder="Insire uma descrição aqui..." name="descricao" id="descricao"> {{ old('descricao') }}</textarea>
 
-    <label for="imagem" class="custom-file-label">Imagem para o projeto</label>
+    <label for="imagem" class="custom-file-label">Coloque Aqui! A imagem para o seu projeto...</label>
 
     <input type="file" class="btn-imagem-escolher" name="imagem" id="imagem" value="{{ old('imagem') }}" accept="image/*">
 

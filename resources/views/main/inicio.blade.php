@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-  @vite(['resources/css/inicio.css', 'resources/js/inicio.js', 'resources/js/app.js'])
+  @vite(['resources/css/inicio.css','resources/css/quizzes.css', 'resources/js/inicio.js', 'resources/js/app.js'])
 </head>
 <body>
 
@@ -46,22 +46,23 @@
         </button>
        
         <div class="carrossel-box">
-          @foreach ($quizzes as $quiz)
-            <a href="{{ route('quiz.load', $quiz->id) }}">
-              @if ($quiz->imagem!=null)
-                <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+          @foreach ($dados as $quiz)
+            <a href="{{ route('quiz.load', $quiz['quiz']->id) }}">
+              @if ($quiz['quiz']->imagem!=null)
+                <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz['quiz']->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
               @else
                 <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
-                  <h2 style="color:black;">{{ $quiz->titulo }}</h2>
+                  <h2 style="color:black;">{{ $quiz['quiz']->titulo }}</h2>
               @endif
                 
                 <div class="overlay">
-                  <div class="titulo">{{ $quiz->titulo }}</div>
+                  <div class="titulo">{{ $quiz['quiz']->titulo }}</div>
                 </div>
                 <div class="detalhes">
-                  <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
-                  <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
-                  <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
+                  <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz['quiz']->titulo }}</div>
+                  <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz['quiz']->disciplina }}</div>                  
+                  <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $quiz['criador']->name }}</div>
+                  <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz['quiz']->escolaridade_recomendada }}</div>
                 </div>
               </div>
             </a>
@@ -75,14 +76,13 @@
       </div>
     </div>
   </div>
-
-  @if ($quizzes->isEmpty())
+  @if (count($dados)==0)
     <p class="text-white text-center mt-3">Não há recomendações no momento...</p>
   @endif
 </div>
 
   
-  <div class="ver-mais adicionar btn mx-auto" style="max-width: 100%; width: 1000px; height: 40px;">Ver mais...</div>
+  <div class="ver-mais adicionar btn mx-auto" style="max-width: 100%; height: 40px;">Ver mais...</div>
 
 
   

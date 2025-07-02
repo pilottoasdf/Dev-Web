@@ -86,7 +86,17 @@ class AuthController extends Controller
     // Filtra quizzes com base nas disciplinas preferidas
     $quizzes = Quiz::whereIn('disciplina', $disciplinasPreferidas)->latest()->take(10)->get();
 
-    return view('main.inicio', ['quizzes' => $quizzes]);
+    $dados = [];
+        foreach($quizzes as $quiz){
+            $dados[] = [
+                'quiz'=>$quiz,
+                'criador'=>User::find($quiz->id_criador)
+            ];
+        }
+        return view('main.inicio', [
+            'dados'=> $dados,
+        ]);
+
 }
 }
 
