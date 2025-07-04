@@ -63,4 +63,15 @@ class QuizController extends Controller
     $json = json_encode($quiz);
     return view('main.quiz', ['json' => $json]);
 }
+
+    public function delete($id){
+        $user=Auth::user();
+        $quiz = Quiz::findOrFail($id);
+
+        if($user->id===$quiz->id_criador){
+            $quiz->delete();
+        }
+
+        return redirect()->route('quizzes.lista');
+    }
 }
