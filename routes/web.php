@@ -43,6 +43,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('criar-quiz', [QuizController::class, 'store'])->middleware('auth')->name('quiz.store');
     Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')->name('quiz.load');
+    Route::get('deletar-quiz/{id}', [QuizController::class, 'delete'])->middleware('auth')->name('quiz.delete');
+
 
     Route::post('progresso/create', [ProgressoController::class, 'create'])->middleware('auth')->name('progresso.create');
     Route::get('ranking', [ProgressoController::class, 'ranking'])->middleware('auth')->name('ranking');

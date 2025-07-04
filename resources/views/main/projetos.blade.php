@@ -49,9 +49,9 @@
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
           <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
         </div>
-        <span class=" lixeira material-symbols-outlined">
-delete
-</span>
+        <a href="deletar-quiz/{{ $quiz->id }}" class="lixeira material-symbols-outlined">
+          delete
+        </a>
       </div>
     </a>
   @endforeach
