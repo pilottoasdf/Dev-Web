@@ -13,12 +13,16 @@ class ProjetoController extends Controller
 {
     public function showProjetos(){
         $user = Auth::user();
-        $quizzes = Quiz::where('id_criador', $user->id)->orderBy('id', 'desc')->get();
+        if($user->nivel_acesso===2){
+            $quizzes = Quiz::where('id_criador', $user->id)->orderBy('id', 'desc')->get();
 
-        return view('main.projetos', [
-            'quizzes'=> $quizzes,
-            'criador'=> $user->name
-        ]);
+            return view('main.projetos', [
+                'quizzes'=> $quizzes,
+                'criador'=> $user->name
+            ]);
+        }else{
+            return redirect()->route('inicio');
+        }
     }
 
     public function showQuizzes(){
