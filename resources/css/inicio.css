@@ -76,10 +76,12 @@ body {
 
 .perfil-usuario{
     border-radius: 30px;
-    width: 80px;
+    max-width: 100px;
+    min-width: 90px;
     height: 40px;
     background-color: white;
     color: black;
+    transition: 0.3s;
 }
 .perfil-usuario:hover{
     background-color: #c6c7c8;
@@ -401,9 +403,11 @@ input[type="submit"] {
 .carrossel-box {
   display: flex;
   overflow-x: hidden; 
-  width: calc(300px * 3 + 44px); 
+  width: calc(300px * 3 + 50px); 
   scroll-snap-type: x mandatory;
-  gap: 22px;
+  gap: 15px;
+  height: 250px;
+  align-items: center;
   
 }
 
@@ -480,6 +484,7 @@ input[type="submit"] {
   margin: 0 auto;
   gap: 10px;
   overflow: visible;
+
 }
 
 
