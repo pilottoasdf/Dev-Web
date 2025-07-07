@@ -408,8 +408,19 @@ input[type="submit"] {
   gap: 15px;
   height: 250px;
   align-items: center;
+  margin-top: -30px;
+}
+.diferenciado-box {
+ display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 15px;
+  height: auto;
+  padding: 1rem 0;
   
 }
+
 
 
 .carrossel-box::-webkit-scrollbar {
@@ -417,6 +428,16 @@ input[type="submit"] {
 }
 
 .carrossel-box a {
+  flex: 0 0 calc(33.33% - 20px); 
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+}
+.diferenciado-box::-webkit-scrollbar {
+  display: none;
+}
+
+.diferenciado-box a {
   flex: 0 0 calc(33.33% - 20px); 
   scroll-snap-align: start;
   text-decoration: none;
@@ -489,6 +510,9 @@ input[type="submit"] {
 
 
 .carrossel-box .quiz {
+width: 300px;
+}
+.diferenciado-box .quiz {
 width: 300px;
 }
 

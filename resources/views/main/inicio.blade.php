@@ -26,7 +26,7 @@
     <img id="banner-img" src="https://blog.ebaconline.com.br/blog/wp-content/uploads/2022/12/kcnb4lkkucfipej3ngqxm-scaled-e1674744655926.jpeg" alt="Banner" />
     <div class="texto" id="banner-texto">
       <p class="titulo-principal">GameMind</p>
-      <button id="btn-comecar">Comece a jogar agora!</button>
+      <a href="/quizzes"><button id="btn-comecar">Comece a jogar agora!</button></a>
     </div>
     <div class="arrow arrow-left" id="prev">&#10094;</div>
     <div class="arrow arrow-right" id="next">&#10095;</div>

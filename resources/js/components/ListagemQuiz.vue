@@ -31,36 +31,61 @@
   </div>
 
 
-<div class="diferente-quiz box-quiz" v-if="Object.keys(vetor).length > 0">
-  <div v-for="(quizzes, index) in vetor" :key="index">
-    <a :href="'quiz/' + quizzes['quiz']['id']">
-      <div v-if="quizzes['quiz']['imagem']!=null" class="quiz" :style="{ backgroundImage: 'url(/storage/' + quizzes['quiz']['imagem'] + ')' }">
-        <div class="overlay">
-          <div class="titulo">{{ quizzes['quiz']['titulo'] }}</div>
-        </div>
-        <div class="detalhes">
-          <strong>Título:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['titulo'] }}<br>
-          <strong>Disciplina:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['disciplina'] }}<br>
-          <strong>Criador:</strong>&nbsp;&nbsp;{{ quizzes['criador']['name'] }}<br>
-          <strong>Escolaridade:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['escolaridade_recomendada'] }}
-        </div>
-      </div>
+<div id="carouselExample" class="carousel slide" v-if="Object.keys(vetor).length > 0">
+  
 
-      <div v-else class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
-        <h2 style="color:black;">{{ quizzes['quiz']['titulo'] }}</h2>
-        <div class="overlay">
-          <div class="titulo">{{ quizzes['quiz']['titulo'] }}</div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carrossel-box-externo">
+        
+        <!-- Botão para esquerda -->
+        <button class="carousel-control-prev botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: -300, behavior: 'smooth'})">
+          ‹
+        </button>
+
+        <!-- Área de rolagem -->
+        <div class=" diferenciado-box">
+          <div v-for="(quizzes, index) in vetor" :key="index">
+            <a :href="'quiz/' + quizzes['quiz']['id']">
+              <!-- Com imagem -->
+              <div v-if="quizzes['quiz']['imagem'] != null" class="quiz" :style="{ backgroundImage: 'url(/storage/' + quizzes['quiz']['imagem'] + ')', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }">
+                <div class="overlay">
+                  <div class="titulo">{{ quizzes['quiz']['titulo'] }}</div>
+                </div>
+                <div class="detalhes">
+                  <strong>Título:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['titulo'] }}<br>
+                  <strong>Disciplina:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['disciplina'] }}<br>
+                  <strong>Criador:</strong>&nbsp;&nbsp;{{ quizzes['criador']['name'] }}<br>
+                  <strong>Escolaridade:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['escolaridade_recomendada'] }}
+                </div>
+              </div>
+
+              <!-- Sem imagem -->
+              <div v-else class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+                <h2 style="color:black;">{{ quizzes['quiz']['titulo'] }}</h2>
+                <div class="overlay">
+                  <div class="titulo">{{ quizzes['quiz']['titulo'] }}</div>
+                </div>
+                <div class="detalhes">
+                  <strong>Título:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['titulo'] }}<br>
+                  <strong>Disciplina:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['disciplina'] }}<br>
+                  <strong>Criador:</strong>&nbsp;&nbsp;{{ quizzes['criador']['name'] }}<br>
+                  <strong>Escolaridade:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['escolaridade_recomendada'] }}
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
-        <div class="detalhes">
-          <strong>Título:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['titulo'] }}<br>
-          <strong>Disciplina:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['disciplina'] }}<br>
-          <strong>Criador:</strong>&nbsp;&nbsp;{{ quizzes['criador']['name'] }}<br>
-          <strong>Escolaridade:</strong>&nbsp;&nbsp;{{ quizzes['quiz']['escolaridade_recomendada'] }}
-        </div>
+
+        <!-- Botão para direita -->
+        <button class="carousel-control-next botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: 300, behavior: 'smooth'})">
+          ›
+        </button>
       </div>
-    </a>
+    </div>
   </div>
 </div>
+
 
 <!-- Se não houver quizzes -->
 <div class="nao-encontrado" v-else style="color: red;">
