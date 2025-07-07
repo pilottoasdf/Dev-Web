@@ -6,9 +6,25 @@ use App\Models\Preferencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Quiz;
+use App\Models\User;
 
 class QuizController extends Controller
 {
+
+    public function show(){
+        $quizzes = Quiz::orderBy('id', 'desc')->get();
+        $dados = [];
+        foreach($quizzes as $quiz){
+            $dados[] = [
+                'quiz'=>$quiz,
+                'criador'=>User::find($quiz->id_criador)
+            ];
+        }
+        return view('main.quizzes', [
+            'dados'=> $dados,
+        ]);
+    }
+
     public function store(Request $request){
         $dados = $request->all();
 

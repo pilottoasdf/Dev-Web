@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::post('progresso/create', [ProgressoController::class, 'create'])->middleware('auth')->name('progresso.create');
     Route::get('ranking', [ProgressoController::class, 'ranking'])->middleware('auth')->name('ranking');
 
-    Route::get('quizzes', [ProjetoController::class, 'showQuizzes'])->middleware('auth')->name('quizzes.lista');
+    Route::get('quizzes', [QuizController::class, 'show'])->middleware('auth')->name('quizzes.lista');
 
     Route::get('perfil', [PerfilController::class, 'infoPerfil'])->middleware('auth')->name('perfil.info');
     Route::get('perfil/info', [PerfilController::class, 'infoUser'])->middleware('auth')->name('user.info');
