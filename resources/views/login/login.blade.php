@@ -7,7 +7,7 @@
   @vite('resources/css/login2.css')
 </head>
 <body>
-
+  
   <div class="form_container">
     <div class="tabs">
       <a href="login" class="tab active">Entrar</a>
@@ -20,15 +20,14 @@
         <div class="login_senha">
         <label class="login_pegunta" for="email">Login:</label><br>
         <input type="text" id="email" name="email"><br>
+        @error('email')
+        <span class="error-message">{{ $message }}</span>
+        @enderror
         <label class="login_pegunta" for="password">Senha:</label><br>
         <input type="password" id="password" name="password"><br><br><br><br>
-        <!--@error('email')
-      <span class="error-message">{{ $message }}</span>
-    @enderror
-    <br>
         @error('password')
-      <span class="error-message">{{ $message }}</span>
-    @enderror-->
+        <span class="error-message">{{ $message }}</span>
+        @enderror
         </div>
         <a class="esqueci_senha" href="/cadastro">Esqueci a senha</a>
         <button type="submit">Acessar</button>

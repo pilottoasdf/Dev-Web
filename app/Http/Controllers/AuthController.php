@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-        public function showLogin()
+    public function showLogin()
     {
         return view('login.login');
     }
@@ -36,12 +37,18 @@ class AuthController extends Controller
         return redirect()->route('login')->with('success', 'Cadastro realizado!');
     }*/
 
-    public function login(Request $req) {
-        if($req->isMethod('POST')) {
-            if(Auth::attempt($req->only('email','password'))) {
+    public function login(Request $req)
+    {
+        if ($req->isMethod('POST')) {
+            if (Auth::attempt($req->only('email', 'password'))) {
                 return redirect()->route('inicio');
             }
+
+            return back()
+                ->withErrors(['email' => 'Login ou senha inválidos.'])
+                ->withInput();
         }
+
         return view('login.login');
     }
 
@@ -61,34 +68,53 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+
         Auth::login($user);
 
         return redirect()->route('preferencias.create');
-   
     }
 
+    public function attributes(): array
+    {
+        return [
+            'name' => 'nome do usuário',
+            'email' => 'e-mail',
+            'nivel_acesso' => 'nível de acesso',
+            'escolaridade' => 'escolaridade',
+            'data_nasc' => 'data de nascimento',
+            'password' => 'senha',
+            'password_confirmation' => 'confirmação de senha',
+        ];
+    }
+    
 
     public function inicio()
-{
-     $user = Auth::user();
-    $preferencias = $user->preferencia;
-    $disciplinasPreferidas = [];
+    {
+        $user = Auth::user();
+        $preferencias = $user->preferencia;
 
-    if ($preferencias) {
-        foreach ($preferencias->getAttributes() as $campo => $valor) {
-            if (str_starts_with($campo, 'peso_') && $valor > 0) {
-                $disciplina = str_replace('peso_', '', $campo);
-                $disciplinasPreferidas[] = $disciplina;
+        $disciplinasPreferidas = [];
+
+        if ($preferencias) {
+            foreach ($preferencias->getAttributes() as $campo => $valor) {
+                if (str_starts_with($campo, 'peso_') && $valor > 0) {
+                    $disciplinasPreferidas[] = str_replace('peso_', '', $campo);
+                }
             }
         }
+
+        // Filtra quizzes com base nas disciplinas preferidas
+        $quizzes = Quiz::whereIn('disciplina', $disciplinasPreferidas)->latest()->take(10)->get();
+
+        $dados = [];
+        foreach ($quizzes as $quiz) {
+            $dados[] = [
+                'quiz' => $quiz,
+                'criador' => User::find($quiz->id_criador)
+            ];
+        }
+        return view('main.inicio', [
+            'dados' => $dados,
+        ]);
     }
-
-    $quizzes = Quiz::whereIn('disciplina_normalizada', $disciplinasPreferidas)
-                   ->latest()
-                   ->take(10)
-                   ->get();
-
-    return view('main.inicio', ['quizzes' => $quizzes]);
 }
-}
-
