@@ -411,15 +411,31 @@ input[type="submit"] {
   margin-top: -30px;
 }
 .diferenciado-box {
- display: flex;
+  display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
   gap: 15px;
   height: auto;
   padding: 1rem 0;
-  
+
+  max-width: 1245px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: flex-start;
 }
+
+
+
+.diferenciado-box .quiz {
+  flex: 0 0 230px;
+  scroll-snap-align: start;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: white;
+}
+
 
 
 
@@ -490,6 +506,13 @@ input[type="submit"] {
 .carousel-control-next {
   right: -25px;
 }
+.carousel-control-prev2 {
+  left: 210px; 
+}
+
+.carousel-control-next2 {
+  right: 210px;
+}
 
 .botao-carrossel-personalizado:hover {
   background-color: rgba(0, 0, 0, 0.7);
@@ -507,6 +530,17 @@ input[type="submit"] {
   overflow: visible;
 
 }
+.carrossel-box-externo2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  width: 1900px;
+  margin: 0 auto;
+}
+
+
 
 
 .carrossel-box .quiz {
