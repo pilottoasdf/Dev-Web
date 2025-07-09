@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-    @vite(['resources/css/inicio.css', 'resources/css/perfil.css','resources/js/app.js'])
+    @vite(['resources/css/inicio.css', 'resources/css/perfil.css', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
@@ -21,13 +21,25 @@
     </div>
 
     <div class="container">
-
         <span id="imagem">aqui jaz a foto de perfil</span>
         <span id="nome">{{ $user->name }}</span>
 
         <div id="conquistas">
             <p>🏆Troféus: {{ $progressos[0]->total }}</p>
             <p>🌟Estrelas: {{ round($progressos[0]->media_pontos, 2) }}</p>
+        </div>
+
+        <div class="recent-opened">
+            <h3>Abertos Recentemente</h3>
+            <ul>
+                @foreach($abertosRecentemente as $item)
+                    <li>
+                        <a href="{{ route('quiz.load', $item->quiz->id) }}">
+                            {{ $item->quiz->titulo }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
 
         <form action="{{ route('logout') }}" method="get">
@@ -48,7 +60,7 @@
             </form>
         </div>
     </div>
- 
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>
