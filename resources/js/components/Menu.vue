@@ -55,7 +55,7 @@ export default {
   props: {
     userName: String,
     userEmail: String,
-    userNivel: Number,
+    userNivel: String,
     logoutUrl: String,
     perfil: Boolean,
   }

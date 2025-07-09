@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Criar jogo</title>
+  <title>Escolher template</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,13 +20,11 @@
       logout-url="{{ route('logout') }}"
     ></menu-component>
 
-    @if ($template=='queda_pergunta')
-      <criaquedapergunta-component></criaquedapergunta-component>
-    @elseif ($template=='caca_palavras')
-      <!--<criacacapalavras-component></criacacapalavras-component>-->
-    @elseif ($template=='corrida')
-      <!--<criacorrida-component></criacorrida-component>-->
-    @endif
+    <button><a href="{{ route('jogo.create', 'queda_pergunta') }}">Queda de perguntas</a></button>
+    <button><a href="{{ route('jogo.create', 'caca_palavras') }}">Caça-palavras</a></button>
+    <button><a href="{{ route('jogo.create', 'corrida') }}">Corrida</a></button>
+    <button><a href="{{ route('jogo.create', 'coisa') }}">Alguma coisa a mais se der tempo</a></button>
+
 
   </div>
 

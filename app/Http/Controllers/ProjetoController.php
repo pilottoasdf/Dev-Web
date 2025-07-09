@@ -50,7 +50,7 @@ class ProjetoController extends Controller
             return view('criar-projeto.quiz');
 
         }else if($request->tipo=='jogo'){
-            return view('criar-projeto.jogo');
+            return view('criar-projeto.template');
         }
     }
 }
