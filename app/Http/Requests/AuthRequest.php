@@ -10,14 +10,28 @@ class AuthRequest extends FormRequest
         return true;
     }
 
-    public function rules() {
+     public function rules(): array
+    {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|confirmed|min:4',
+            'email' => 'required|email|unique:users,email',
             'nivel_acesso' => 'required|in:1,2',
-            'escolaridade' => 'nullable|string',
-            'data_nasc' => 'nullable|date_format:Y-m-d|before:today'
+            'escolaridade' => 'required|string',
+            'data_nasc' => 'required|date',
+            'password' => 'required|string|min:6|confirmed',
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'nome do usuário',
+            'email' => 'e-mail',
+            'nivel_acesso' => 'nível de acesso',
+            'escolaridade' => 'escolaridade',
+            'data_nasc' => 'data de nascimento',
+            'password' => 'senha',
+            'password_confirmation' => 'confirmação de senha',
         ];
     }
 
