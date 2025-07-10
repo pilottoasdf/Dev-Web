@@ -37,13 +37,18 @@ class AuthController extends Controller
     }*/
 
     public function login(Request $req) {
-        if($req->isMethod('POST')) {
-            if(Auth::attempt($req->only('email','password'))) {
-                return redirect()->route('inicio');
-            }
+    if ($req->isMethod('POST')) {
+        if (Auth::attempt($req->only('email','password'))) {
+            return redirect()->route('inicio');
         }
-        return view('login.login');
+
+        return back()
+            ->withErrors(['email' => 'Login ou senha inválidos.'])
+            ->withInput(); // mantém o campo preenchido
     }
+
+    return view('login.login');
+}
 
     public function logout()
     {

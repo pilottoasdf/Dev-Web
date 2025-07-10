@@ -3,7 +3,7 @@
   <form action="/criar-quiz" method="POST" >
     <input type="hidden" name="_token" :value="csrfToken" />
     <div v-for="(pergunta, index) in perguntas" :key="index" class="card-pergunta">
-       <label class="pergunta-label">Pergunta:</label>
+      <label class="pergunta-label">Pergunta:</label>
       <input required :name="'pergunta_' + (index)" type="text" v-model="perguntas[index]['pergunta']" :placeholder="'Pergunta ' + (index + 1)" class="input-pergunta"/>
       <br>
       <div class="grade-alternativas">
@@ -23,9 +23,9 @@
       </select>
       <br>
     <button v-if="index!=0" type="button" @click="apagarPergunta(index)" class="apagar-pergunta">
-    <span v-if="index!=0" class="material-symbols-outlined lixeira2">delete</span>
-  Apagar Pergunta
-</button>
+      <span v-if="index!=0" class="material-symbols-outlined lixeira2">delete</span>
+      Apagar Pergunta
+    </button>
 
       <br>
       <br>
@@ -43,9 +43,8 @@
            <span class="texto-botao"> Adicionar mais 5 Perguntas </span>
         </button>
       </div>
-
- <button type="submit" class="btn finalizar-btn">Finalizar</button>
-</div>
+      <button type="submit" class="btn finalizar-btn">Finalizar</button>
+    </div>
 
 
   </form>

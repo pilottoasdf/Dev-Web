@@ -36,10 +36,10 @@
 
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <div class="carrossel-box-externo">
+      <div class="carrossel-box-externo2">
         
         <!-- Botão para esquerda -->
-        <button class="carousel-control-prev botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: -300, behavior: 'smooth'})">
+        <button class="carousel-control-prev2 botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: -300, behavior: 'smooth'})">
           ‹
         </button>
 
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Botão para direita -->
-        <button class="carousel-control-next botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: 300, behavior: 'smooth'})">
+        <button class="carousel-control-next2 botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: 300, behavior: 'smooth'})">
           ›
         </button>
       </div>

@@ -6,9 +6,25 @@ use App\Models\Preferencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Quiz;
+use App\Models\User;
 
 class QuizController extends Controller
 {
+
+    public function show(){
+        $quizzes = Quiz::orderBy('id', 'desc')->get();
+        $dados = [];
+        foreach($quizzes as $quiz){
+            $dados[] = [
+                'quiz'=>$quiz,
+                'criador'=>User::find($quiz->id_criador)
+            ];
+        }
+        return view('main.quizzes', [
+            'dados'=> $dados,
+        ]);
+    }
+
     public function store(Request $request){
         $dados = $request->all();
 
@@ -44,22 +60,28 @@ class QuizController extends Controller
         
     }
 
+    private function sanitizeDisciplina($disciplina)
+{
+    $disciplinaSemAcento = iconv('UTF-8', 'ASCII//TRANSLIT', $disciplina);
+    return strtolower(preg_replace('/[^a-z]/', '', $disciplinaSemAcento));
+}
+
     public function loadQuiz($id)
 {
     $quiz = Quiz::findOrFail($id);
     $user = Auth::user();
 
-    
-   $preferencia = $user->preferencia;
+    $preferencia = $user->preferencia ?? Preferencia::firstOrCreate(['id_usuario' => $user->id]);
 
-    if ($preferencia && $quiz->disciplina) {
-        $campo = 'peso_' . strtolower($quiz->disciplina);
+    if ($quiz->disciplina) {
+        $campo = 'peso_' . $this->sanitizeDisciplina($quiz->disciplina);
 
         if (array_key_exists($campo, $preferencia->getAttributes())) {
             $preferencia->$campo += 1;
             $preferencia->save();
         }
     }
+
     $json = json_encode($quiz);
     return view('main.quiz', ['json' => $json]);
 }

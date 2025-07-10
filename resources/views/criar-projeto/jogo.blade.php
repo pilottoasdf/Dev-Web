@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Criar quiz</title>
+  <title>Criar jogo</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,9 +20,14 @@
       logout-url="{{ route('logout') }}"
     ></menu-component>
 
-    <criapergunta-component>
-        
-    </criapergunta-component>
+    @if ($template=='queda_pergunta')
+      <criaquedapergunta-component></criaquedapergunta-component>
+    @elseif ($template=='caca_palavras')
+      <!--<criacacapalavras-component></criacacapalavras-component>-->
+    @elseif ($template=='corrida')
+      <!--<criacorrida-component></criacorrida-component>-->
+    @endif
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>

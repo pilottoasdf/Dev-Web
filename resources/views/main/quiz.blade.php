@@ -15,6 +15,7 @@
     <menu-component 
       user-name="{{ auth()->user()->name }}" 
       user-email="{{ auth()->user()->email }}"
+      user-nivel="{{ auth()->user()->nivel_acesso }}"
       logout-url="{{ route('logout') }}"
     ></menu-component>
     <carregaquiz-component :json='@json($json)'></carregaquiz-component>
