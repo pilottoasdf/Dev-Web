@@ -58,7 +58,32 @@
   @endforeach
 </div>
 
-
+<div class="box-quiz">
+ 
+  @foreach($jogos as $jogo)
+    <a href="jogo/{{ $jogo->id }}">
+      @if ($jogo->imagem!=null)
+        <div class="quiz" style="background-image: url('{{ asset('storage/' . $jogo->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+      @else
+        <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+        <h2 style="color:black;">{{ $jogo->titulo }}</h2>
+      @endif
+        <div class="overlay">
+          <div class="titulo">{{ $jogo->titulo }}</div>
+        </div>
+        <div class="detalhes">
+          <div><strong>Título:</strong>&nbsp;&nbsp;{{ $jogo->titulo }}</div>
+          <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $jogo->disciplina }}</div>
+          <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
+          <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $jogo->escolaridade_recomendada }}</div>
+        </div>
+        <a href="deletar-jogo/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
+          delete
+        </a>
+      </div>
+    </a>
+  @endforeach
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 

@@ -48,10 +48,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('criar-jogo/{template}', [JogoController::class, 'create'])->middleware('auth')->name('jogo.create');
     Route::post('criar-jogo', [JogoController::class, 'store'])->middleware('auth')->name('jogo.store');
+    Route::get('deletar-jogo/{id}', [JogoController::class, 'delete'])->middleware('auth')->name('jogo.delete');
 
     Route::post('progresso/create', [ProgressoController::class, 'create'])->middleware('auth')->name('progresso.create');
     Route::get('ranking', [ProgressoController::class, 'ranking'])->middleware('auth')->name('ranking');
 
+    Route::get('jogos', [JogoController::class, 'show'])->middleware('auth')->name('jogos.lista');
     Route::get('quizzes', [QuizController::class, 'show'])->middleware('auth')->name('quizzes.lista');
 
     Route::get('perfil', [PerfilController::class, 'infoPerfil'])->middleware('auth')->name('perfil.info');
