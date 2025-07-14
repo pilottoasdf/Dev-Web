@@ -9,6 +9,8 @@ class AbertosRecentemente extends Model
 {
     use HasFactory;
 
+    protected $table = 'abertos_recentemente';
+
     protected $fillable = ['id_usuario', 'id_quiz'];
 
     public function quiz()

@@ -55,9 +55,11 @@
                 <button class="btn-personalizado" type="submit">Ranking</button>
             </form>
 
+            @if ($user->nivel_acesso==2)
             <form action="{{ route('projetos') }}" method="GET">
                 <button class="btn-personalizado" type="submit">Meus Projetos</button>
             </form>
+            @endif
         </div>
     </div>
 

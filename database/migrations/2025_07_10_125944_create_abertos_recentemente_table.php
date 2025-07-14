@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('abertos_recentemente', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_quiz')->constrained('quizzes')->onDelete('cascade');
+            $table->foreignId('id_usuario')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
