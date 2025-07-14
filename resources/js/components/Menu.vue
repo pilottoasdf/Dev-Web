@@ -14,7 +14,7 @@
    
     <div class="position-absolute start-50 translate-middle-x d-flex gap-3">
       <a href="/inicio"><button class="btn botao-menu btn-light">Página Inicial</button></a>
-      <a href="#"><button class="btn botao-menu btn-light">Games</button></a>
+      <a href="/jogos"><button class="btn botao-menu btn-light">Games</button></a>
       <a href="/quizzes"><button class="btn botao-menu btn-light">Quizzes</button></a>
     </div>
 

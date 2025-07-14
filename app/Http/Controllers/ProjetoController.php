@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjetoRequest;
+use App\Models\Jogo;
 use App\Models\Quiz;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,9 +14,11 @@ class ProjetoController extends Controller
         $user = Auth::user();
         if($user->nivel_acesso===2){
             $quizzes = Quiz::where('id_criador', $user->id)->orderBy('id', 'desc')->get();
+            $jogos = Jogo::where('id_criador', $user->id)->orderBy('id', 'desc')->get();
 
             return view('main.projetos', [
                 'quizzes'=> $quizzes,
+                'jogos'=> $jogos,
                 'criador'=> $user->name
             ]);
         }else{

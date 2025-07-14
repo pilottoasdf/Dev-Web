@@ -94,6 +94,6 @@ class QuizController extends Controller
             $quiz->delete();
         }
 
-        return redirect()->route('quizzes.lista');
+        return redirect()->route('projetos');
     }
 }
