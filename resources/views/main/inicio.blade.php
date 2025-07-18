@@ -116,7 +116,7 @@
 </div>
 
   
-  <div class="ver-mais adicionar btn mx-auto" style="max-width: 100%; height: 40px;">Ver mais...</div>
+  
 
 
   

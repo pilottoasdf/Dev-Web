@@ -10,11 +10,11 @@
   </div>
 </div>
 
-<div style="border: solid black 4px; width:100%; height:80vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;" v-if="valor == 1">
-  <div v-if="Object.keys(this.codigo).filter(k => !isNaN(k)).length>index" :style="'top:' + y + 'px; position:relative; right:' + x + 'px; border:solid black 2px; background-color:yellow;'">{{ codigo[index].pergunta }}</div>
-  <div>{{ acertos }}</div>
+<div style="border: solid black 20px; width:100%; height:80vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;" v-if="valor == 1">
+  <div  class="objeto-jogo" v-if="Object.keys(this.codigo).filter(k => !isNaN(k)).length>index" :style="'top:' + y + 'px; position:relative; right:' + x + 'px; border:solid black 2px;'">{{ codigo[index].pergunta }}</div>
+  <div class="acertos2">{{ acertos }}</div>
   <div>
-    <input @input="verificarResposta" ref="inputResposta" :name="'respondendo'" type="text" v-model="respondendo" :placeholder="'Digite sua resposta'" />
+    <input class="queda-resposta" @input="verificarResposta" ref="inputResposta" :name="'respondendo'" type="text" v-model="respondendo" :placeholder="'Digite sua resposta'" />
   </div>
 </div>
   
