@@ -55,4 +55,7 @@ Route::middleware('auth')->group(function () {
     Route::get('perfil/info/editar', [PerfilController::class, 'editaInfo'])->middleware('auth')->name('user.editar');
     Route::put('perfil/info/editar', [PerfilController::class, 'atualizaInfo'])->middleware('auth')->name('user.atualizar');
 
+    Route::get('perfil/foto', [PerfilController::class, 'insereFoto'])->middleware('auth')->name('foto.inserir');
+    Route::put('perfil/foto', [PerfilController::class, 'uploadfoto'])->middleware('auth')->name('foto.upload');
+    Route::delete('perfil/foto/deletar', [PerfilController::class, 'removeFoto'])->middleware('auth')->name('foto.remover');
 });
