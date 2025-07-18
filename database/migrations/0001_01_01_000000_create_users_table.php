@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('nivel_acesso');
             $table->string('escolaridade')->nullable();
             $table->date('data_nasc')->nullable();
+            $table->string('foto_perfil')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
