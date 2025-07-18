@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jogo;
+use App\Models\Preferencia;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,6 +69,40 @@ class JogoController extends Controller
 
         return redirect()->route('projetos');
     }
+
+    private function sanitizeDisciplina($disciplina)
+{
+    $disciplina = trim($disciplina);
+
+    $disciplinaSemAcento = \Normalizer::normalize($disciplina, \Normalizer::FORM_D);
+    $disciplinaSemAcento = preg_replace('/\p{Mn}/u', '', $disciplinaSemAcento);
+
+    // Transforma tudo em minúsculo ANTES de aplicar o regex
+    $disciplinaMinuscula = strtolower($disciplinaSemAcento);
+
+    // Agora remove o que não for letra minúscula
+    return preg_replace('/[^a-z]/', '', $disciplinaMinuscula);
+}
+
+    public function loadJogos($id)
+{
+    $jogo = Jogo::findOrFail($id);
+    $user = Auth::user();
+
+    $preferencia = $user->preferencia ?? Preferencia::firstOrCreate(['id_usuario' => $user->id]);
+
+    if ($jogo->disciplina) {
+        $campo = 'peso_' . $this->sanitizeDisciplina($jogo->disciplina);
+
+        if (array_key_exists($campo, $preferencia->getAttributes())) {
+            $preferencia->$campo += 1;
+            $preferencia->save();
+        }
+    }
+
+    $json = json_encode($jogo);
+    return view('main.quiz', ['json' => $json]);
+}
 
     public function delete($id){
         $user=Auth::user();
