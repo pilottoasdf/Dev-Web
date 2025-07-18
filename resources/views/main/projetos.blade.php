@@ -41,10 +41,10 @@
         <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
         <h2 style="color:black;">{{ $quiz->titulo }}</h2>
       @endif
-        <div class="overlay">
+        <div class="overlay2">
           <div class="titulo">{{ $quiz->titulo }}</div>
         </div>
-        <div class="detalhes">
+        <div class="detalhes2">
           <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
           <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
@@ -68,10 +68,10 @@
         <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
         <h2 style="color:black;">{{ $jogo->titulo }}</h2>
       @endif
-        <div class="overlay">
+        <div class="overlay2">
           <div class="titulo">{{ $jogo->titulo }}</div>
         </div>
-        <div class="detalhes">
+        <div class="detalhes2">
           <div><strong>Título:</strong>&nbsp;&nbsp;{{ $jogo->titulo }}</div>
           <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $jogo->disciplina }}</div>
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>

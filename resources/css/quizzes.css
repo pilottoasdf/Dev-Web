@@ -46,6 +46,17 @@ a {
   z-index: 2;
   text-align: left; 
 }
+.overlay2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 10px 15px;
+  transition: opacity 0.5s;
+  z-index: 2;
+  text-align: left; 
+  margin-left: -123px;
+}
 
 .titulo {
   font-size: 18px;
@@ -69,13 +80,34 @@ a {
   z-index: 1;
   
 }
+.detalhes2 {
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  width: 400px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  color: white;
+  transition: opacity 0.5s;
+  z-index: 1;
+  margin-left: -120px;
+  
+}
 
 .quiz:hover .detalhes {
   opacity: 1;
   z-index: 3;
 }
+.quiz:hover .detalhes2 {
+  opacity: 1;
+  z-index: 3;
+}
 
 .quiz:hover .overlay {
+  opacity: 0;
+}
+.quiz:hover .overlay2 {
   opacity: 0;
 }
 
@@ -101,6 +133,7 @@ a {
   color: white;
   margin: 0;
 }
+
 
 .filtrar  {
   font-family: 'Material Symbols Outlined';
