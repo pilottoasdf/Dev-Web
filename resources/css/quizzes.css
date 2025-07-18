@@ -24,12 +24,15 @@ a {
   color: white;
   background-size: cover;
   background-position: center;
-  border: solid 1px black;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
   background-color: rgba(250, 234, 87, 0.192);
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .quiz:hover{
   border: solid 2px yellow;
+  transform: scale(1.05) translateY(-5px);
 }
 
 /* título na parte de baixo */
@@ -64,6 +67,7 @@ a {
   color: white;
   transition: opacity 0.5s;
   z-index: 1;
+  
 }
 
 .quiz:hover .detalhes {
@@ -338,7 +342,10 @@ a {
   margin-top: 300px;
   font-size: 20px;
 }
-
+.jogos-title{
+  font-size: 50px;
+  color: white;
+}
 
 
 

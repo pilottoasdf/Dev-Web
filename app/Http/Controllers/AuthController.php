@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthRequest;
+use App\Models\Jogo;
 use App\Models\Preferencia;
 use App\Models\Quiz;
 use App\Models\User;
@@ -37,13 +38,18 @@ class AuthController extends Controller
     }*/
 
     public function login(Request $req) {
-        if($req->isMethod('POST')) {
-            if(Auth::attempt($req->only('email','password'))) {
-                return redirect()->route('inicio');
-            }
+    if ($req->isMethod('POST')) {
+        if (Auth::attempt($req->only('email','password'))) {
+            return redirect()->route('inicio');
         }
-        return view('login.login');
+
+        return back()
+            ->withErrors(['email' => 'Login ou senha inválidos.'])
+            ->withInput(); // mantém o campo preenchido
     }
+
+    return view('login.login');
+}
 
     public function logout()
     {
@@ -67,6 +73,11 @@ class AuthController extends Controller
    
     }
 
+private function sanitizeDisciplina($disciplina)
+{
+    $disciplinaSemAcento = iconv('UTF-8', 'ASCII//TRANSLIT', $disciplina);
+    return strtolower(preg_replace('/[^a-z]/', '', $disciplinaSemAcento));
+}
 
     public function inicio()
 {
@@ -78,24 +89,36 @@ class AuthController extends Controller
     if ($preferencias) {
         foreach ($preferencias->getAttributes() as $campo => $valor) {
             if (str_starts_with($campo, 'peso_') && $valor > 0) {
-                $disciplinasPreferidas[] = str_replace('peso_', '', $campo);
+                $disciplina = str_replace('peso_', '', $campo);
+                $disciplinasPreferidas[] = $this->sanitizeDisciplina($disciplina);
             }
         }
     }
 
     // Filtra quizzes com base nas disciplinas preferidas
     $quizzes = Quiz::whereIn('disciplina', $disciplinasPreferidas)->latest()->take(10)->get();
+    $dadosQuizzes = [];
+    foreach($quizzes as $quiz){
+        $dadosQuizzes[] = [
+            'quiz'=>$quiz,
+            'criador'=>User::find($quiz->id_criador)
+        ];
+    }
 
-    $dados = [];
-        foreach($quizzes as $quiz){
-            $dados[] = [
-                'quiz'=>$quiz,
-                'criador'=>User::find($quiz->id_criador)
-            ];
-        }
-        return view('main.inicio', [
-            'dados'=> $dados,
-        ]);
+    // Filtra jogos com base nas disciplinas preferidas
+    $jogos = Jogo::whereIn('disciplina', $disciplinasPreferidas)->latest()->take(10)->get();
+    $dadosJogos = [];
+    foreach($jogos as $jogo){
+        $dadosJogos[] = [
+            'jogo'=>$jogo,
+            'criador'=>User::find($jogo->id_criador)
+        ];
+    }
+
+    return view('main.inicio', [
+        'dados'=> $dadosQuizzes,
+        'dadosJogos' => $dadosJogos,
+    ]);
 
 }
 }

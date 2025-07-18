@@ -76,10 +76,12 @@ body {
 
 .perfil-usuario{
     border-radius: 30px;
-    width: 80px;
+    max-width: 100px;
+    min-width: 90px;
     height: 40px;
     background-color: white;
     color: black;
+    transition: 0.3s;
 }
 .perfil-usuario:hover{
     background-color: #c6c7c8;
@@ -401,11 +403,40 @@ input[type="submit"] {
 .carrossel-box {
   display: flex;
   overflow-x: hidden; 
-  width: calc(300px * 3 + 44px); 
+  width: calc(300px * 3 + 50px); 
   scroll-snap-type: x mandatory;
-  gap: 22px;
-  
+  gap: 15px;
+  height: 250px;
+  align-items: center;
+  margin-top: -30px;
 }
+.diferenciado-box {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  gap: 15px;
+  height: auto;
+  padding: 1rem 0;
+
+  max-width: 1245px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+
+
+
+.diferenciado-box .quiz {
+  flex: 0 0 230px;
+  scroll-snap-align: start;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: white;
+}
+
+
 
 
 .carrossel-box::-webkit-scrollbar {
@@ -413,6 +444,16 @@ input[type="submit"] {
 }
 
 .carrossel-box a {
+  flex: 0 0 calc(33.33% - 20px); 
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+}
+.diferenciado-box::-webkit-scrollbar {
+  display: none;
+}
+
+.diferenciado-box a {
   flex: 0 0 calc(33.33% - 20px); 
   scroll-snap-align: start;
   text-decoration: none;
@@ -465,6 +506,13 @@ input[type="submit"] {
 .carousel-control-next {
   right: -25px;
 }
+.carousel-control-prev2 {
+  left: 210px; 
+}
+
+.carousel-control-next2 {
+  right: 210px;
+}
 
 .botao-carrossel-personalizado:hover {
   background-color: rgba(0, 0, 0, 0.7);
@@ -480,10 +528,25 @@ input[type="submit"] {
   margin: 0 auto;
   gap: 10px;
   overflow: visible;
+
+}
+.carrossel-box-externo2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  width: 1900px;
+  margin: 0 auto;
 }
 
 
+
+
 .carrossel-box .quiz {
+width: 300px;
+}
+.diferenciado-box .quiz {
 width: 300px;
 }
 

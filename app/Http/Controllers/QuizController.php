@@ -6,9 +6,25 @@ use App\Models\Preferencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Quiz;
+use App\Models\User;
 
 class QuizController extends Controller
 {
+
+    public function show(){
+        $quizzes = Quiz::orderBy('id', 'desc')->get();
+        $dados = [];
+        foreach($quizzes as $quiz){
+            $dados[] = [
+                'quiz'=>$quiz,
+                'criador'=>User::find($quiz->id_criador)
+            ];
+        }
+        return view('main.quizzes', [
+            'dados'=> $dados,
+        ]);
+    }
+
     public function store(Request $request){
         $dados = $request->all();
 
@@ -44,23 +60,49 @@ class QuizController extends Controller
         
     }
 
+    private function sanitizeDisciplina($disciplina)
+{
+    $disciplina = trim($disciplina);
+
+    $disciplinaSemAcento = \Normalizer::normalize($disciplina, \Normalizer::FORM_D);
+    $disciplinaSemAcento = preg_replace('/\p{Mn}/u', '', $disciplinaSemAcento);
+
+    // Transforma tudo em minúsculo ANTES de aplicar o regex
+    $disciplinaMinuscula = strtolower($disciplinaSemAcento);
+
+    // Agora remove o que não for letra minúscula
+    return preg_replace('/[^a-z]/', '', $disciplinaMinuscula);
+}
+
     public function loadQuiz($id)
 {
     $quiz = Quiz::findOrFail($id);
     $user = Auth::user();
 
-    
-   $preferencia = $user->preferencia;
+    $preferencia = $user->preferencia ?? Preferencia::firstOrCreate(['id_usuario' => $user->id]);
 
-    if ($preferencia && $quiz->disciplina) {
-        $campo = 'peso_' . strtolower($quiz->disciplina);
+    if ($quiz->disciplina) {
+        $campo = 'peso_' . $this->sanitizeDisciplina($quiz->disciplina);
+        
 
         if (array_key_exists($campo, $preferencia->getAttributes())) {
-            $preferencia->$campo += 1;
+            $preferencia->$campo = intval($preferencia->$campo) + 1;
             $preferencia->save();
         }
     }
+
     $json = json_encode($quiz);
     return view('main.quiz', ['json' => $json]);
 }
+
+    public function delete($id){
+        $user=Auth::user();
+        $quiz = Quiz::findOrFail($id);
+
+        if($user->id===$quiz->id_criador){
+            $quiz->delete();
+        }
+
+        return redirect()->route('projetos');
+    }
 }
