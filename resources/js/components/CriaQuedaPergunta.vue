@@ -1,6 +1,6 @@
 <template>
   <h1>Queda de perguntas</h1>
-  <form action="/criar-jogo" method="POST" >
+  <form action="/criar-jogo" method="POST" class="card-pergunta" >
     <input type="hidden" name="_token" :value="csrfToken" />
     <div v-for="(pergunta, index) in perguntas" :key="index">
       <input required :name="'pergunta_' + (index)" type="text" v-model="perguntas[index]['pergunta']" :placeholder="'Pergunta ' + (index + 1)"/>
@@ -13,7 +13,7 @@
       </button>
       </div>
         <br>
-      <button type="button" @click="adicionarResposta(index)" class="adicionar-game btn">
+      <button type="button" @click="adicionarResposta(index)" class="color btn">
         <span class="simbolo-criar material-symbols-outlined">add</span>
         <span class="texto-botao"> Adicionar resposta </span>
       </button>
@@ -22,28 +22,27 @@
         <span v-if="index!=0" class="material-symbols-outlined lixeira2">delete</span>
         Apagar Pergunta
       </button>
-      <br><br>
+      <br>
     </div>
 
-    <br>
     <input type="checkbox" name="acento" id="acento" v-model="acento">
     <label for="acento">As respostas devem conter acentuação correta</label>
     <br>
     <input type="checkbox" name="maiusculo" id="maiusculo" v-model="maiusculo">
-    <label for="maiusculo">As respostas deve, conter letras maiúsculas e minúsculas corretamente</label>
-
+    <label for="maiusculo">   As respostas deve, conter letras maiúsculas e minúsculas corretamente</label>
+<br><br>
     <div class="botoes-do-quiz">
       <div class="botoes-container">
-      <button type="button" @click="adicionarPergunta" class="adicionar-game btn">
+      <button type="button" @click="adicionarPergunta" class="color btn">
           <span class="simbolo-criar material-symbols-outlined">add</span>
           <span class="texto-botao"> Adicionar Pergunta </span>
         </button>
-        <button type="button" @click="adicionarCincoPerguntas" class="adicionar-game btn">
+        <button type="button" @click="adicionarCincoPerguntas" class="color btn">
           <span class="simbolo-criar material-symbols-outlined">add</span>
            <span class="texto-botao"> Adicionar mais 5 Perguntas </span>
         </button>
       </div>
-      <button type="submit" class="btn finalizar-btn">Finalizar</button>
+      <button type="submit" class="btn ordenar finalizar-btn">Finalizar</button>
     </div>
   </form>
 
