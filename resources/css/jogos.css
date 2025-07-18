@@ -153,6 +153,3 @@ input[type=checkbox]
     font-weight: bold;
     font-size: 40px;
 }
-::-webkit-input-placeholder {
-   color: white;
-}

@@ -65,6 +65,9 @@
               </div>
             </a>
           @endforeach
+           @if (count($dados)==0)
+    <p class=" centralizar-aviso">Não há quizzes recomendados no momento...</p>
+  @endif
         </div>
         <button class="carousel-control-next botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box').scrollBy({left: 300, behavior: 'smooth'})">
           ›
@@ -72,9 +75,7 @@
       </div>
     </div>
   </div>
-  @if (count($dados)==0)
-    <p class="text-white text-center mt-3">Não há quizzes recomendados no momento...</p>
-  @endif
+ 
 
   <h2 class="recomendados mt-5">Jogos recomendados para você:</h2>
   <div class="carousel-inner">
@@ -104,6 +105,9 @@
               </div>
             </a>
           @endforeach
+           @if (count($dadosJogos)==0)
+    <p class="text-white text-center mt-3">Não há jogos recomendados no momento...</p>
+  @endif
         </div>
         <button class="carousel-control-next botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box-jogos').scrollBy({left: 300, behavior: 'smooth'})">
           ›
@@ -111,9 +115,7 @@
       </div>
     </div>
   </div>
-  @if (count($dadosJogos)==0)
-    <p class="text-white text-center mt-3">Não há jogos recomendados no momento...</p>
-  @endif
+ 
 </div>
 
   
