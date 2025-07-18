@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AbertosRecentemente;
 use App\Models\ProgressoQuiz;
 use Illuminate\Http\Request; 
 use Illuminate\Support\Facades\Auth;
@@ -85,7 +86,7 @@ class PerfilController extends Controller
     public function uploadFoto(Request $request){
         $user = Auth::user();
 
-        $request->validate(['foto_perfil' => 'bail|nullable|image|mimes:png.jpeg,jpg,gif|max:2048']);
+        $request->validate(['foto_perfil' => 'bail|nullable|image|mimes:png,jpeg,jpg,gif|max:2048']);
 
         if($request->hasFile('foto_perfil')){
             if(isset($user->foto_perfil)){

@@ -22,7 +22,23 @@
     </div>
 
     <div class="container">
-        <span id="imagem">aqui jaz a foto de perfil</span>
+    @if(isset($user->foto_perfil))
+            <img src="{{ asset('storage/' . $user->foto_perfil) }}" alt="Foto de Perfil">
+        @else
+            <img src="https://i.pinimg.com/736x/e6/e4/df/e6e4df26ba752161b9fc6a17321fa286.jpg" alt="Foto de Perfil">
+        @endif
+        <div id="img_opt">
+            <form action="{{ route('foto.inserir') }}" method="get">
+                    <input type="submit" value="Trocar foto">  
+            </form>
+            @if($user->foto_perfil)
+                <form action="{{ route('foto.remover') }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                        <input type="submit" value="Remover">  
+                </form>
+            @endif
+        </div>
         <span id="nome">{{ $user->name }}</span>
 
         <div id="conquistas">
