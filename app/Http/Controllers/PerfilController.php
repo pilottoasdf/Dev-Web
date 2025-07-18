@@ -13,10 +13,17 @@ class PerfilController extends Controller
     public function infoPerfil()
     {
         $user = Auth::user();
-        $progressos = ProgressoQuiz::select(DB::raw('sum(trofeu) as total'), DB::raw('AVG(pontos) as media_pontos'))
-            ->where('id_usuario', $user->id)
-            ->groupBy('id_usuario')
-            ->get();
+        $id_usuario = $user->id;
+        $progresso = DB::table(function ($query) use ($id_usuario) {
+            $query->select('trofeu', 'pontos')
+            ->from('progresso_quizzes')
+            ->where('id_usuario', $id_usuario)
+            ->unionAll(
+                DB::table('progresso_jogos')
+                    ->select('trofeu', 'pontos')
+                    ->where('id_usuario', $id_usuario)
+            );
+    }, 'uniao')->select(DB::raw('SUM(trofeu) as total_trofeus'), DB::raw('AVG(pontos) as media_pontos'))->first();
 
         // Buscar os quizzes/jogos abertos recentemente
         $abertosRecentemente = AbertosRecentemente::where('id_usuario', $user->id)
@@ -27,7 +34,7 @@ class PerfilController extends Controller
 
         return view('user-info.perfil', [
             'user' => $user,
-            'progressos' => $progressos,
+            'progresso' => $progresso,
             'abertosRecentemente' => $abertosRecentemente,
         ]);
     }

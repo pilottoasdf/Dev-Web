@@ -25,8 +25,8 @@
         <span id="nome">{{ $user->name }}</span>
 
         <div id="conquistas">
-            <p>🏆Troféus: @if (isset($progressos[0])){{ $progressos[0]->total }} @else 0 @endif </p>
-            <p>🌟Estrelas: @if (isset($progressos[0])) {{ round($progressos[0]->media_pontos, 2) }} @else 0 @endif </p>
+            <p>🏆Troféus: @if (isset($progresso)){{ $progresso->total_trofeus }} @else 0 @endif </p>
+            <p>🌟Estrelas: @if (isset($progresso)) {{ round($progresso->media_pontos, 2) }} @else 0 @endif </p>
         </div>
 
         <div class="recent-opened">

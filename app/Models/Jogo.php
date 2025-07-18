@@ -13,6 +13,7 @@ class Jogo extends Model
         'escolaridade_recomendada',
         'imagem',
         'codigo',
+        'template',
         'id_criador'
     ];
 }

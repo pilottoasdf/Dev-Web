@@ -25,35 +25,41 @@ class JogoController extends Controller
     }
 
     public function create($template){
+        session(['template'=>$template]);
         return view('criar-projeto.jogo', ['template' => $template]);
     }
 
     public function store(Request $request){
         $dados = $request->all();
 
-        $perguntas = [];
-        $count = count($dados)-1;
-
-        for($i=0; $i<$count; $i++){
-            $perguntas[] = [
-            'pergunta' => $request->input("pergunta_$i"),
-            'acento' => $request->input("acento"),
-            'maiusculo' => $request->input("maiusculo"),
+        if(session('template')=='queda_pergunta'){
+            $perguntas = [
+                'acento' => $request->input("acento"),
+                'maiusculo' => $request->input("maiusculo"),
+                'tempo' => $request->input("tempo"),
             ];
-            $respostas=[];
+            $count = count($dados)-2;
 
-            for($j=0; $j<$count; $j++){
-                if($request->input("resposta_$i$j")){
-                    $respostas[]=$request->input("resposta_$i$j");
-                    $count--;
-                }else{
-                    break;
+            for($i=0; $i<$count; $i++){
+                $perguntas[] = [
+                    'pergunta' => $request->input("pergunta_$i"),
+                ];
+                $respostas=[];
+
+                for($j=0; $j<$count; $j++){
+                    if($request->input("resposta_$i$j")){
+                        $respostas[]=$request->input("resposta_$i$j");
+                        $count--;
+                    }else{
+                        break;
+                    }
                 }
+                $perguntas[$i]['respostas']=$respostas;
             }
-            $perguntas[$i]['respostas']=$respostas;
+
+            $json = json_encode($perguntas);
         }
 
-        $json = json_encode($perguntas);
         $user = Auth::user();
 
         $jogo = Jogo::create([
@@ -63,11 +69,20 @@ class JogoController extends Controller
             'escolaridade_recomendada' => session('projeto.escolaridade_recomendada'),
             'imagem' => session('projeto.imagem'),
             'codigo' => $json,
+            'template' => session('template'),
             'id_criador' => $user->id,
         ]);
 
         return redirect()->route('projetos');
     }
+
+    public function loadJogo($id)
+{
+    $jogo = Jogo::findOrFail($id);
+
+    $json = json_encode($jogo);
+    return view('main.jogo', ['json' => $json, 'template' => $jogo->template]);
+}
 
     public function delete($id){
         $user=Auth::user();
