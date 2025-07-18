@@ -26,12 +26,14 @@
     </div>
 
     <br>
-    <input type="checkbox" name="acento" id="acento" v-model="acento">
+    <input type="checkbox" name="acento" id="acento">
     <label for="acento">As respostas devem conter acentuação correta</label>
     <br>
-    <input type="checkbox" name="maiusculo" id="maiusculo" v-model="maiusculo">
-    <label for="maiusculo">As respostas deve, conter letras maiúsculas e minúsculas corretamente</label>
-
+    <input type="checkbox" name="maiusculo" id="maiusculo">
+    <label for="maiusculo">As respostas devem conter letras maiúsculas e minúsculas corretamente</label>
+    <br>
+    <label for="tempo">Tempo em segundos até a palavra atingir o chão</label>
+    <input type="number" name="tempo" id="tempo" placeholder="10" value="10" required>
     <div class="botoes-do-quiz">
       <div class="botoes-container">
       <button type="button" @click="adicionarPergunta" class="adicionar-game btn">
