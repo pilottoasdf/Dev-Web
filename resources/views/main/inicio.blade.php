@@ -43,6 +43,7 @@
         <button class="carousel-control-prev botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box').scrollBy({left: -300, behavior: 'smooth'})">
           ‹
         </button>
+        
         <div class="carrossel-box">
           @foreach ($dados as $quiz)
             <a href="{{ route('quiz.load', $quiz['quiz']->id) }}">

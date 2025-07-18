@@ -1,0 +1,39 @@
+#card{
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form    {
+    margin-bottom: 15px;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+#btn{
+    background-color: #ddd;
+    padding: 6px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 6px auto;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+#btn:hover {
+    background-color: #ccc;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #ccc;
+}
