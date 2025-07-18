@@ -62,8 +62,16 @@ class QuizController extends Controller
 
     private function sanitizeDisciplina($disciplina)
 {
-    $disciplinaSemAcento = iconv('UTF-8', 'ASCII//TRANSLIT', $disciplina);
-    return strtolower(preg_replace('/[^a-z]/', '', $disciplinaSemAcento));
+    $disciplina = trim($disciplina);
+
+    $disciplinaSemAcento = \Normalizer::normalize($disciplina, \Normalizer::FORM_D);
+    $disciplinaSemAcento = preg_replace('/\p{Mn}/u', '', $disciplinaSemAcento);
+
+    // Transforma tudo em minúsculo ANTES de aplicar o regex
+    $disciplinaMinuscula = strtolower($disciplinaSemAcento);
+
+    // Agora remove o que não for letra minúscula
+    return preg_replace('/[^a-z]/', '', $disciplinaMinuscula);
 }
 
     public function loadQuiz($id)
@@ -75,9 +83,10 @@ class QuizController extends Controller
 
     if ($quiz->disciplina) {
         $campo = 'peso_' . $this->sanitizeDisciplina($quiz->disciplina);
+        
 
         if (array_key_exists($campo, $preferencia->getAttributes())) {
-            $preferencia->$campo += 1;
+            $preferencia->$campo = intval($preferencia->$campo) + 1;
             $preferencia->save();
         }
     }
