@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon=add|delete" />
-  @vite(['resources/css/inicio.css', 'resources/js/app.js','resources/css/quizzes.css'])
+  @vite(['resources/css/inicio.css','resources/css/jogos.css', 'resources/js/app.js','resources/css/quizzes.css'])
 </head>
 <body>
   <div id="app">
@@ -20,11 +20,12 @@
       logout-url="{{ route('logout') }}"
     ></menu-component>
 
-    <button><a href="{{ route('jogo.create', 'queda_pergunta') }}">Queda de perguntas</a></button>
-    <button><a href="{{ route('jogo.create', 'caca_palavras') }}">Caça-palavras</a></button>
-    <button><a href="{{ route('jogo.create', 'corrida') }}">Corrida</a></button>
-    <button><a href="{{ route('jogo.create', 'coisa') }}">Alguma coisa a mais se der tempo</a></button>
-
+    <div class="jogos-criar">
+    <button class="alternativa dif red"><a class="text" href="{{ route('jogo.create', 'queda_pergunta') }}">Queda de perguntas</a></button>
+    <button class="alternativa dif blue"><a class="text" href="{{ route('jogo.create', 'caca_palavras') }}">Caça-palavras</a></button>
+    <button class="alternativa dif pink"><a class="text" href="{{ route('jogo.create', 'corrida') }}">Corrida</a></button>
+    <button class="alternativa dif yellow"><a class="text" href="{{ route('jogo.create', 'coisa') }}">Alguma coisa a mais se der tempo</a></button>
+    </div>
 
   </div>
 

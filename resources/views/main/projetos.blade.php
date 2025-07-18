@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap&icon=add|delete" />
-  @vite(['resources/css/inicio.css', 'resources/js/app.js', 'resources/css/quizzes.css'])
+  @vite(['resources/css/inicio.css', 'resources/css/quizzes.css', 'resources/js/app.js'])
 </head> 
 <body>
   <div id="app">
@@ -31,58 +31,66 @@
 </div>
 
 
-<div class="box-quiz">
+<div class="diferenciado-box">
  
-  @foreach($quizzes as $quiz)
-    <a href="quiz/{{ $quiz->id }}">
-      @if ($quiz->imagem!=null)
-        <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
-      @else
-        <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+ @foreach($quizzes as $quiz)
+ 
+    <div class="quiz" style="{{ $quiz->imagem ? "background-image: url('" . asset('storage/' . $quiz->imagem) . "'); background-size: cover; background-repeat: no-repeat;" : 'background-color: yellow; display:flex; justify-content:center; align-items:center;' }}">
+       <a href="quiz/{{ $quiz->id }}" style="text-decoration: none; color: inherit;">
+      @if (!$quiz->imagem)
         <h2 style="color:black;">{{ $quiz->titulo }}</h2>
       @endif
-        <div class="overlay">
-          <div class="titulo">{{ $quiz->titulo }}</div>
-        </div>
-        <div class="detalhes">
-          <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
-          <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
-          <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
-          <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
-        </div>
-        <a href="deletar-quiz/{{ $quiz->id }}" class="lixeira material-symbols-outlined">
-          delete
-        </a>
+
+      <div class="overlay">
+        <div class="titulo">{{ $quiz->titulo }}</div>
+           
       </div>
-    </a>
-  @endforeach
+          <a href="deletar-quiz/{{ $quiz->id }}" class="lixeira material-symbols-outlined">
+            delete
+          </a>
+      <div class="detalhes">
+        <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
+        <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
+        <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
+        <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
+      </div>
+   </div>
+  </a>
+  
+@endforeach
+
+
 </div>
 
-<div class="box-quiz">
+<div class="diferenciado-box">
  
   @foreach($jogos as $jogo)
-    <a href="jogo/{{ $jogo->id }}">
-      @if ($jogo->imagem!=null)
-        <div class="quiz" style="background-image: url('{{ asset('storage/' . $jogo->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
-      @else
-        <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+  <a href="jogo/{{ $jogo->id }}" style="text-decoration: none; color: inherit;">
+    <div class="quiz" style="{{ $jogo->imagem ? "background-image: url('" . asset('storage/' . $jogo->imagem) . "'); background-size: cover; background-repeat: no-repeat;" : 'background-color: yellow; display:flex; justify-content:center; align-items:center;' }}">
+      
+      @if (!$jogo->imagem)
         <h2 style="color:black;">{{ $jogo->titulo }}</h2>
       @endif
-        <div class="overlay">
-          <div class="titulo">{{ $jogo->titulo }}</div>
-        </div>
-        <div class="detalhes">
-          <div><strong>Título:</strong>&nbsp;&nbsp;{{ $jogo->titulo }}</div>
-          <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $jogo->disciplina }}</div>
-          <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
-          <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $jogo->escolaridade_recomendada }}</div>
-        </div>
-        <a href="deletar-jogo/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
-          delete
-        </a>
+
+      <div class="overlay">
+        <div class="titulo">{{ $jogo->titulo }}</div>
       </div>
-    </a>
+    <a href="deletar-jogo/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
+    delete
+  </a>
+      <div class="detalhes">
+        <div><strong>Título:</strong>&nbsp;&nbsp;{{ $jogo->titulo }}</div>
+        <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $jogo->disciplina }}</div>
+        <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
+        <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $jogo->escolaridade_recomendada }}</div>
+      </div>
+    </div>
+   
+  </a>
+
+ 
   @endforeach
+
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
