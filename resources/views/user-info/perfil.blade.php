@@ -24,10 +24,10 @@
         <span id="imagem">aqui jaz a foto de perfil</span>
         <span id="nome">{{ $user->name }}</span>
 
-        <!--<div id="conquistas">-->
-            <!--<p>🏆Troféus: {{ $progressos[0]->total }}</p>-->
-            <!--<p>🌟Estrelas: {{ round($progressos[0]->media_pontos, 2) }}</p>-->
-        <!--</div>-->
+        <div id="conquistas">
+            <p>🏆Troféus: {{ $progressos[0]->total }}</p>
+            <p>🌟Estrelas: {{ round($progressos[0]->media_pontos, 2) }}</p>
+        </div>
 
         <div class="recent-opened">
             <h3>Abertos Recentemente</h3>
