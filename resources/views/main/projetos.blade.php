@@ -16,6 +16,7 @@
       user-name="{{ auth()->user()->name }}" 
       user-email="{{ auth()->user()->email }}"
       user-nivel="{{ auth()->user()->nivel_acesso }}"
+      user-foto="{{ auth()->user()->foto_perfil }}"
       logout-url="{{ route('logout') }}"
     ></menu-component>
   </div>

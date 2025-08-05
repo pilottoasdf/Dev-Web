@@ -20,7 +20,7 @@
 
 
 <div v-if="perfil==false" class="me-3 dropdown d-flex align-items-center">
-  <img class="usuario me-2" src="https://cdn-icons-png.flaticon.com/512/303/303593.png" alt="imagem do usuario" style="width: 40px; height: 40px; border-radius: 50%;">
+  <img class="usuario me-2" :src="'storage/' + userFoto" alt="imagem do usuario" style="width: 40px; height: 40px; border-radius: 50%;">
  
   <button
     class="button-border perfil-usuario dropdown-toggle"
@@ -56,6 +56,7 @@ export default {
     userName: String,
     userEmail: String,
     userNivel: String,
+    userFoto: String,
     logoutUrl: String,
     perfil: Boolean,
   }
