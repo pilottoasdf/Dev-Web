@@ -31,17 +31,16 @@
   </a>
 </div>
 
-
+<h1>Quizzes</h1>
 <div class="box-quiz">
- 
   @foreach($quizzes as $quiz)
-    <a href="quiz/{{ $quiz->id }}">
       @if ($quiz->imagem!=null)
         <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
       @else
         <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
         <h2 style="color:black;">{{ $quiz->titulo }}</h2>
       @endif
+      <a href="quiz/{{ $quiz->id }}">
         <div class="overlay2">
           <div class="titulo">{{ $quiz->titulo }}</div>
         </div>
@@ -54,21 +53,21 @@
         <a href="deletar-quiz/{{ $quiz->id }}" class="lixeira material-symbols-outlined">
           delete
         </a>
+      </a>
       </div>
-    </a>
   @endforeach
 </div>
 
+<h1>Jogos</h1>
 <div class="box-quiz">
- 
   @foreach($jogos as $jogo)
-    <a href="jogo/{{ $jogo->id }}">
       @if ($jogo->imagem!=null)
         <div class="quiz" style="background-image: url('{{ asset('storage/' . $jogo->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
       @else
         <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
         <h2 style="color:black;">{{ $jogo->titulo }}</h2>
       @endif
+      <a href="jogo/{{ $jogo->id }}"></a>
         <div class="overlay2">
           <div class="titulo">{{ $jogo->titulo }}</div>
         </div>
@@ -81,8 +80,8 @@
         <a href="deletar-jogo/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
           delete
         </a>
+        </a>
       </div>
-    </a>
   @endforeach
 </div>
 
