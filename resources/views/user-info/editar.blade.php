@@ -16,6 +16,14 @@
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
+    @elseif($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
     @endif
     <div id="card" style="min-width: 700px;">
         <form id="campos" action="{{ route('user.atualizar') }}" method="post">
@@ -34,7 +42,12 @@
 
             <div>
                 <label for="escolaridade">Escolaridade: </label>
-                <input type="text" name="escolaridade" value="{{ old('escolaridade',$user->escolaridade) }}">
+                <select name="escolaridade">
+                    <option value="Ensino Fundamental I {{ old('escolaridade', $user->escolaridade) == 'Ensino Fundamental I' ? 'selected' : '' }}">Ensino Fundamental I</option>
+                    <option value="Ensino Fundamental II {{ old('escolaridade', $user->escolaridade) == 'Ensino Fundamental II' ? 'selected' : '' }}">Ensino Fundamental II</option>
+                    <option value="Ensino Médio {{ old('escolaridade', $user->escolaridade) == 'Ensino Médio' ? 'selected' : '' }}">Ensino Médio</option>
+                    <option value="Ensino Superior {{ old('escolaridade', $user->escolaridade) == 'Ensino Superior' ? 'selected' : '' }}">Ensino Superior</option>
+                </select>
             </div>
 
             <div> 

@@ -22,13 +22,13 @@
         <input type="text" id="email" name="email"><br>
         <label class="login_pegunta" for="password">Senha:</label><br>
         <input type="password" id="password" name="password"><br><br><br><br>
-        <!--@error('email')
+        @error('email')
       <span class="error-message">{{ $message }}</span>
     @enderror
     <br>
         @error('password')
       <span class="error-message">{{ $message }}</span>
-    @enderror-->
+    @enderror
         </div>
         <a class="esqueci_senha" href="/cadastro">Esqueci a senha</a>
         <button type="submit">Acessar</button>

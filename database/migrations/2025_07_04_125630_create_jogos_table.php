@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('escolaridade_recomendada');
             $table->string('imagem')->nullable();
             $table->json('codigo');
+            $table->string('template');
             $table->foreignId('id_criador')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });

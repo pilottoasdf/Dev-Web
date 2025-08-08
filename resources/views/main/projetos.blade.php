@@ -15,6 +15,8 @@
     <menu-component 
       user-name="{{ auth()->user()->name }}" 
       user-email="{{ auth()->user()->email }}"
+      user-nivel="{{ auth()->user()->nivel_acesso }}"
+      user-foto="{{ auth()->user()->foto_perfil }}"
       logout-url="{{ route('logout') }}"
     ></menu-component>
   </div>
@@ -29,21 +31,20 @@
   </a>
 </div>
 
-
+<h1>Quizzes</h1>
 <div class="box-quiz">
- 
   @foreach($quizzes as $quiz)
-    <a href="quiz/{{ $quiz->id }}">
       @if ($quiz->imagem!=null)
         <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
       @else
         <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
         <h2 style="color:black;">{{ $quiz->titulo }}</h2>
       @endif
-        <div class="overlay">
+      <a href="quiz/{{ $quiz->id }}">
+        <div class="overlay2">
           <div class="titulo">{{ $quiz->titulo }}</div>
         </div>
-        <div class="detalhes">
+        <div class="detalhes2">
           <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
           <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
@@ -52,12 +53,37 @@
         <a href="deletar-quiz/{{ $quiz->id }}" class="lixeira material-symbols-outlined">
           delete
         </a>
+      </a>
       </div>
-    </a>
   @endforeach
 </div>
 
-
+<h1>Jogos</h1>
+<div class="box-quiz">
+  @foreach($jogos as $jogo)
+      @if ($jogo->imagem!=null)
+        <div class="quiz" style="background-image: url('{{ asset('storage/' . $jogo->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
+      @else
+        <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
+        <h2 style="color:black;">{{ $jogo->titulo }}</h2>
+      @endif
+      <a href="jogo/{{ $jogo->id }}"></a>
+        <div class="overlay2">
+          <div class="titulo">{{ $jogo->titulo }}</div>
+        </div>
+        <div class="detalhes2">
+          <div><strong>Título:</strong>&nbsp;&nbsp;{{ $jogo->titulo }}</div>
+          <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $jogo->disciplina }}</div>
+          <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
+          <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $jogo->escolaridade_recomendada }}</div>
+        </div>
+        <a href="deletar-jogo/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
+          delete
+        </a>
+        </a>
+      </div>
+  @endforeach
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 

@@ -23,7 +23,8 @@ class User extends Authenticatable
     'password',
     'nivel_acesso',
     'escolaridade',
-    'data_nasc'
+    'data_nasc',
+    'foto_perfil'
 ];
 
     /**

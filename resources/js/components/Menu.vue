@@ -14,13 +14,13 @@
    
     <div class="position-absolute start-50 translate-middle-x d-flex gap-3">
       <a href="/inicio"><button class="btn botao-menu btn-light">Página Inicial</button></a>
-      <a href="#"><button class="btn botao-menu btn-light">Games</button></a>
+      <a href="/jogos"><button class="btn botao-menu btn-light">Games</button></a>
       <a href="/quizzes"><button class="btn botao-menu btn-light">Quizzes</button></a>
     </div>
 
 
 <div v-if="perfil==false" class="me-3 dropdown d-flex align-items-center">
-  <img class="usuario me-2" src="https://cdn-icons-png.flaticon.com/512/303/303593.png" alt="imagem do usuario" style="width: 40px; height: 40px; border-radius: 50%;">
+  <img class="usuario me-2" :src="'storage/' + userFoto" alt="imagem do usuario" style="width: 40px; height: 40px; border-radius: 50%;">
  
   <button
     class="button-border perfil-usuario dropdown-toggle"
@@ -36,7 +36,7 @@
     <!--<li><strong>{{ userName }}</strong></li>-->
     <!--<li><small>{{ userEmail }}</small></li>-->
     <li><a href="/perfil" type="submit" class="perfil-cor dropdown-item btn btn-link text-start">Perfil</a></li>
-    <li><a href="/meus-projetos" type="submit" class="perfil-cor dropdown-item btn btn-link text-start">Meus Projetos</a></li>
+    <li v-if="userNivel==2"><a href="/meus-projetos" type="submit" class="perfil-cor dropdown-item btn btn-link text-start">Meus Projetos</a></li>
     <li><hr class="dropdown-divider"></li>
     <li>
       <a href="/logout" type="submit" class="perfil-cor dropdown-item btn btn-link text-start">Sair</a>
@@ -55,6 +55,8 @@ export default {
   props: {
     userName: String,
     userEmail: String,
+    userNivel: String,
+    userFoto: String,
     logoutUrl: String,
     perfil: Boolean,
   }

@@ -1,0 +1,155 @@
+.jogos-criar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 60px 70px;
+    margin-bottom: 40px;
+    width: 600px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text{
+    color: white;
+}
+
+.dif{
+     transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.4s ease;
+}
+
+.dif:hover{
+  border: solid 2px yellow;
+  transform: scale(1.05) translateY(-5px);
+}
+
+
+.color {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 18px;
+  color: black;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  margin-top: 40px;
+}
+.igual{
+   margin-top: -10px; 
+}
+
+.color:hover {
+  color: black;
+}
+
+
+.confirmar {
+  background-color: rgb(225, 225, 225);
+  color: rgb(94, 94, 94);
+  padding: 12px 30px;
+  width: 300px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+ margin-left: 80px;
+  transition: background-color 0.5s ease, transform 0.2s ease;
+  margin-top: 60px;
+}
+
+.confirmar:hover {
+  background-color: yellow;
+  color: black;
+}
+
+.central{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.apagar-resposta-lixeira {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: red;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  
+}
+input[type=checkbox]
+{
+  -ms-transform: scale(2); 
+  -moz-transform: scale(2);
+  -webkit-transform: scale(1); 
+  -o-transform: scale(2); 
+  transform: scale(1.5);
+  padding: 10px;
+}
+
+
+.checkboxtext
+{
+  font-size: 110%;
+  display: inline;
+}
+.separar{
+    margin-left: 10px;
+}
+.arredondar{
+    border-radius: 20px;
+    height: 40px;
+    text-align: center;
+    border: 3px solid black;
+}
+
+.pergunta{
+    width: 300px;
+    font-weight: bold;
+    color: black;
+}
+
+.queda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.objeto-jogo{
+    width: 70px;
+    text-align: center;
+    margin-top: 90px;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(172, 172, 59);
+}
+
+.queda-resposta{
+    height: 50px;
+    border:solid 1px black;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+}
+.acertos2{
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+}
