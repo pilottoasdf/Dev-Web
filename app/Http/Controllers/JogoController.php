@@ -111,6 +111,12 @@ private function sanitizeDisciplina($disciplina)
     $json = json_encode($jogo);
     return view('main.jogo', ['json' => $json, 'template' => $jogo->template]);
 
+    AbertosRecentemente::create([
+    'id_usuario' => $user->id,
+    'id_jogo' => $jogo->id
+]);
+
+
 }
 
     public function delete($id){

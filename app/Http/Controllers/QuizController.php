@@ -93,6 +93,12 @@ class QuizController extends Controller
 
     $json = json_encode($quiz);
     return view('main.quiz', ['json' => $json]);
+
+    AbertosRecentemente::create([
+    'id_usuario' => $user->id,
+    'id_quiz' => $quiz->id
+]);
+
 }
 
     public function delete($id){
@@ -106,3 +112,5 @@ class QuizController extends Controller
         return redirect()->route('projetos');
     }
 }
+
+
