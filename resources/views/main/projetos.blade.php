@@ -31,7 +31,7 @@
   </a>
 </div>
 
-<h1>Quizzes</h1>
+<h1 class="projeto-titles">Quizzes</h1>
 <div class="box-quiz">
   @foreach($quizzes as $quiz)
       @if ($quiz->imagem!=null)
@@ -58,7 +58,7 @@
   @endforeach
 </div>
 
-<h1>Jogos</h1>
+<h1 class="projeto-titles">Jogos</h1>
 <div class="box-quiz">
   @foreach($jogos as $jogo)
       @if ($jogo->imagem!=null)
