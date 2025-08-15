@@ -22,7 +22,7 @@
     ></menu-component>
 
     @if ($template=='queda_pergunta')
-      <criaquedapergunta-component></criaquedapergunta-component>
+      <criaquedapergunta-component :template="'queda_pergunta'"></criaquedapergunta-component>
     @elseif ($template=='caca_palavras')
       <!--<criacacapalavras-component></criacacapalavras-component>-->
     @elseif ($template=='corrida')

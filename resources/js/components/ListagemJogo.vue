@@ -37,14 +37,9 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="carrossel-box-externo2">
-        
-        <!-- Botão para esquerda -->
-        <button class="carousel-control-prev2 botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: -300, behavior: 'smooth'})">
-          ‹
-        </button>
 
         <!-- Área de rolagem -->
-        <div class=" diferenciado-box">
+        <div class="diferenciado-box">
           <div v-for="(jogos, index) in vetor" :key="index">
             <a :href="'jogo/' + jogos['jogo']['id']">
               <!-- Com imagem -->
@@ -77,10 +72,6 @@
           </div>
         </div>
 
-        <!-- Botão para direita -->
-        <button class="carousel-control-next2 botao-carrossel-personalizado" onclick="document.querySelector('.diferenciado-box').scrollBy({left: 300, behavior: 'smooth'})">
-          ›
-        </button>
       </div>
     </div>
   </div>

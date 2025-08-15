@@ -38,13 +38,13 @@
         <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
       @else
         <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
-        <h2 style="color:black;">{{ $quiz->titulo }}</h2>
+        <h2 style="color:black; position:absolute; z-index:3;">{{ $quiz->titulo }}</h2>
       @endif
       <a href="quiz/{{ $quiz->id }}">
-        <div class="overlay2">
+        <div class="overlay">
           <div class="titulo">{{ $quiz->titulo }}</div>
         </div>
-        <div class="detalhes2">
+        <div class="detalhes">
           <div><strong>Título:</strong>&nbsp;&nbsp;{{ $quiz->titulo }}</div>
           <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $quiz->disciplina }}</div>
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
@@ -65,22 +65,22 @@
         <div class="quiz" style="background-image: url('{{ asset('storage/' . $jogo->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
       @else
         <div class="quiz" style="background-color: yellow; display:flex; justify-content:center; align-items:center;">
-        <h2 style="color:black;">{{ $jogo->titulo }}</h2>
+        <h2 style="color:black; position:absolute; z-index:3;">{{ $jogo->titulo }}</h2>
       @endif
-      <a href="jogo/{{ $jogo->id }}"></a>
-        <div class="overlay2">
+      <a href="quiz/{{ $jogo->id }}">
+        <div class="overlay">
           <div class="titulo">{{ $jogo->titulo }}</div>
         </div>
-        <div class="detalhes2">
+        <div class="detalhes">
           <div><strong>Título:</strong>&nbsp;&nbsp;{{ $jogo->titulo }}</div>
           <div><strong>Disciplina:</strong>&nbsp;&nbsp;{{ $jogo->disciplina }}</div>
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
           <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $jogo->escolaridade_recomendada }}</div>
         </div>
-        <a href="deletar-jogo/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
+        <a href="deletar-quiz/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
           delete
         </a>
-        </a>
+      </a>
       </div>
   @endforeach
 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AbertosRecentemente;
 use App\Models\Jogo;
 use App\Models\Preferencia;
 use App\Models\User;
@@ -26,14 +27,15 @@ class JogoController extends Controller
     }
 
     public function create($template){
-        session(['template'=>$template]);
+        session(['template'=>$template, 'nome'=>"nomelegal"]);
         return view('criar-projeto.jogo', ['template' => $template]);
     }
 
     public function store(Request $request){
         $dados = $request->all();
+        $json = null;
 
-        if(session('template')=='queda_pergunta'){
+        if($request->template=='queda_pergunta'){
             $perguntas = [
                 'acento' => $request->input("acento"),
                 'maiusculo' => $request->input("maiusculo"),
@@ -70,7 +72,7 @@ class JogoController extends Controller
             'escolaridade_recomendada' => session('projeto.escolaridade_recomendada'),
             'imagem' => session('projeto.imagem'),
             'codigo' => $json,
-            'template' => session('template'),
+            'template' => $request->template,
             'id_criador' => $user->id,
         ]);
 

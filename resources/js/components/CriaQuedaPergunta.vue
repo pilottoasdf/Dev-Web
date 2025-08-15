@@ -55,7 +55,7 @@
     <br><br>
     <label for="tempo">Tempo em segundos até a palavra atingir o chão</label>
     <input type="number" name="tempo" id="tempo" placeholder="10" value="10" required>
-    
+    <input type="hidden" name="template" :value="template">
     <div class="botoes-do-quiz">
       <button type="submit" class="btn confirmar">Finalizar</button>
     </div>
@@ -66,6 +66,9 @@
 <script>
 export default {
   name: 'CriaQuedaPergunta',
+  props: {
+    template: String
+  },
   data() {
     return {
       csrfToken: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -81,6 +84,7 @@ export default {
   },
   methods: {
     adicionarResposta(index){
+      console.log(this.template)
       this.perguntas[index].respostas.push(
         ''
       );

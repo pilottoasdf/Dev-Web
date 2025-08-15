@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('quiz/{id}', [QuizController::class, 'loadQuiz'])->middleware('auth')->name('quiz.load');
     Route::get('deletar-quiz/{id}', [QuizController::class, 'delete'])->middleware('auth')->name('quiz.delete');
 
-    Route::get('criar-jogo/{template}', [JogoController::class, 'create'])->middleware('auth')->name('jogo.create');
+    Route::get('criar-jogo/{template_jogo}', [JogoController::class, 'create'])->middleware('auth')->name('jogo.create');
     Route::post('criar-jogo', [JogoController::class, 'store'])->middleware('auth')->name('jogo.store');
 
     Route::get('jogo/{id}', [JogoController::class, 'loadJogo'])->middleware('auth')->name('jogo.load');

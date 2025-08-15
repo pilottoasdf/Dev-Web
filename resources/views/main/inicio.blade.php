@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
-    @vite(['resources/css/inicio.css', 'resources/js/inicio.js', 'resources/js/app.js'])
+    @vite(['resources/css/inicio.css', 'resources/css/quizzes.css', 'resources/js/inicio.js', 'resources/js/app.js'])
 </head>
 <body>
 

@@ -396,10 +396,6 @@ input[type="submit"] {
   overflow: visible;
 }
 
-.carousel{
-    width: 1000px;
-}
-
 .carrossel-box {
   display: flex;
   overflow-x: hidden; 
@@ -411,25 +407,18 @@ input[type="submit"] {
   margin-top: -30px;
 }
 .diferenciado-box {
-  display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   height: auto;
   padding: 1rem 0;
-
-  max-width: 1245px;
-  width: 100%;
   margin: 0 auto;
-  justify-content: flex-start;
 }
 
 
 
 .diferenciado-box .quiz {
   flex: 0 0 230px;
-  scroll-snap-align: start;
   height: 200px;
   border-radius: 20px;
   overflow: hidden;
@@ -454,7 +443,6 @@ input[type="submit"] {
 }
 
 .diferenciado-box a {
-  flex: 0 0 calc(33.33% - 20px); 
   scroll-snap-align: start;
   text-decoration: none;
   color: inherit;
@@ -531,13 +519,10 @@ input[type="submit"] {
 
 }
 .carrossel-box-externo2 {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
- 
-  width: 1900px;
-  margin: 0 auto;
+  width:100%;
 }
 
 
