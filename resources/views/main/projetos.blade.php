@@ -32,7 +32,7 @@
 </div>
 
 <h1 class="projeto-titles">Quizzes</h1>
-<div class="box-quiz">
+<div class="box-quiz grid-3">
   @foreach($quizzes as $quiz)
       @if ($quiz->imagem!=null)
         <div class="quiz" style="background-image: url('{{ asset('storage/' . $quiz->imagem) }}'); background-size: cover; background-repeat: no-repeat;">
@@ -59,7 +59,7 @@
 </div>
 
 <h1 class="projeto-titles">Jogos</h1>
-<div class="box-quiz">
+<div class="box-quiz grid-3">
   @foreach($jogos as $jogo)
       @if ($jogo->imagem!=null)
         <div class="quiz" style="background-image: url('{{ asset('storage/' . $jogo->imagem) }}'); background-size: cover; background-repeat: no-repeat;">

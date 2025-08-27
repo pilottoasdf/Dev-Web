@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jaini&display=swap" rel="stylesheet">
     @vite(['resources/css/inicio.css', 'resources/css/quizzes.css', 'resources/js/inicio.js', 'resources/js/app.js'])
+  
 </head>
 <body>
 
@@ -40,7 +41,7 @@
                         ‹
                     </button>
                     
-                    <div class="carrossel-box">
+                    <div class="carrossel-box carrossel-box-jogos">
                         @foreach ($dados as $quiz)
                             <a href="{{ route('quiz.load', $quiz['quiz']->id) }}">
                                 @if ($quiz['quiz']->imagem!=null)
@@ -80,6 +81,7 @@
                 <button class="carousel-control-prev botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box-jogos').scrollBy({left: -300, behavior: 'smooth'})">
                     ‹
                 </button>
+                
                 <div class="carrossel-box carrossel-box-jogos">
                     @foreach ($dadosJogos as $jogo)
                         <a href="{{ route('jogo.load', $jogo['jogo']->id) }}">
@@ -102,7 +104,7 @@
                     </a>
                     @endforeach
                     @if (count($dadosJogos)==0)
-                        <p class="text-white text-center mt-3">Não há jogos recomendados no momento...</p>
+                        <p class="centralizar-aviso">Não há jogos recomendados no momento...</p>
                     @endif
                 </div>
                 <button class="carousel-control-next botao-carrossel-personalizado" onclick="document.querySelector('.carrossel-box-jogos').scrollBy({left: 300, behavior: 'smooth'})">
@@ -112,7 +114,7 @@
         </div>
     </div>
 
-    <h2>Abertos Recentemente</h2>
+    <h2 class="recomendados mt-5">Abertos Recentemente</h2>
     <ul>
         @foreach($abertosRecentemente as $item)
             <li>
@@ -128,7 +130,7 @@
             </li>
         @endforeach
         @if(count($abertosRecentemente) == 0)
-            <p>Você não abriu nenhum quiz ou jogo recentemente.</p>
+            <p class="centralizar-aviso">Você não abriu nenhum quiz ou jogo recentemente.</p>
         @endif
     </ul>
 

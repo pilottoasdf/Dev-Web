@@ -398,13 +398,12 @@ input[type="submit"] {
 
 .carrossel-box {
   display: flex;
-  overflow-x: hidden; 
-  width: calc(300px * 3 + 50px); 
+  width: 690px; /* 3 * 220px + 2 * 15px gap */
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 15px;
-  height: 250px;
+  height: 350px;
   align-items: center;
-  margin-top: -30px;
 }
 .diferenciado-box {
   display: grid;
@@ -433,7 +432,7 @@ input[type="submit"] {
 }
 
 .carrossel-box a {
-  flex: 0 0 calc(33.33% - 20px); 
+  flex: 0 0 220px;
   scroll-snap-align: start;
   text-decoration: none;
   color: inherit;
@@ -511,12 +510,12 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 1000px;
+  max-width: 730px; /* 3 * 220px + 2 * 35px gap */
   width: 100%;
   margin: 0 auto;
   gap: 10px;
   overflow: visible;
-
+  
 }
 .carrossel-box-externo2 {
   display: flex;
@@ -529,7 +528,7 @@ input[type="submit"] {
 
 
 .carrossel-box .quiz {
-width: 300px;
+width: 220px;
 }
 .diferenciado-box .quiz {
 width: 300px;
@@ -569,4 +568,93 @@ width: 300px;
 
 .abertos-recentemente a:hover {
     color: #23527c;
+}
+
+.carrossel-box > a:first-child {
+    margin-left: 35px;
+}
+
+.carrossel-box > a:last-child {
+    margin-right: 35px;
+}
+
+
+.especial{
+    width: 300px;
+}
+
+.box-quiz {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.box-quiz .quiz {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.box-quiz .quiz:hover {
+    transform: translateY(-5px);
+}
+
+.box-quiz img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.box-quiz .info {
+    padding: 15px;
+    text-align: left;
+}
+
+.box-quiz h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #4a148c;
+}
+
+.box-quiz p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.box-quiz a {
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #4a148c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.box-quiz a:hover {
+    background-color: #37206b;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+  width: 100%;
+  margin: 0 auto 40px auto;
+}
+
+.grid-3 .quiz {
+  width: 200px;
+  min-height: 220px;
+  max-width: 100%;
 }
