@@ -41,7 +41,7 @@
                         ‹
                     </button>
                     
-                    <div class="carrossel-box carrossel-box-jogos">
+                    <div class="carrossel-box carrossel-box-quizzes">
                         @foreach ($dados as $quiz)
                             <a href="{{ route('quiz.load', $quiz['quiz']->id) }}">
                                 @if ($quiz['quiz']->imagem!=null)
