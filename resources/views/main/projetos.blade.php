@@ -50,9 +50,11 @@
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
           <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $quiz->escolaridade_recomendada }}</div>
         </div>
-        <a href="deletar-quiz/{{ $quiz->id }}" class="lixeira material-symbols-outlined">
-          delete
-        </a>
+        <form action="{{ route('quiz.delete', $quiz) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button class="lixeira material-symbols-outlined" style="border:0;"> delete </button>
+        </form>
       </a>
       </div>
   @endforeach
@@ -77,9 +79,11 @@
           <div><strong>Criador:</strong>&nbsp;&nbsp;{{ $criador }}</div>
           <div><strong>Escolaridade:</strong>&nbsp;&nbsp;{{ $jogo->escolaridade_recomendada }}</div>
         </div>
-        <a href="deletar-quiz/{{ $jogo->id }}" class="lixeira material-symbols-outlined">
-          delete
-        </a>
+        <form action="{{ route('jogo.delete', $jogo) }}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button class="lixeira material-symbols-outlined" style="border:0;"> delete </button>
+        </form>
       </a>
       </div>
   @endforeach

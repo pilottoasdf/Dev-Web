@@ -101,9 +101,8 @@ class QuizController extends Controller
 
 }
 
-    public function delete($id){
+    public function delete(Quiz $quiz){
         $user=Auth::user();
-        $quiz = Quiz::findOrFail($id);
 
         if($user->id===$quiz->id_criador){
             $quiz->delete();

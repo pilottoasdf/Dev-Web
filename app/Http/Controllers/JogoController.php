@@ -121,9 +121,8 @@ private function sanitizeDisciplina($disciplina)
 
 }
 
-    public function delete($id){
+    public function delete(Jogo $jogo){
         $user=Auth::user();
-        $jogo = Jogo::findOrFail($id);
 
         if($user->id===$jogo->id_criador){
             $jogo->delete();
